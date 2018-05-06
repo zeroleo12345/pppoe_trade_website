@@ -1,85 +1,29 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <div>
+        <div id="user_info">
+            <img class="user_headimg" :src="headimgurl"/>
+            <p>{{ nickname }}</p>
+        </div>
+      <div id="account_info">
+        <p id="account">账号: {{ account }}</p>
+        <p id="expired_at">到期时间: {{ expired_at }}</p>
+      </div>
+    </div>
+    <div id="choose_box">
+      <div id="1month" class="choose_left_box">
+        <p>1个月</p>
+        <p style='font-weight:bold'>50元</p>
+      </div>
+      <div id="3month" class="choose_center_box">
+        <p>3个月</p>
+        <p style='font-weight:bold'>145元</p>
+      </div>
+      <div id="6month" class="choose_right_box">
+        <p>6个月</p>
+        <p style='font-weight:bold'>280元</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -88,7 +32,10 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      nickname: '昵称',
+      headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
+      account: '100000',
+      expired_at: '2018年1月1日'
     }
   }
 }
@@ -96,18 +43,43 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+.user_headimg {
+  width: 3rem;
+  height: 3rem;
+  margin: 0.3rem 0rem 0.3rem 0.5rem; /* top right bottom left */
+  float: left;
+  border-radius: 50%;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+#user_info p {
+  font-size: 1rem;
+  margin-left: 0.3rem;
   display: inline-block;
-  margin: 0 10px;
 }
-a {
-  color: #42b983;
+#account {
+  font-size: 1rem;
+  text-align: left;
+  margin: 0.5rem 0rem 0rem 0rem
+}
+#expired_at {
+  font-size: 1rem;
+  text-align: left;
+  margin: 0.5rem 0rem 0rem 0rem
+}
+#choose_box {
+  width: 100%;
+  padding: 0.5rem 0;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-size: 60%;
+  margin-top: 2rem;
+  float: left;
+  display: flex;
+  background-color: #ffffff;
+}
+.choose_left_box, .choose_right_box, .choose_center_box {
+  width: 25%;
+  margin: 0.5rem;
+  border: 1px solid #fec800;
 }
 </style>

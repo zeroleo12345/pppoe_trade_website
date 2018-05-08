@@ -17,12 +17,15 @@
       </div>
       <div id="3month" class="choose_center_box">
         <p>3个月</p>
-        <p style='font-weight:bold'>145元</p>
+        <p style='font-weight:bold'>144元(9.6折)</p>
       </div>
       <div id="6month" class="choose_right_box">
         <p>6个月</p>
-        <p style='font-weight:bold'>280元</p>
+        <p style='font-weight:bold'>276元(9.2折)</p>
       </div>
+    </div>
+    <div class="charge_bottom">
+      <button class="charge_btn">充值</button>
     </div>
   </div>
 </template>
@@ -78,8 +81,29 @@ export default {
   background-color: #ffffff;
 }
 .choose_left_box, .choose_right_box, .choose_center_box {
-  width: 25%;
+  width: 30%;
   margin: 0.5rem;
   border: 1px solid #fec800;
+}
+.charge_bottom{
+  width: 100%;
+  position: fixed;
+  background-color: #ffffff;
+  bottom: 0;
+  left: 0;
+  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.2);
+}
+.charge_bottom .charge_btn{
+  display: block;
+  width: 94%;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+  opacity: 0.8;
+  margin:0.6rem auto;
+  background-color: #fbdb05;
+  border-radius: 0.2rem;
 }
 </style>

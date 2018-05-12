@@ -5,7 +5,7 @@
       <p class="nickname">{{ nickname }}</p>
     </div>
     <div class="account_info">
-      <p class="account">账号: {{ account }}</p>
+      <p class="account">宽带账号: {{ account }}</p>
       <p class="status">状态: {{ status }}</p>
       <p class="expired_at">到期时间: {{ expired_at }}</p>
     </div>
@@ -23,8 +23,8 @@
         <p style='font-weight:bold'>276元(9.2折)</p>
       </div>
     </div>
-    <div class="charge_bottom">
-      <button class="charge_btn">充值</button>
+    <div class="charge_button">
+      <button :class="box_id ? 'enabled_button': 'disabled_button'">充值</button>
     </div>
   </div>
 </template>
@@ -94,45 +94,56 @@ export default {
 
   .choose_box {
     width: 100%;
-    padding: 0.5rem 0;
-    box-sizing: border-box;
     text-align: center;
-    border-radius: 0.5rem;
     font-size: 60%;
-    margin-top: 2rem;
-    float: left;
+    margin: 2rem 0 0 0;
     display: flex;
-    background-color: #FFFFFF;
+    font-size: 1.0rem;
     .selected_box {
       width: 30%;
       margin: 0.5rem;
-      border: 2px solid #FBDD3B;
+      color: #fdb77e;
+      border: 2px solid #fdb77e;
+      -webkit-tap-highlight-color:transparent;
     }
     .unselected_box {
       width: 30%;
       margin: 0.5rem;
-      border: 2px solid #E8E8E8;
+      color: #abaec2;
+      border: 2px solid #cfd9e8;
+      -webkit-tap-highlight-color:transparent;
     }
   }
 
-  .charge_bottom{
+  .charge_button{
     width: 100%;
     position: fixed;
-    background-color: #FFFFFF;
     bottom: 0;
     left: 0;
-    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.2);
-    .charge_btn {
+    /*box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.2);*/
+    .disabled_button {
       display: block;
       width: 94%;
       outline: none;
       border: none;
       padding: 0.5rem;
-      font-size: 0.6rem;
-      font-weight: bold;
+      font-size: 1.6rem;
       opacity: 0.8;
       margin:0.6rem auto;
-      background-color: #FBDB05;
+      background-color: #cfd9e8;
+      border-radius: 0.2rem;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .enabled_button {
+      display: block;
+      width: 94%;
+      outline: none;
+      border: none;
+      padding: 0.5rem;
+      font-size: 1.6rem;
+      opacity: 0.8;
+      margin:0.6rem auto;
+      background-color: #fdb77e;
       border-radius: 0.2rem;
     }
   }

@@ -14,7 +14,7 @@
         <p>1个月</p>
         <p style='font-weight:bold'>50元</p>
       </div>
-      <div @id="month2" @click="select_tariff(month2)" :class="tariff_id === month2 ? 'selected_box': 'unselected_box'">
+      <div @id="month3" @click="select_tariff(month3)" :class="tariff_id === month3 ? 'selected_box': 'unselected_box'">
         <p>3个月</p>
         <p style='font-weight:bold'>144元(9.6折)</p>
       </div>
@@ -41,7 +41,7 @@ export default {
       expired_at: '2018年1月1日',
       tariff_id: '',
       month1: 'month1',
-      month2: 'month2',
+      month3: 'month3',
       month6: 'month6'
     }
   },

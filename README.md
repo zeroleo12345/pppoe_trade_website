@@ -5,7 +5,7 @@
 ## Build Setup
 
 ``` bash
-# install dependencies
+# install dependencies. 安装package.json文件中制定的依赖:
 npm install
 
 # serve with hot reload at localhost:8080

@@ -1,0 +1,4 @@
+# 安装制定模块, 并保存到package.json中, 也可以制定--save-dev
+cnpm isntall less-loader --save
+
+# 安装完后, 需要重启vue进程

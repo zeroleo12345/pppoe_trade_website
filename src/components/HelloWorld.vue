@@ -47,14 +47,15 @@ export default {
   },
   methods: {
     select_tariff (id) {
-      // alert(event.target.id)
+      // console.log(event.target.id)
       this.tariff_id = id
     },
     start_pay () {
+      console.log(process.env)
       if (!this.tariff_id) {
         return
       }
-      alert(this.tariff_id)
+      console.log(this.tariff_id)
     }
   },
   computed: {

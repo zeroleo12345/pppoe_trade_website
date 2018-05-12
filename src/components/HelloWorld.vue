@@ -10,21 +10,21 @@
       <p class="expired_at">到期时间: {{ expired_at }}</p>
     </div>
     <div class="choose_box">
-      <div @id="month1" @click="change_box(month1)" :class="box_id === month1 ? 'selected_box': 'unselected_box'">
+      <div @id="month1" @click="select_tariff(month1)" :class="tariff_id === month1 ? 'selected_box': 'unselected_box'">
         <p>1个月</p>
         <p style='font-weight:bold'>50元</p>
       </div>
-      <div @id="month2" @click="change_box(month2)" :class="box_id === month2 ? 'selected_box': 'unselected_box'">
+      <div @id="month2" @click="select_tariff(month2)" :class="tariff_id === month2 ? 'selected_box': 'unselected_box'">
         <p>3个月</p>
         <p style='font-weight:bold'>144元(9.6折)</p>
       </div>
-      <div @id="month6" @click="change_box(month6)" :class="box_id === month6 ? 'selected_box': 'unselected_box'">
+      <div @id="month6" @click="select_tariff(month6)" :class="tariff_id === month6 ? 'selected_box': 'unselected_box'">
         <p>6个月</p>
         <p style='font-weight:bold'>276元(9.2折)</p>
       </div>
     </div>
-    <div class="charge_button">
-      <button :class="box_id ? 'enabled_button': 'disabled_button'">充值</button>
+    <div class="pay_button">
+      <button @click="start_pay" :class="tariff_id ? 'enabled_button': 'disabled_button'">充值</button>
     </div>
   </div>
 </template>
@@ -39,16 +39,22 @@ export default {
       account: '100000',
       status: '正常',
       expired_at: '2018年1月1日',
-      box_id: '',
+      tariff_id: '',
       month1: 'month1',
       month2: 'month2',
       month6: 'month6'
     }
   },
   methods: {
-    change_box (id) {
+    select_tariff (id) {
       // alert(event.target.id)
-      this.box_id = id
+      this.tariff_id = id
+    },
+    start_pay () {
+      if (!this.tariff_id) {
+        return
+      }
+      alert(this.tariff_id)
     }
   },
   computed: {
@@ -115,7 +121,7 @@ export default {
     }
   }
 
-  .charge_button{
+  .pay_button{
     width: 100%;
     position: fixed;
     bottom: 0;

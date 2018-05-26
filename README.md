@@ -1,15 +1,19 @@
 # myvue
 > A Vue.js project
 
-## Build Setup
+## Ready Env
 ``` bash
 cp  docker/example.envrc  .envec
+```
+
+## Build Setup
+``` bash
 
 # install dependencies. 安装package.json文件中制定的依赖:
-npm install
+1. npm install
 
 # serve with hot reload at localhost:8080
-HOST='0.0.0.0' npm run dev
+2. HOST='0.0.0.0' npm run dev
 浏览器访问 http://localhost:8080/#/
 
 # build for production and view the bundle analyzer report
@@ -29,12 +33,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 # Run on nginx(docker)
 ``` bash
-# build for production with minification
-npm run build
-
-tar cvf dist.tar dist/; # 上传dist.tar到服务器
-
-docker-compose up -d
-
-echo $API_URL:8000/index.html # 浏览器访问地址
+1. 先执行 Ready Env 中的步骤
+2. npm run build    # build for production with minification
+3. tar cvf dist.tar dist/; # 上传dist.tar到服务器
+4. docker-compose up -d
+5. echo $API_URL:8000/index.html # 浏览器访问地址
 ```

@@ -5,6 +5,7 @@
 ``` bash
 rpm -i  direnv-stable-linux-amd64.rpm
 cp  docker/example.envrc  .envec
+direnv allow .
 ```
 
 ## Build Setup

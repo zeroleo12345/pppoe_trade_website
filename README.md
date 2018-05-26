@@ -6,6 +6,11 @@
 rpm -i  direnv-stable-linux-amd64.rpm
 cp  docker/example.envrc  .envec
 direnv allow .
+
+# CentOS 7 docker 权限问题
+su -c "setenforce 0"
+或者添加 selinux 规则:
+chcon -Rt svirt_sandbox_file_t /path/to/volume
 ```
 
 ## Build Setup
@@ -38,6 +43,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 1. 先执行 Ready Env 中的步骤
 2. npm run build    # build for production with minification
 3. tar cvf dist.tar dist/; # 上传dist.tar到服务器
-4. docker-compose up -d
-5. echo $API_URL:8000/index.html # 浏览器访问地址
+4. jieya dist.tar; chown -R root:root dist
+5. docker-compose up -d
+6. echo $API_URL:80/index.html # 浏览器访问地址
 ```

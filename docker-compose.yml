@@ -6,7 +6,7 @@ services:
     container_name: vue_nginx
 
     ports:      # 外部端口:docker内部端口
-      - "8080:80"       # 只限于使用docker-compse up时, 会映射到8000端口, 而生产会映射到80端口
+      - "80:80"       # 只限于使用docker-compse up时, 会映射到8000端口, 而生产会映射到80端口
 
     volumes:        # 挂载盘(多用于输出程序文件, 日志等)
-      - ./dist:/usr/share/nginx/html:ro     # readonly解释: https://docs.docker.com/storage/volumes/#choose-the--v-or---mount-flag
+      - ./dist:/usr/share/nginx/html:ro     # :ro模式: (readonly) https://docs.docker.com/storage/volumes/#choose-the--v-or---mount-flag

@@ -57,8 +57,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 # export ECS_IP='your_ecs_ip'
 ssh -NfR  80:localhost:80  root@${ECS_IP}  -p 22
 
-# 打开vue开发服务器, 监听 8080 端口
+# 打开vue开发服务器:  (监听 8080 端口)
 HOST='0.0.0.0' npm run dev
+浏览器通过内网访问 http://localhost:8080/#/   通过公网访问: http://www.lynatgz.cn/
 
 # 杀掉ssh代理进程
 ps -ef | grep ssh | grep NfR | awk  '{print $2}' | xargs kill

@@ -48,6 +48,7 @@ export default {
   methods: {
     select_tariff (id) {
       // console.log(event.target.id)
+      alert(id)
       this.tariff_id = id
     },
     start_pay () {

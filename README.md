@@ -45,7 +45,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 3. tar cvf dist.tar dist/; # 上传dist.tar到服务器
 4. jieya dist.tar; chown -R root:root dist
 5. docker-compose up
-6. echo $API_URL:80/index.html # 浏览器访问地址
+6. echo $API_URL:80/index.html # 打开浏览器, 访问该地址
 ```
 
 # 公众号透传给内网机器测试
@@ -53,5 +53,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 # 用法: ssh -NfR 公网主机port:内网主机ip:内网主机port <用户名>@公网主机ip -p 公网主机ssh端口
 export ECS_IP='your_ecs_ip'
 ssh -NfR  80:localhost:80  root@${ECS_IP}  -p 22
+
+# 杀掉ssh代理进程
 ps -ef | grep ssh | grep NfR | awk  '{print $2}' | xargs kill
 ```

@@ -9,7 +9,7 @@ services:
       - "80:80"       # 只限于使用docker-compse up时, 会映射到8000端口, 而生产会映射到80端口
 
     volumes:        # 挂载盘(多用于输出程序文件, 日志等)
-      - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./bin/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./dist:/usr/share/nginx/html:ro     # :ro模式: (readonly) https://docs.docker.com/storage/volumes/#choose-the--v-or---mount-flag
     networks:
         - pppoe_system

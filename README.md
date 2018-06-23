@@ -38,14 +38,17 @@ npm test
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-# Run on nginx (docker)
+# 在 Docker nginx 上运行
 ``` bash
 1. 先执行 Ready Env 中的步骤
 2. npm run build    # build for production with minification
 3. tar cvf dist.tar dist/; # 上传dist.tar到服务器
 4. jieya dist.tar; chown -R root:root dist
-5. docker-compose up
-6. echo $API_URL:80/index.html # 打开浏览器, 访问该地址
+
+# 生成包含 html 页面的目录 dist 后:
+1. docker-compose up web        # 因为 proxy_pass, 需依赖 restful server
+2. docker-compose up nginx      # 查看日志: docker-compose logs -f, 正常是实时打印!
+3. echo $API_URL:80/index.html # 打开浏览器, 访问该地址
 ```
 
 # 公众号透传给内网机器测试

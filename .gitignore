@@ -1,5 +1,6 @@
 # direnv
 .envrc
+*.swp
 
 ## 以下为默认配置
 .DS_Store

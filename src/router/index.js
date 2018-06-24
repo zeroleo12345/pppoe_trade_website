@@ -4,12 +4,16 @@ import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
+const constantRouterMap = [
+  {
+    path: '/',
+    name: 'HelloWorld',
+    component: HelloWorld
+  }
+]
+
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
-  ]
+  // mode: 'hash',
+  mode: 'history',
+  routes: constantRouterMap
 })

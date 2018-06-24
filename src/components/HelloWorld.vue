@@ -48,6 +48,7 @@ export default {
   methods: {
     select_tariff (id) {
       // console.log(event.target.id)
+      alert(this.$route.query.code)
       this.tariff_id = id
     },
     start_pay () {

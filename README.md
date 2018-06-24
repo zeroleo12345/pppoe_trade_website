@@ -54,8 +54,12 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 # 公众号透传给内网机器测试
 ``` bash
 # 用法: ssh -NfR 公网主机port:内网主机ip:内网主机port <用户名>@公网主机ip -p 公网主机ssh端口
-export ECS_IP='your_ecs_ip'
+# export ECS_IP='your_ecs_ip'
 ssh -NfR  80:localhost:80  root@${ECS_IP}  -p 22
+
+# 打开vue开发服务器:  (监听 8080 端口)
+HOST='0.0.0.0' npm run dev
+浏览器通过内网访问 http://localhost:8080/#/   通过公网访问: http://www.lynatgz.cn/
 
 # 杀掉ssh代理进程
 ps -ef | grep ssh | grep NfR | awk  '{print $2}' | xargs kill

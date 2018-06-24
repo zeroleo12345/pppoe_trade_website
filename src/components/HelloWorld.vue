@@ -30,9 +30,12 @@
 </template>
 
 <script>
+import userAPI from '@/api/user'
+
 export default {
   name: 'HelloWorld',
   data () {
+    // 定义属性变量
     return {
       nickname: '昵称',
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
@@ -45,10 +48,15 @@ export default {
       month6: 'month6'
     }
   },
+  async mounted () {
+    // alert(this.$route.query.code)
+    // TODO 使用code请求用户信息
+    let res = await userAPI.getUserInfo({code: this.$route.query.code})
+    console.log(res)
+  },
   methods: {
+    // 定义函数方法
     select_tariff (id) {
-      // console.log(event.target.id)
-      alert(this.$route.query.code)
       this.tariff_id = id
     },
     start_pay () {

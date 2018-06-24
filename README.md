@@ -16,8 +16,8 @@ chcon -Rt svirt_sandbox_file_t /path/to/volume
 ## Build Setup
 ``` bash
 
-# install dependencies. 安装package.json文件中制定的依赖:
-1. npm install
+# 安装依赖: (自动分析package.json文件中的依赖并安装)
+1. sudo npm install --save
 
 # serve with hot reload at localhost:8080
 2. HOST='0.0.0.0' npm run dev

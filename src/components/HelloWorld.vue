@@ -5,7 +5,7 @@
       <p class="nickname">{{ nickname }}</p>
     </div>
     <div class="account_info">
-      <p class="account">宽带账号: {{ account }}</p>
+      <p class="username">宽带账号: {{ username }}</p>
       <p class="status">状态: {{ status }}</p>
       <p class="expired_at">到期时间: {{ expired_at }}</p>
     </div>
@@ -39,9 +39,10 @@ export default {
     return {
       nickname: '昵称',
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
-      account: '100000',
+      username: '100000',
       status: '正常',
-      expired_at: '2018年1月1日',
+      expired_at: '2018年1月1日 00:00:00',
+
       tariff_id: '',
       month1: 'month1',
       month3: 'month3',
@@ -51,8 +52,16 @@ export default {
   async mounted () {
     // alert(this.$route.query.code)
     // TODO 使用code请求用户信息
-    let res = await userAPI.getUserInfo({code: this.$route.query.code})
-    console.log(res)
+    let code = this.$route.query.code
+    if (process.env.NODE_ENV === 'development') {
+      code = 'testcode'
+    }
+    let response = await userAPI.getUserInfo({code: code})
+    console.log(response.data)
+    this.nickname = response.data.data.nickname
+    this.headimgurl = response.data.data.headimgurl
+    this.username = response.data.data.username
+    this.expired_at = this.$moment(response.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
   },
   methods: {
     // 定义函数方法
@@ -94,7 +103,7 @@ export default {
 
   .account_info {
     clear: both;
-    .account {
+    .username {
       float: left;
       margin: 1rem 0rem 0rem 0.5rem;
     }

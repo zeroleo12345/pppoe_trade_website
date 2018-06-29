@@ -16,24 +16,24 @@ chcon -Rt svirt_sandbox_file_t /path/to/volume
 ## Build Setup
 ``` bash
 
-# 安装依赖: (自动分析package.json文件中的依赖并安装)
-1. sudo npm install --save
+# 安装依赖: (缺省package时, 会自动分析package.json文件中的依赖并安装)
+1. sudo cnpm install --save  #  [package]
 
 # serve with hot reload at localhost:8080
-2. HOST='0.0.0.0' npm run dev
+2. HOST='0.0.0.0' cnpm run dev
 浏览器访问 http://localhost:8080/#/
 
 # build for production and view the bundle analyzer report
-npm run build --report
+cnpm run build --report
 
 # run unit tests
-npm run unit
+cnpm run unit
 
 # run e2e tests
-npm run e2e
+cnpm run e2e
 
 # run all tests
-npm test
+cnpm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
@@ -41,7 +41,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 # 在 Docker nginx 上运行
 ``` bash
 1. 先执行 Ready Env 中的步骤
-2. npm run build    # build for production with minification
+2. cnpm run build    # build for production with minification
 3. tar cvf dist.tar dist/; # 上传dist.tar到服务器
 4. jieya dist.tar; chown -R root:root dist
 
@@ -58,7 +58,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ssh -NfR  80:localhost:80  root@${ECS_IP}  -p 22
 
 # 打开vue开发服务器:  (监听 8080 端口)
-HOST='0.0.0.0' npm run dev
+HOST='0.0.0.0' cnpm run dev
 浏览器通过内网访问 http://localhost:8080/#/   通过公网访问: http://www.lynatgz.cn/
 
 # 杀掉ssh代理进程

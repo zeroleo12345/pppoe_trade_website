@@ -6,7 +6,7 @@
     </div>
     <div class="account_info">
       <p class="username">宽带账号: {{ username }}</p>
-      <p class="status">状态: {{ status }}</p>
+      <p class="status">账号状态: {{ status }}</p>
       <p class="expired_at">到期时间: {{ expired_at }}</p>
     </div>
     <div class="choose_box">
@@ -40,7 +40,7 @@ export default {
       nickname: '昵称',
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
       username: '100000',
-      status: '正常',
+      status: '使用中',
       expired_at: '2018年1月1日 00:00:00',
 
       tariff_id: '',

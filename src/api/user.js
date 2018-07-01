@@ -15,6 +15,14 @@ function getUserInfo (params = {}) {
   })
 }
 
+function getTest (params = {}) {
+  return request({
+    url: '/user/test',
+    method: 'GET',
+    params
+  })
+}
+
 /**
  * 忘记密码后通过邮件链接进入页面重置密码，注意与用户正常修改密码做区分
  * @param  {Object} params 参数对象，其结构如下:
@@ -33,5 +41,6 @@ function resetPassword (params = {}) {
 
 export default {
   resetPassword,
-  getUserInfo
+  getUserInfo,
+  getTest
 }

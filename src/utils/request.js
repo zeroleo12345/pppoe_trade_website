@@ -11,9 +11,9 @@ const instance = axios.create({
 instance.interceptors.request.use(config => {
   // 在发送请求之前做些什么
   // config.data = JSON.stringify(config.data)
-  // config.headers['88-token'] = 'bae03cca-e84b-44ab-86eb-3999709a30c0'
+  // config.headers['authorization'] = 'bae03ccae84b44ab86eb3999709a30c0'
   if (store.getters.token) {
-    config.headers['token'] = store.getters.token
+    config.headers['authorization'] = store.getters.token
   }
   return config
 }, error => {

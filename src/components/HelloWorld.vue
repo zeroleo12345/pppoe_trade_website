@@ -58,22 +58,28 @@ export default {
     }
     let response = await userAPI.getUserInfo({code: code})
     console.log(response.data)
-    this.nickname = response.data.data.nickname
-    this.headimgurl = response.data.data.headimgurl
+    console.log(response.headers)
     this.username = response.data.data.username
     this.expired_at = this.$moment(response.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
+    this.nickname = response.data.data.weixin.nickname
+    this.headimgurl = response.data.data.weixin.headimgurl
+    let token = response.headers['authorization']
+    this.$store.commit('SET_TOKEN', token)
+    console.log(token)
   },
   methods: {
     // 定义函数方法
     select_tariff (id) {
       this.tariff_id = id
     },
-    start_pay () {
+    async start_pay () {
       console.log(process.env)
+      console.log(this.tariff_id)
       if (!this.tariff_id) {
         return
       }
-      console.log(this.tariff_id)
+      let response = await userAPI.getTest({code: ''})
+      console.log(response)
     }
   },
   computed: {

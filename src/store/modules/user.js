@@ -20,7 +20,7 @@ const user = {
      *                          name: null,
      *                          role:"vip",
      *                          headerimgurl: 'https://link.babameeting.com/avatar.jpg',
-     *                          is_enable: true,
+     *                          is_active: true,
      *                          created: '2018-03-24T19:51:50.194838+08:00',
      *                          last_login: "2018-02-09T07:21:00.614918Z",
      *                        }

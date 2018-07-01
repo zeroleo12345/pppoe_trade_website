@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 // 第三方库
 import moment from 'moment'
 
@@ -15,6 +16,7 @@ Object.defineProperty(Vue.prototype, '$moment', { value: moment })
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

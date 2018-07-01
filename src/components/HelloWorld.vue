@@ -5,8 +5,8 @@
       <p class="nickname">{{ nickname }}</p>
     </div>
     <div class="account_info">
-      <p class="account">宽带账号: {{ account }}</p>
-      <p class="status">状态: {{ status }}</p>
+      <p class="username">宽带账号: {{ username }}</p>
+      <p class="status">账号状态: {{ status }}</p>
       <p class="expired_at">到期时间: {{ expired_at }}</p>
     </div>
     <div class="choose_box">
@@ -30,33 +30,56 @@
 </template>
 
 <script>
+import userAPI from '@/api/user'
+
 export default {
   name: 'HelloWorld',
   data () {
+    // 定义属性变量
     return {
       nickname: '昵称',
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
-      account: '100000',
-      status: '正常',
-      expired_at: '2018年1月1日',
+      username: '100000',
+      status: '使用中',
+      expired_at: '2018年1月1日 00:00:00',
+
       tariff_id: '',
       month1: 'month1',
       month3: 'month3',
       month6: 'month6'
     }
   },
+  async mounted () {
+    // alert(this.$route.query.code)
+    // TODO 使用code请求用户信息
+    let code = this.$route.query.code
+    if (process.env.NODE_ENV === 'development') {
+      code = 'testcode'
+    }
+    let response = await userAPI.getUserInfo({code: code})
+    console.log(response.data)
+    console.log(response.headers)
+    this.username = response.data.data.username
+    this.expired_at = this.$moment(response.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
+    this.nickname = response.data.data.weixin.nickname
+    this.headimgurl = response.data.data.weixin.headimgurl
+    let token = response.headers['authorization']
+    this.$store.commit('SET_TOKEN', token)
+    console.log(token)
+  },
   methods: {
+    // 定义函数方法
     select_tariff (id) {
-      // console.log(event.target.id)
-      alert(this.$route.query.code)
       this.tariff_id = id
     },
-    start_pay () {
+    async start_pay () {
       console.log(process.env)
+      console.log(this.tariff_id)
       if (!this.tariff_id) {
         return
       }
-      console.log(this.tariff_id)
+      let response = await userAPI.getTest({code: ''})
+      console.log(response)
     }
   },
   computed: {
@@ -86,7 +109,7 @@ export default {
 
   .account_info {
     clear: both;
-    .account {
+    .username {
       float: left;
       margin: 1rem 0rem 0rem 0.5rem;
     }

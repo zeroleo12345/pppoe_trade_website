@@ -1,13 +1,13 @@
 <template>
-  <div class="hello">
+  <div :class="nickname === '' ? 'hidden_all': 'show_all'">
     <div class="user_info">
       <img class="user_headimg" :src="headimgurl"/>
       <p class="nickname">{{ nickname }}</p>
     </div>
     <div class="account_info">
-      <p class="username">宽带账号: {{ username }}</p>
-      <p class="status">账号状态: {{ status }}</p>
-      <p class="expired_at">到期时间: {{ expired_at }}</p>
+      <p class="username">宽带账号： {{ username }}</p>
+      <p class="status">账号状态： {{ status }}</p>
+      <p class="expired_at">到期时间： {{ expired_at }}</p>
     </div>
     <div class="choose_box">
       <div @id="month1" @click="select_tariff(month1)" :class="tariff_id === month1 ? 'selected_box': 'unselected_box'">
@@ -37,7 +37,7 @@ export default {
   data () {
     // 定义属性变量
     return {
-      nickname: '未知',
+      nickname: '',
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
       username: '未知',
       status: '未知',
@@ -95,8 +95,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  /* 上-右-下-左: top right bottom left */
-  /* .是class, #是id */
+  /* TODO: 上-右-下-左: top right bottom left */
+  /* TODO: .是class, #是id */
+  .hidden_all {
+    visibility: hidden;
+  }
   .user_info {
     .user_headimg {
       width: 3rem;
@@ -115,12 +118,10 @@ export default {
   .account_info {
     clear: both;
     .username {
-      float: left;
       margin: 1rem 0rem 0rem 0.5rem;
     }
     .status {
-      float: right;
-      margin: 1rem 8rem 0rem 0rem;
+      margin: 1rem 8rem 0rem 0.5rem;
     }
     .expired_at {
       display: inline-block;

@@ -37,11 +37,16 @@ export default {
   data () {
     // 定义属性变量
     return {
-      nickname: '昵称',
+      nickname: '未知',
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
-      username: '100000',
-      status: '使用中',
-      expired_at: '2018年1月1日 00:00:00',
+      username: '未知',
+      status: '未知',
+      statusDict: {
+        expired: '已过期',
+        working: '使用中',
+        inactive: '已停用'
+      },
+      expired_at: '2000年1月1日 00:00:00',
 
       tariff_id: '',
       month1: 'month1',
@@ -51,7 +56,6 @@ export default {
   },
   async mounted () {
     // alert(this.$route.query.code)
-    // TODO 使用code请求用户信息
     let code = this.$route.query.code
     if (process.env.NODE_ENV === 'development') {
       code = 'testcode'
@@ -63,6 +67,7 @@ export default {
     this.expired_at = this.$moment(response.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
     this.nickname = response.data.data.weixin.nickname
     this.headimgurl = response.data.data.weixin.headimgurl
+    this.status = this.statusDict[response.data.data.status]
     let token = response.headers['authorization']
     this.$store.commit('SET_TOKEN', token)
     console.log(token)

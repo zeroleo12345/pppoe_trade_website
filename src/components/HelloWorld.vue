@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div :class="nickname === '' ? 'hidden_all': 'show_all'">
     <div class="user_info">
       <img class="user_headimg" :src="headimgurl"/>
       <p class="nickname">{{ nickname }}</p>
@@ -37,7 +37,7 @@ export default {
   data () {
     // 定义属性变量
     return {
-      nickname: '未知',
+      nickname: '',
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
       username: '未知',
       status: '未知',
@@ -97,6 +97,9 @@ export default {
 <style scoped lang="less">
   /* 上-右-下-左: top right bottom left */
   /* .是class, #是id */
+  .hidden_all {
+    visibility: hidden;
+  }
   .user_info {
     .user_headimg {
       width: 3rem;

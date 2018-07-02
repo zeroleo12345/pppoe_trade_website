@@ -95,8 +95,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  /* 上-右-下-左: top right bottom left */
-  /* .是class, #是id */
+  /* TODO: 上-右-下-左: top right bottom left */
+  /* TODO: .是class, #是id */
   .hidden_all {
     visibility: hidden;
   }
@@ -118,12 +118,10 @@ export default {
   .account_info {
     clear: both;
     .username {
-      float: left;
       margin: 1rem 0rem 0rem 0.5rem;
     }
     .status {
-      float: right;
-      margin: 1rem 8rem 0rem 0rem;
+      margin: 1rem 8rem 0rem 0.5rem;
     }
     .expired_at {
       display: inline-block;

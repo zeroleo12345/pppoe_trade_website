@@ -5,9 +5,9 @@
       <p class="nickname">{{ nickname }}</p>
     </div>
     <div class="account_info">
-      <p class="username">宽带账号: {{ username }}</p>
-      <p class="status">账号状态: {{ status }}</p>
-      <p class="expired_at">到期时间: {{ expired_at }}</p>
+      <p class="username">宽带账号： {{ username }}</p>
+      <p class="status">账号状态： {{ status }}</p>
+      <p class="expired_at">到期时间： {{ expired_at }}</p>
     </div>
     <div class="choose_box">
       <div @id="month1" @click="select_tariff(month1)" :class="tariff_id === month1 ? 'selected_box': 'unselected_box'">

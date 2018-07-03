@@ -29,17 +29,20 @@
 
 # 在 Docker nginx 上运行
 ``` bash
-    0. 执行 "准备环境" 中的步骤
-    1. sudo cnpm install --save
-    2. cnpm run build                   # 构建生产版本(minification)
+# 构建dist, 方法1:
+    1. 执行 "准备环境" 中的步骤
+    2. sudo cnpm install --save
+    3. cnpm run build                   # 构建生产版本(minification)
 
-    3. tar cvf dist.tar dist/;          # 上传dist.tar到服务器
-    4. jieya dist.tar; chown -R root:root dist
+# 构建dist, 方法2:
+    1. tar cvf dist.tar dist/;          # 从macbook上传dist.tar到服务器
+    2. jieya dist.tar; chown -R root:root dist
 
 # 生成包含 html 页面的目录 dist 后:
-    1. docker-compose up web            # 因为 proxy_pass, 需依赖 restful server
-    2. docker-compose up nginx          # 查看日志: docker-compose logs -f, 正常是实时打印!
-    3. echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
+    1. decrypt .envrc.x                 # 8->7
+    2. docker-compose up web            # 因为 proxy_pass, 需依赖 restful server
+    3. docker-compose up nginx          # 查看日志: docker-compose logs -f, 正常是实时打印!
+    4. echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
 ```
 
 # 公众号透传给内网机器测试

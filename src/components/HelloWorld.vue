@@ -1,5 +1,5 @@
 <template>
-  <div :class="nickname === '' ? 'hidden_all': 'show_all'">
+  <div :class="username === '' ? 'hidden_all': 'show_all'">
     <div class="user_info">
       <img class="user_headimg" :src="headimgurl"/>
       <p class="nickname">{{ nickname }}</p>
@@ -39,7 +39,7 @@ export default {
     return {
       nickname: '',
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
-      username: '未知',
+      username: '',
       status: '未知',
       statusDict: {
         expired: '已过期',

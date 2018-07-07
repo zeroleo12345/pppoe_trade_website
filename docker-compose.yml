@@ -13,10 +13,11 @@ services:
       - ./dist:/usr/share/nginx/html:ro     # :ro模式: (readonly) https://docs.docker.com/storage/volumes/#choose-the--v-or---mount-flag
 
     extra_hosts:
-      npmhost: "${npmhost}"    # 映射到 npm dev server
+      npm_dev_server_ip: "${npm_dev_server_ip}"    # 映射到 npm dev server
     #network_mode: "host"    # 使用host网络, 不能与参数 networks 共存!
     networks:
         - pppoe_system
+
 
 networks:
   pppoe_system:

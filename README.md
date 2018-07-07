@@ -48,8 +48,8 @@
 # 公众号透传给内网机器测试
 ``` bash
 # 用法: ssh -NfR 公网主机port:内网主机ip:内网主机port <用户名>@公网主机ip -p 公网主机ssh端口
-    # export ECS_IP='your_ecs_ip'
-    ssh -NfR  80:localhost:80  root@${ECS_IP}  -p 22
+    # export PUBLIC_ECS_IP='your_ecs_ip'
+    ssh -NfR  80:localhost:80  root@${PUBLIC_ECS_IP}  -p 22
 
 # 打开vue开发服务器:  (监听 8080 端口)
     HOST='0.0.0.0' cnpm run dev

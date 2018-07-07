@@ -17,6 +17,9 @@
     yum install npm         # CentOS 7
 ```
 
+## 配置
+1. 修改.envrc. (原则: 尽量不用修改docker-compose.yml)
+
 ## 本地 debug 步骤
 ``` bash
 # 安装依赖: (缺省package时, 会自动分析package.json文件中的依赖并安装)

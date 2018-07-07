@@ -4,17 +4,16 @@ services:
   nginx:
     image: nginx:1.13.12-alpine
     #container_name: vue_nginx
-
     ports:      # 外部端口:docker内部端口
       - "80:80"       # 只限于使用docker-compse up时, 会映射到8000端口, 而生产会映射到80端口
-
     volumes:        # 挂载盘(多用于输出程序文件, 日志等)
       - ./bin/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./bin/dev.nginx.conf:/etc/nginx/dev.nginx.conf:ro
       - ./dist:/usr/share/nginx/html:ro     # :ro模式: (readonly) https://docs.docker.com/storage/volumes/#choose-the--v-or---mount-flag
-
     extra_hosts:
       npm_dev_server_ip: "${npm_dev_server_ip}"    # 映射到 npm dev server
     #network_mode: "host"    # 使用host网络, 不能与参数 networks 共存!
+    entrypoint: "${entrypoint}"
     networks:
         - pppoe_system
 

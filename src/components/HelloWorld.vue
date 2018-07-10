@@ -34,12 +34,11 @@ import userAPI from '@/api/user'
 
 export default {
   name: 'HelloWorld',
-  data () {
-    // 定义属性变量
+  data () { // 定义属性变量
     return {
       nickname: '',
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
-      username: '',
+      username: 'test',
       status: '未知',
       statusDict: {
         expired: '已过期',
@@ -72,19 +71,25 @@ export default {
     this.$store.commit('SET_TOKEN', token)
     console.log(token)
   },
-  methods: {
-    // 定义函数方法
+  methods: { // 定义函数方法
     select_tariff (id) {
       this.tariff_id = id
     },
     async start_pay () {
-      console.log(process.env)
-      console.log(this.tariff_id)
+      // 点击支付
+      // console.log(process.env)
       if (!this.tariff_id) {
+        console.log(this.tariff_id)
         return
       }
-      let response = await userAPI.getTest({code: ''})
+      let response = await userAPI.createOrder({code: ''})
       console.log(response)
+      if (response.data.data) {
+        let redirectUrl = response.data.data.redirect_url
+        console.log(redirectUrl)
+        window.location.href = redirectUrl
+        // this.$router.go(redirectUrl)
+      }
     }
   },
   computed: {

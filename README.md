@@ -22,7 +22,8 @@ Vue 网站
 ## 本地开发 debug 步骤
 ``` bash
 1. 配置
-  - 修改.envrc. (原则: 尽量不用修改docker-compose.yml)
+  - decrypt .envrx.x
+  - 修改 .envrc  (原则: 尽量不用修改docker-compose.yml)
 
 2. 安装依赖: (缺省package时, 会自动分析package.json文件中的依赖并安装)
   - sudo cnpm install --save  #  [package]
@@ -32,21 +33,18 @@ Vue 网站
 
 4. 本地验证
   - 浏览器访问 http://localhost:8080/#/
-```
 
 
 ## 在 Docker nginx 上运行
 ``` bash
 # 构建包含 html 页面的目录 dist, 方法1 (推荐):
-    1. 执行 "准备环境" 中的步骤
-    2. sudo cnpm install --save
-    3. decrypt .envrc.x                 # 8->7
-    4. cnpm run build                   # 构建生产版本(minification)
+    - decrypt .envrc.x                 # 8->7
+    - cnpm run build                   # 构建生产版本(minification)
 
 # 生成包含 html 页面的目录 dist 后:
-    1. docker-compose up web            # 因为 proxy_pass, 需依赖 restful server
-    2. docker-compose up nginx          # 查看日志: docker-compose logs -f, 正常是实时打印!
-    3. echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
+    - docker-compose up web            # 因为 proxy_pass, 需依赖 restful server
+    - docker-compose up nginx          # 查看日志: docker-compose logs -f, 正常是实时打印!
+    - echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
 
 
 ## 公众号通知消息 透传给 内网机器测试

@@ -23,7 +23,12 @@ function getTest (params = {}) {
   })
 }
 
-function createOrder (params = {}) {
+/**
+ * 创建订单
+ * @param params
+ * 备注: 设置属性 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+ */
+function postCreateOrder (params = {}) {
   return request({
     url: '/order',
     method: 'POST',
@@ -51,5 +56,5 @@ export default {
   resetPassword,
   getUserInfo,
   getTest,
-  createOrder
+  postCreateOrder
 }

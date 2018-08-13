@@ -82,7 +82,7 @@ export default {
         console.log(this.tariff_id)
         return
       }
-      let response = await userAPI.createOrder({code: ''})
+      let response = await userAPI.postCreateOrder({code: 'testcode', tariff_id: this.tariff_id})
       console.log(response)
       if (response.data.data) {
         let redirectUrl = response.data.data.redirect_url

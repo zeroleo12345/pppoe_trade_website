@@ -53,7 +53,7 @@ Vue 网站
     ps -ef | grep ssh | grep NfR | awk  '{print $2}' | xargs kill; ssh -NfR  80:localhost:80  root@${PUBLIC_ECS_IP}  -p 22
 
 # 打开vue开发服务器:  (监听 8080 端口)
-    DEBUG='express:*' HOST='0.0.0.0' cnpm run dev
+    direnv reload; DEBUG='express:*' HOST='0.0.0.0' cnpm run dev
     浏览器通过内网访问 http://localhost:8080/#/   通过公网访问: http://www.lynatgz.cn/
 ```
 

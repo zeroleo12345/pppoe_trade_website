@@ -43,7 +43,7 @@ Vue 网站
 
 # 启动 docker:
     - 先启动 restful server 的容器 web # 因为 proxy_pass, 需依赖 restful server
-    - docker-compose up nginx          # 查看日志: docker-compose logs -f, 正常是实时打印!
+    - direnv reload; docker-compose up nginx          # 查看日志: docker-compose logs -f, 正常是实时打印!
     - echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
 
 

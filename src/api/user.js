@@ -15,9 +15,9 @@ function getUser (params = {}) {
   })
 }
 
-function getUserResource (params = {}) {
+function getResource (params = {}) {
   return request({
-    url: '/user/resource',
+    url: '/resource',
     method: 'GET',
     params
   })
@@ -64,6 +64,6 @@ export default {
   resetPassword,
   getTest,
   getUser,
-  getUserResource,
+  getResource,
   postCreateOrder
 }

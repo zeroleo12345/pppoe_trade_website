@@ -75,7 +75,7 @@ export default {
     console.log(token)
 
     // 异步获取用户免费资源
-    let resourceResponse = await userAPI.getUserResource()
+    let resourceResponse = await userAPI.getResource()
     this.expired_at = this.$moment(resourceResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
     this.status = this.statusDict[resourceResponse.data.data.status]
     this.initSuccess = true;

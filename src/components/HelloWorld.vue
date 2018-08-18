@@ -1,5 +1,5 @@
 <template>
-  <div :class="username === '' ? 'hidden_all': 'show_all'">
+  <div :class="initSuccess === false ? 'hidden_all': 'show_all'">
     <div class="user_info">
       <img class="user_headimg" :src="headimgurl"/>
       <p class="nickname">{{ nickname }}</p>
@@ -10,21 +10,21 @@
       <p class="expired_at">到期时间： {{ expired_at }}</p>
     </div>
     <div class="choose_box">
-      <div @id="month1" @click="select_tariff(month1)" :class="tariff_id === month1 ? 'selected_box': 'unselected_box'">
+      <div @id="month1" @click="select_tariff(month1)" :class="tariff_name === month1 ? 'selected_box': 'unselected_box'">
         <p>1个月</p>
         <p style='font-weight:bold'>50元</p>
       </div>
-      <div @id="month3" @click="select_tariff(month3)" :class="tariff_id === month3 ? 'selected_box': 'unselected_box'">
+      <div @id="month3" @click="select_tariff(month3)" :class="tariff_name === month3 ? 'selected_box': 'unselected_box'">
         <p>3个月</p>
         <p style='font-weight:bold'>144元(9.6折)</p>
       </div>
-      <div @id="month6" @click="select_tariff(month6)" :class="tariff_id === month6 ? 'selected_box': 'unselected_box'">
+      <div @id="month6" @click="select_tariff(month6)" :class="tariff_name === month6 ? 'selected_box': 'unselected_box'">
         <p>6个月</p>
         <p style='font-weight:bold'>276元(9.2折)</p>
       </div>
     </div>
     <div class="pay_button">
-      <button @click="start_pay" :class="tariff_id ? 'enabled_button': 'disabled_button'">充值</button>
+      <button @click="start_pay" :class="tariff_name ? 'enabled_button': 'disabled_button'">充值</button>
     </div>
   </div>
 </template>
@@ -46,8 +46,9 @@ export default {
         inactive: '已停用'
       },
       expired_at: '2000年1月1日 00:00:00',
+      initSuccess: false,
 
-      tariff_id: '',
+      tariff_name: '',
       month1: 'month1',
       month3: 'month3',
       month6: 'month6'
@@ -59,30 +60,38 @@ export default {
     if (process.env.NODE_ENV === 'development') {
       code = 'testcode'
     }
-    let response = await userAPI.getUserInfo({code: code})
-    console.log(response.data)
-    console.log(response.headers)
-    this.username = response.data.data.username
-    this.expired_at = this.$moment(response.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
-    this.nickname = response.data.data.weixin.nickname
-    this.headimgurl = response.data.data.weixin.headimgurl
-    this.status = this.statusDict[response.data.data.status]
-    let token = response.headers['authorization']
+
+    // 异步获取用户资料
+    let userResponse = await userAPI.getUser({code: code})
+    console.log(userResponse.data)
+    console.log(userResponse.headers)
+    this.username = userResponse.data.data.username
+    this.nickname = userResponse.data.data.weixin.nickname
+    this.headimgurl = userResponse.data.data.weixin.headimgurl
+
+    // 保存全局token, 用于后续请求
+    let token = userResponse.headers['authorization']
     this.$store.commit('SET_TOKEN', token)
     console.log(token)
+
+    // 异步获取用户免费资源
+    let resourceResponse = await userAPI.getUserResource()
+    this.expired_at = this.$moment(resourceResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
+    this.status = this.statusDict[resourceResponse.data.data.status]
+    this.initSuccess = true;
   },
   methods: { // 定义函数方法
-    select_tariff (id) {
-      this.tariff_id = id
+    select_tariff (name) {
+      this.tariff_name = name
     },
     async start_pay () {
       // 点击支付
       // console.log(process.env)
-      if (!this.tariff_id) {
-        console.log(this.tariff_id)
+      if (!this.tariff_name) {
+        console.log(this.tariff_name)
         return
       }
-      let response = await userAPI.postCreateOrder({code: 'testcode', tariff_id: this.tariff_id})
+      let response = await userAPI.postCreateOrder({code: 'testcode', tariff_name: this.tariff_name})
       console.log(response)
       if (response.data.data) {
         let redirectUrl = response.data.data.redirect_url

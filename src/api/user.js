@@ -7,9 +7,17 @@ import request from '@/utils/request'
  *                           code: 'xxxx',    // 微信公众号redirect_uri带回来的code
  *                         }
  */
-function getUserInfo (params = {}) {
+function getUser (params = {}) {
   return request({
     url: '/user',
+    method: 'GET',
+    params
+  })
+}
+
+function getUserResource (params = {}) {
+  return request({
+    url: '/user/resource',
     method: 'GET',
     params
   })
@@ -54,7 +62,8 @@ function resetPassword (params = {}) {
 
 export default {
   resetPassword,
-  getUserInfo,
   getTest,
+  getUser,
+  getUserResource,
   postCreateOrder
 }

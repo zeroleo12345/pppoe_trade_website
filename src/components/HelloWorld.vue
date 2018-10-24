@@ -78,7 +78,7 @@ export default {
     let resourceResponse = await userAPI.getResource()
     this.expired_at = this.$moment(resourceResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
     this.status = this.statusDict[resourceResponse.data.data.status]
-    this.initSuccess = true;
+    this.initSuccess = true
   },
   methods: { // 定义函数方法
     select_tariff (name) {

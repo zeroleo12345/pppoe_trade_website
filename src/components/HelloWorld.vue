@@ -57,7 +57,7 @@ export default {
   async mounted () {
     // alert(this.$route.query.code)
     let code = this.$route.query.code
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development' && code === null) {
       code = 'testcode'
     }
 

@@ -86,6 +86,25 @@ export default {
       this.tariff_name = name
     },
     async start_pay () {
+      function jsApiCall (params) {
+        // alert(params.appId)
+        WeixinJSBridge.invoke(
+          'getBrandWCPayRequest',
+          params,
+          function (response) {
+            // alert(response.err_code+response.err_desc+response.err_msg)
+            if (response.err_msg === 'get_brand_wcpay_request:ok') { // 微信团队提示: response.err_msg将在用户支付成功后返回ok, 但不保证它绝对可靠
+              // 支付成功
+              // TODO 商户后台查询支付结果,再次确认后跳转
+              window.location.href = '/oauth2/index.html'
+            } else {
+              alert('支付失败')
+              // window.location.href = "/oauth2/index.html"
+            }
+          }
+        )
+      }
+
       // 点击支付
       // console.log(process.env)
       if (!this.tariff_name) {
@@ -94,11 +113,11 @@ export default {
       }
       let response = await userAPI.postCreateOrder({tariff_name: this.tariff_name})
       console.log(response)
+      // 订单信息返回
       if (response.data.data) {
-        let redirectUrl = response.data.data.redirect_url
-        console.log(redirectUrl)
-        window.location.href = redirectUrl
-        // this.$router.go(redirectUrl)
+        let wepayParams = response.data.data
+        console.log(wepayParams)
+        jsApiCall(wepayParams)
       }
     }
   },
@@ -106,6 +125,7 @@ export default {
     /* computed 和 methods 区别 : 缓存 */
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

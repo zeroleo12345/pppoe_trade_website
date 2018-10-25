@@ -7,9 +7,17 @@ import request from '@/utils/request'
  *                           code: 'xxxx',    // 微信公众号redirect_uri带回来的code
  *                         }
  */
-function getUserInfo (params = {}) {
+function getUser (params = {}) {
   return request({
     url: '/user',
+    method: 'GET',
+    params
+  })
+}
+
+function getResource (params = {}) {
+  return request({
+    url: '/resource',
     method: 'GET',
     params
   })
@@ -19,6 +27,19 @@ function getTest (params = {}) {
   return request({
     url: '/user/test',
     method: 'GET',
+    params
+  })
+}
+
+/**
+ * 创建订单
+ * @param params
+ * 备注: 设置属性 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+ */
+function postCreateOrder (params = {}) {
+  return request({
+    url: '/order',
+    method: 'POST',
     params
   })
 }
@@ -41,6 +62,8 @@ function resetPassword (params = {}) {
 
 export default {
   resetPassword,
-  getUserInfo,
-  getTest
+  getTest,
+  getUser,
+  getResource,
+  postCreateOrder
 }

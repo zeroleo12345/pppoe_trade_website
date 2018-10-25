@@ -58,6 +58,7 @@ export default {
     // alert(this.$route.query.code)
     let code = this.$route.query.code
     if (process.env.NODE_ENV === 'development' && code === null) {
+      // note 用于测试
       code = 'testcode'
     }
 
@@ -69,7 +70,7 @@ export default {
     this.nickname = userResponse.data.data.weixin.nickname
     this.headimgurl = userResponse.data.data.weixin.headimgurl
 
-    // 保存全局token, 用于后续请求
+    // 保存全局jwt token, 用于后续请求
     let token = userResponse.headers['authorization']
     this.$store.commit('SET_TOKEN', token)
     console.log(token)
@@ -91,7 +92,7 @@ export default {
         console.log(this.tariff_name)
         return
       }
-      let response = await userAPI.postCreateOrder({code: 'testcode', tariff_name: this.tariff_name})
+      let response = await userAPI.postCreateOrder({tariff_name: this.tariff_name})
       console.log(response)
       if (response.data.data) {
         let redirectUrl = response.data.data.redirect_url

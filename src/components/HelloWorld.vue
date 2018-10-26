@@ -75,15 +75,40 @@ export default {
     this.$store.commit('SET_TOKEN', token)
     console.log(token)
 
-    // 异步获取用户免费资源
+    // 异步获取用户免费资源. (Promise 对象, 必须使用 await)
     let resourceResponse = await userAPI.getResource()
     this.expired_at = this.$moment(resourceResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
     this.status = this.statusDict[resourceResponse.data.data.status]
+
+    // 标记已经初始化
     this.initSuccess = true
   },
   methods: { // 定义函数方法
     select_tariff (name) {
       this.tariff_name = name
+    },
+    call_wechat_pay (wepayParams) {
+      let vueThis = this
+      WeixinJSBridge.invoke(
+        'getBrandWCPayRequest',
+        wepayParams,
+        function (response) {
+          // alert(response.err_code+response.err_desc+response.err_msg)
+          if (response.err_msg === 'get_brand_wcpay_request:ok') { // 微信团队提示: response.err_msg将在用户支付成功后返回ok, 但不保证它绝对可靠
+            // 支付成功
+            // TODO 商户后台查询支付结果,再次确认后跳转
+            setTimeout(async function () {
+              // 异步获取用户免费资源. (Promise 对象, 必须使用 await)
+              let resourceResponse = await userAPI.getResource()
+              vueThis.expired_at = vueThis.$moment(resourceResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
+              vueThis.status = vueThis.statusDict[resourceResponse.data.data.status]
+            }, 2000)
+          } else {
+            alert('支付失败')
+            // window.location.href = "/oauth2/index.html"
+          }
+        }
+      )
     },
     async start_pay () {
       // 点击支付
@@ -94,11 +119,11 @@ export default {
       }
       let response = await userAPI.postCreateOrder({tariff_name: this.tariff_name})
       console.log(response)
+      // 订单信息返回
       if (response.data.data) {
-        let redirectUrl = response.data.data.redirect_url
-        console.log(redirectUrl)
-        window.location.href = redirectUrl
-        // this.$router.go(redirectUrl)
+        let wepayParams = response.data.data
+        console.log(wepayParams)
+        this.call_wechat_pay(wepayParams)
       }
     }
   },
@@ -106,6 +131,7 @@ export default {
     /* computed 和 methods 区别 : 缓存 */
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

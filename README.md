@@ -6,8 +6,6 @@ Vue 网站
 ``` bash
 # 安装 direnv
     rpm -i  direnv-stable-linux-amd64.rpm
-    cp  docker/example.envrc  .envec
-    direnv allow .
 
 # CentOS 7 docker 权限问题
     su -c "setenforce 0"

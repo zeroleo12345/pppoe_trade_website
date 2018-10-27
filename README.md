@@ -19,7 +19,7 @@ Vue 网站
 ```
 
 
-# Debug 版本
+# NPM Server
 本地开发调试环境
 ``` bash
 1. 配置
@@ -37,7 +37,7 @@ Vue 网站
 ```
 
 
-# Relase 版本
+# nginx
 Docker Nginx 上运行构建后的 dist/
 - 构建包含 html 页面的目录 dist/. (方法1, 推荐)
 ``` bash
@@ -46,7 +46,9 @@ Docker Nginx 上运行构建后的 dist/
 
 # 启动 docker:
     - 先启动 restful server 的容器 web # 因为 proxy_pass, 需依赖 restful server
-    - direnv reload; docker-compose up nginx          # 查看日志: docker-compose logs -f, 正常是实时打印!
+    # 查看日志: docker-compose logs -f, 正常是实时打印!
+    Debug:      direnv reload; docker-compose up nginx
+    Release:    direnv reload; export NPM_DEV_SERVER_URL=""; docker-compose up nginx
     - echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
 
 

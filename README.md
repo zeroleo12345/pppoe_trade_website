@@ -2,7 +2,7 @@
 Vue 网站
 
 
-## 安装开发环境
+# 开发环境
 ``` bash
 # 安装 direnv
     rpm -i  direnv-stable-linux-amd64.rpm
@@ -20,7 +20,8 @@ Vue 网站
 ```
 
 
-## 本地开发调试环境
+# Debug 版本
+本地开发调试环境
 ``` bash
 1. 配置
   - decrypt .envrx.x
@@ -37,9 +38,10 @@ Vue 网站
 ```
 
 
-## 在 Docker Nginx 上运行构建后的 dist/
+# Relase 版本
+Docker Nginx 上运行构建后的 dist/
+- 构建包含 html 页面的目录 dist/. (方法1, 推荐)
 ``` bash
-# 构建包含 html 页面的目录 dist, 方法1 (推荐):
     - decrypt .envrc.x                 # 8->7
     - cnpm run build                   # 构建生产版本(minification)
 
@@ -60,7 +62,7 @@ Vue 网站
 ```
 
 
-## 构建 dist/. (方法2, 不推荐)
+- 构建 dist/. (方法2, 不推荐)
 ``` bash
     1. tar cvf dist.tar dist/;          # 从macbook上传dist.tar到服务器
     2. jieya dist.tar; chown -R root:root dist

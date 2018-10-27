@@ -14,10 +14,13 @@ Vue 网站
 
 # 安装 npm
     yum install npm         # CentOS 7
+
+# 安装 cnpm
+    sudo npm install -g cnpm --registry=http://registry.npm.taobao.org
 ```
 
 
-## 本地开发 debug 步骤
+## 本地开发调试环境
 ``` bash
 1. 配置
   - decrypt .envrx.x
@@ -31,9 +34,10 @@ Vue 网站
 
 4. 本地验证
   - 浏览器访问 http://localhost:8080/#/
+```
 
 
-## 在 Docker nginx 上运行
+## 在 Docker Nginx 上运行构建后的 dist/
 ``` bash
 # 构建包含 html 页面的目录 dist, 方法1 (推荐):
     - decrypt .envrc.x                 # 8->7
@@ -56,7 +60,7 @@ Vue 网站
 ```
 
 
-## 构建 dist, 方法2 (不推荐):
+## 构建 dist/. (方法2, 不推荐)
 ``` bash
     1. tar cvf dist.tar dist/;          # 从macbook上传dist.tar到服务器
     2. jieya dist.tar; chown -R root:root dist

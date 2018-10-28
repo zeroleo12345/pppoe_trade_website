@@ -107,7 +107,7 @@ export default {
               vueThis.status = vueThis.statusDict[resourceResponse.data.data.status]
             }, 2000)
           } else {
-            alert('支付失败')
+            // alert('支付失败')
             // window.location.href = "/oauth2/index.html"
           }
         }

@@ -6,6 +6,7 @@
     </div>
     <div class="account_info">
       <p class="username">宽带账号： {{ username }}</p>
+      <p class="password">宽带密码： {{ password }}</p>
       <p class="status">账号状态： {{ status }}</p>
       <p class="expired_at">到期时间： {{ expired_at }}</p>
     </div>
@@ -39,6 +40,7 @@ export default {
       nickname: '',
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
       username: 'test',
+      password: 'password',
       status: '未知',
       statusDict: {
         expired: '已过期',
@@ -67,6 +69,7 @@ export default {
     console.log(userResponse.data)
     console.log(userResponse.headers)
     this.username = userResponse.data.data.username
+    this.password = userResponse.data.data.password
     this.nickname = userResponse.data.data.weixin.nickname
     this.headimgurl = userResponse.data.data.weixin.headimgurl
 
@@ -159,6 +162,9 @@ export default {
   .account_info {
     clear: both;
     .username {
+      margin: 1rem 0rem 0rem 0.5rem;
+    }
+    .password {
       margin: 1rem 0rem 0rem 0.5rem;
     }
     .status {

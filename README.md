@@ -17,6 +17,9 @@ Vue 网站
 # 安装 cnpm
     npm install -g cnpm --registry=http://registry.npm.taobao.org
     npm config set registry https://registry.npm.taobao.org
+
+# 清理
+    npm cache clean --force
 ```
 
 

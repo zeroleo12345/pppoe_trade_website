@@ -15,7 +15,8 @@ Vue 网站
     yum install npm         # CentOS 7
 
 # 安装 cnpm
-    sudo npm install -g cnpm --registry=http://registry.npm.taobao.org
+    npm install -g cnpm --registry=http://registry.npm.taobao.org
+    npm config set registry https://registry.npm.taobao.org
 ```
 
 
@@ -27,7 +28,7 @@ Vue 网站
   - 修改 .envrc  (原则: 尽量不用修改docker-compose.yml)
 
 2. 安装依赖: (缺省package时, 会自动分析package.json文件中的依赖并安装)
-  - sudo cnpm install --save  #  [package]
+  - cnpm --registry https://registry.npm.taobao.org install --save    # [package]
 
 3. 启动带热重载服务程序 (绑定localhost的8080端口)
   - HOST='0.0.0.0' cnpm run dev

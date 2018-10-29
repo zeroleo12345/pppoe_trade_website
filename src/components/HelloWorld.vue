@@ -105,7 +105,7 @@ export default {
               let resourceResponse = await userAPI.getResource()
               vueThis.expired_at = vueThis.$moment(resourceResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
               vueThis.status = vueThis.statusDict[resourceResponse.data.data.status]
-            }, 2000)
+            }, 3000)
           } else {
             // alert('支付失败')
             // window.location.href = "/oauth2/index.html"

@@ -14,7 +14,7 @@ Vue 网站
 # 安装 npm
     yum install npm         # CentOS 7
 
-# 安装 cnpm
+# 安装 cnpm (不推荐, 应该通过proxy使用原生npm)
     npm install -g cnpm --registry=http://registry.npm.taobao.org
     npm config set registry https://registry.npm.taobao.org
 
@@ -32,25 +32,27 @@ Vue 网站
 
 2. 安装依赖: (缺省package时, 会自动分析package.json文件中的依赖并安装)
   - export http_proxy="http://127.0.0.1:1080"; export https_proxy="http://127.0.0.1:1080"
-  - cnpm --registry https://registry.npm.taobao.org install --save    # [package]
+  - npm install --save    # [package]
 
 3. 启动带热重载服务程序 (绑定localhost的8080端口)
-  - HOST='0.0.0.0' cnpm run dev
+  - HOST='0.0.0.0' npm run dev
 
 4. 本地验证
   - 浏览器访问 http://localhost:8080/#/
 ```
 
 
-# nginx
-Docker Nginx 上运行构建后的 dist/
-- 构建包含 html 页面的目录 dist/. (方法1, 推荐)
+# Docker Nginx
+
+- 构建      (包含 html 页面的目录 dist/)
 ``` bash
   - decrypt .envrc.x                 # 8->7
   - decrypt etc/nginx/cert/1_api.lynatgz.cn_bundle.crt.x; decrypt etc/nginx/cert/2_api.lynatgz.cn.key.x;
-  - cnpm run build                   # 构建生产版本(minification)
+  - npm run build                   # 构建生产版本(minification)
+```
 
-# 启动 docker:
+- 启动容器
+``` bash
   - 先启动 restful server 的容器 web # 因为 proxy_pass, 需依赖 restful server
   # 查看日志: docker-compose logs -f, 正常是实时打印!
   Debug:      direnv reload; docker-compose up nginx
@@ -64,13 +66,7 @@ Docker Nginx 上运行构建后的 dist/
   ps -ef | grep ssh | grep NfR | awk  '{print $2}' | xargs kill; ssh -NfR  80:localhost:80  root@${PUBLIC_ECS_IP}  -p 22; ssh -NfR  443:localhost:443  root@${PUBLIC_ECS_IP}  -p 22
 
 # 打开vue开发服务器:  (监听 8080 端口)
-  direnv reload; DEBUG='express:*' HOST='0.0.0.0' cnpm run dev
+  direnv reload; DEBUG='express:*' HOST='0.0.0.0' npm run dev
   浏览器通过内网访问 http://localhost:8080/#/   通过公网访问: http://www.lynatgz.cn/
 ```
 
-
-- 构建 dist/. (方法2, 不推荐)
-``` bash
-  1. tar cvf dist.tar dist/;          # 从macbook上传dist.tar到服务器
-  2. jieya dist.tar; chown -R root:root dist
-```

@@ -34,10 +34,16 @@ Vue 网站
   - IP=127.0.0.1; export http_proxy="http://$IP:1080"; export https_proxy="http://$IP:1080"
   - npm install --save    # [package]
 
-3. 启动带热重载服务程序 (绑定localhost的8080端口)
-  - HOST='0.0.0.0' npm run dev
+3. 公众号通知消息 透传给 内网机器测试
+  # export PUBLIC_ECS_IP='your_ecs_ip'
+# 杀掉ssh代理进程, 并重新连接. (用法: ssh -NfR 公网主机port:内网主机ip:内网主机port <用户名>@公网主机ip -p 公网主机ssh端口)
+  ps -ef | grep ssh | grep NfR | awk  '{print $2}' | xargs kill; ssh -NfR  80:localhost:80  root@${PUBLIC_ECS_IP}  -p 22; ssh -NfR  443:localhost:443  root@${PUBLIC_ECS_IP}  -p 22
 
-4. 本地验证
+4. 打开 vue 开发服务器:  (监听 8080 端口)
+  direnv reload; DEBUG='express:*' HOST='0.0.0.0' npm run dev
+  浏览器通过内网访问 http://localhost:8080/#/   通过公网访问: http://www.lynatgz.cn/
+
+## 本地验证
   - 浏览器访问 http://localhost:8080/#/
 ```
 
@@ -58,15 +64,5 @@ Vue 网站
   Debug:      direnv reload; docker-compose up nginx
   Release:    direnv reload; export NPM_DEV_SERVER_URL=""; docker-compose up nginx
   - echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
-
-
-## 公众号通知消息 透传给 内网机器测试
-  # export PUBLIC_ECS_IP='your_ecs_ip'
-# 杀掉ssh代理进程, 并重新连接. (用法: ssh -NfR 公网主机port:内网主机ip:内网主机port <用户名>@公网主机ip -p 公网主机ssh端口)
-  ps -ef | grep ssh | grep NfR | awk  '{print $2}' | xargs kill; ssh -NfR  80:localhost:80  root@${PUBLIC_ECS_IP}  -p 22; ssh -NfR  443:localhost:443  root@${PUBLIC_ECS_IP}  -p 22
-
-# 打开vue开发服务器:  (监听 8080 端口)
-  direnv reload; DEBUG='express:*' HOST='0.0.0.0' npm run dev
-  浏览器通过内网访问 http://localhost:8080/#/   通过公网访问: http://www.lynatgz.cn/
 ```
 

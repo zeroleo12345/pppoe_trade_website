@@ -68,6 +68,8 @@ Vue 网站
   # 查看日志: docker-compose logs -f, 正常是实时打印!
   Debug:      direnv reload; docker-compose up nginx
   Release:    direnv reload; export NPM_DEV_SERVER_URL=""; docker-compose up nginx
+
+## 验证
   - echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
 ```
 

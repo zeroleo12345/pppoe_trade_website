@@ -46,10 +46,9 @@ Vue 网站
 
 2. 打开 vue 开发服务器:  (监听 8080 端口)
   direnv reload; DEBUG='express:*' HOST='0.0.0.0' npm run dev
-  浏览器通过内网访问 http://localhost:8080/#/   通过公网访问: http://www.lynatgz.cn/
 
 ## 本地验证
-  - 浏览器访问 http://localhost:8080/#/
+  - 浏览器通过内网访问 http://localhost:8080/#/  或者  通过公网访问: http://www.lynatgz.cn/
 ```
 
 

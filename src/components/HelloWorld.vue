@@ -43,9 +43,9 @@ export default {
       password: 'password',
       status: '未知',
       statusDict: {
-        expired: '已过期',
-        working: '使用中',
-        inactive: '已停用'
+        expired: '已过期, 需充值',
+        working: '正常使用中',
+        inactive: '已停用, 请联系管理员'
       },
       expired_at: '2000年1月1日 00:00:00',
       initSuccess: false,

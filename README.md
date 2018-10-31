@@ -3,6 +3,7 @@ Vue 网站
 
 
 # 开发环境
+- 安装虚拟环境
 ``` bash
 # 安装 direnv
     rpm -i  direnv-stable-linux-amd64.rpm
@@ -23,8 +24,7 @@ Vue 网站
 ```
 
 
-# NPM Server
-本地开发调试环境
+- 安装 npm package
 ``` bash
 1. 配置
   - decrypt .envrx.x
@@ -33,13 +33,18 @@ Vue 网站
 2. 安装依赖: (缺省package时, 会自动分析package.json文件中的依赖并安装)
   - IP=127.0.0.1; export http_proxy="http://$IP:1080"; export https_proxy="http://$IP:1080"
   - npm install --save    # [package]
+```
 
-3. 公众号通知消息 透传给 内网机器测试
+
+# 启动 NPM Server
+- 本地开发调试环境
+``` bash
+1. 公众号通知消息 透传给 内网机器测试
   # export PUBLIC_ECS_IP='your_ecs_ip'
 # 杀掉ssh代理进程, 并重新连接. (用法: ssh -NfR 公网主机port:内网主机ip:内网主机port <用户名>@公网主机ip -p 公网主机ssh端口)
   ps -ef | grep ssh | grep NfR | awk  '{print $2}' | xargs kill; ssh -NfR  80:localhost:80  root@${PUBLIC_ECS_IP}  -p 22; ssh -NfR  443:localhost:443  root@${PUBLIC_ECS_IP}  -p 22
 
-4. 打开 vue 开发服务器:  (监听 8080 端口)
+2. 打开 vue 开发服务器:  (监听 8080 端口)
   direnv reload; DEBUG='express:*' HOST='0.0.0.0' npm run dev
   浏览器通过内网访问 http://localhost:8080/#/   通过公网访问: http://www.lynatgz.cn/
 
@@ -48,7 +53,7 @@ Vue 网站
 ```
 
 
-# Docker Nginx
+# 启动 Docker Nginx
 
 - 构建      (包含 html 页面的目录 dist/)
 ``` bash
@@ -56,6 +61,7 @@ Vue 网站
   - decrypt etc/nginx/cert/1_api.lynatgz.cn_bundle.crt.x; decrypt etc/nginx/cert/2_api.lynatgz.cn.key.x;
   - npm run build                   # 构建生产版本(minification)
 ```
+
 
 - 启动容器
 ``` bash

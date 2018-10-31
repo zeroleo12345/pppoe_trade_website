@@ -31,7 +31,7 @@ Vue 网站
   - 修改 .envrc  (原则: 尽量不用修改docker-compose.yml)
 
 2. 安装依赖: (缺省package时, 会自动分析package.json文件中的依赖并安装)
-  - export http_proxy="http://127.0.0.1:1080"; export https_proxy="http://127.0.0.1:1080"
+  - IP=127.0.0.1; export http_proxy="http://$IP:1080"; export https_proxy="http://$IP:1080"
   - npm install --save    # [package]
 
 3. 启动带热重载服务程序 (绑定localhost的8080端口)

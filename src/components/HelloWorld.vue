@@ -5,10 +5,10 @@
       <p class="nickname">{{ nickname }}</p>
     </div>
     <div class="account_info">
-      <p class="username">宽带账号： {{ username }}</p>
-      <p class="password">宽带密码： {{ password }}</p>
-      <p class="status">账号状态： {{ status }}</p>
-      <p class="expired_at">到期时间： {{ expired_at }}</p>
+      <p class="username">宽带账号： <span>{{ username }}</span></p>
+      <p class="password">宽带密码： <span>{{ password }}</span></p>
+      <p class="status">账号状态： <span :style="status !== 'working' ? 'color: red': ''">{{statusDict[status]}}</span></p>
+      <p class="expired_at">到期时间： <span>{{ expired_at }}</span></p>
     </div>
     <div class="choose_box">
       <div @id="month1" @click="select_tariff(month1)" :class="tariff_name === month1 ? 'selected_box': 'unselected_box'">
@@ -41,7 +41,7 @@ export default {
       headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
       username: 'test',
       password: 'password',
-      status: '未知',
+      status: 'unknown',
       statusDict: {
         expired: '已过期, 需充值',
         working: '正常使用中',
@@ -81,7 +81,7 @@ export default {
     // 异步获取用户免费资源. (Promise 对象, 必须使用 await)
     let resourceResponse = await userAPI.getResource()
     this.expired_at = this.$moment(resourceResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
-    this.status = this.statusDict[resourceResponse.data.data.status]
+    this.status = resourceResponse.data.data.status
 
     // 标记已经初始化
     this.initSuccess = true
@@ -104,12 +104,13 @@ export default {
               // 异步获取用户免费资源. (Promise 对象, 必须使用 await)
               let resourceResponse = await userAPI.getResource()
               vueThis.expired_at = vueThis.$moment(resourceResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
-              vueThis.status = vueThis.statusDict[resourceResponse.data.data.status]
+              vueThis.status = resourceResponse.data.data.status
             }, 3000)
           } else {
             // alert('支付失败')
             // window.location.href = "/oauth2/index.html"
           }
+          vueThis.tariff_name = ''
         }
       )
     },
@@ -117,7 +118,7 @@ export default {
       // 点击支付
       // console.log(process.env)
       if (!this.tariff_name) {
-        console.log(this.tariff_name)
+        alert("请先选择充值套餐!")
         return
       }
       let response = await userAPI.postCreateOrder({tariff_name: this.tariff_name})

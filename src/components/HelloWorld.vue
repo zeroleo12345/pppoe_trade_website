@@ -110,6 +110,7 @@ export default {
             // alert('支付失败')
             // window.location.href = "/oauth2/index.html"
           }
+          vueThis.tariff_name = ''
         }
       )
     },
@@ -117,7 +118,7 @@ export default {
       // 点击支付
       // console.log(process.env)
       if (!this.tariff_name) {
-        console.log(this.tariff_name)
+        alert("请先选择充值套餐!")
         return
       }
       let response = await userAPI.postCreateOrder({tariff_name: this.tariff_name})

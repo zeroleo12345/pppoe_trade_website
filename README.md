@@ -30,6 +30,7 @@ Vue 网站
 ``` bash
 1. 配置
   - decrypt .envrx.x
+  - direnv allow .
   - 修改 .envrc  (原则: 尽量不用修改docker-compose.yml)
 
 2. 安装依赖: (缺省package时, 会自动分析package.json文件中的依赖并安装)

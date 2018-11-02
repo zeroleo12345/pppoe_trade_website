@@ -5,6 +5,8 @@ Vue 网站
 # 开发环境
 - 安装虚拟环境
 ``` bash
+# 安装 ip 命令
+    brew install iproute2mac
 # 安装 direnv
     rpm -i  direnv-stable-linux-amd64.rpm
 

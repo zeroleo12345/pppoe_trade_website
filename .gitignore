@@ -26,3 +26,4 @@ selenium-debug.log
 *.pem
 *.crt
 *.key
+*.log

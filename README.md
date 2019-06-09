@@ -5,8 +5,9 @@ Vue 网站
 # 开发环境
 - 安装虚拟环境
 ``` bash
-# 安装 ip 命令
+# 安装 ip 命令. (必须)
     brew install iproute2mac
+
 # 安装 direnv
     rpm -i  direnv-stable-linux-amd64.rpm
 
@@ -57,11 +58,12 @@ Vue 网站
 
 # 启动 Docker Nginx
 
-- 构建      (包含 html 页面的目录 dist/)
+- 构建.(包含 html 页面的目录 dist/)
 ``` bash
-  - decrypt .envrc.x                 # 8->7
+# 一步都不能少
+  - decrypt .envrc.x
   - decrypt etc/nginx/cert/1_api.lynatgz.cn_bundle.crt.x; decrypt etc/nginx/cert/2_api.lynatgz.cn.key.x;
-  - npm run build                   # 构建生产版本(minification)
+  - npm run build       # 构建生产版本(minification)
 ```
 
 

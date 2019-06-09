@@ -27,3 +27,4 @@ selenium-debug.log
 *.crt
 *.key
 *.log
+*.bak

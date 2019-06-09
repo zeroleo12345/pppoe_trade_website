@@ -61,9 +61,9 @@ Vue 网站
 - 构建.(包含 html 页面的目录 dist/)
 ``` bash
 # 一步都不能少
-  - decrypt .envrc.x
-  - decrypt etc/nginx/cert/1_api.lynatgz.cn_bundle.crt.x; decrypt etc/nginx/cert/2_api.lynatgz.cn.key.x;
-  - npm run build       # 构建生产版本(minification)
+  decrypt .envrc.x
+  decrypt etc/nginx/cert/1_api.lynatgz.cn_bundle.crt.x; decrypt etc/nginx/cert/2_api.lynatgz.cn.key.x;
+  npm run build       # 构建生产版本(minification)
 ```
 
 

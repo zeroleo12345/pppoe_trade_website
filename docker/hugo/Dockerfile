@@ -1,6 +1,6 @@
 FROM alpine:3.6
 
-ENV HUGO_VERSION=0.62 \
+ENV HUGO_VERSION=0.62.0 \
     HUGO_USER=hugo \
     HUGO_SITE=/srv/hugo
 

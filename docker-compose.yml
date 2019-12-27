@@ -30,6 +30,9 @@ services:
     build:
        context: .
        dockerfile: ./docker/hugo/Dockerfile
+       # args:
+         # - http_proxy=http://192.168.1.199:1080
+         # - https_proxy=http://192.168.1.199:1080
     ports:      # 外部端口:docker内部端口
       - "1313:1313"
     volumes:       # 挂载盘(多用于输出程序文件, 日志等)

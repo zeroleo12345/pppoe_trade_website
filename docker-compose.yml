@@ -31,8 +31,11 @@ services:
     ports:
       - "1313:1313"
     volumes:
-      - ./bin/hugo:/usr/local/bin/hugo
-    entrypoint: ["hugo", "server", "--bind", "0.0.0.0"]
+      - ./blog/lynatgz/:/root/blog/lynatgz/
+      - ./blog/hugo:/usr/local/bin/hugo
+    working_dir: /root/blog/lynatgz
+    # entrypoint: sh
+    entrypoint: hugo server --bind 0.0.0.0 --buildDrafts
     tty: true
     restart: unless-stopped
     networks:

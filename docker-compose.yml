@@ -1,6 +1,7 @@
 version: '3.5'
 
 services:
+
   nginx:
     container_name: pppoe_nginx
     image: nginx:1.14.0-alpine-perl
@@ -22,6 +23,27 @@ services:
     #entrypoint: "${entrypoint}"
     networks:
         - pppoe_system
+
+
+  hugo:
+    container_name: hugo_blog
+    build:
+       context: .
+       dockerfile: ./docker/hugo/Dockerfile
+    ports:      # 外部端口:docker内部端口
+      - "1313:1313"
+    environment:
+      DEBUG: "${DEBUG}"
+      ENVIRONMENT: "${ENVIRONMENT}"
+    env_file:
+      - .env
+    volumes:       # 挂载盘(多用于输出程序文件, 日志等)
+      - ./blog:/srv/hugo     # 主机路径:docker内部路径.(把主机下的src目录挂在到docker下, 实现边开发, 边调试)
+    # entrypoint: /app/bin/web.sh      # docker启动期执行程序
+    tty: true
+    restart: unless-stopped
+    networks:
+      - pppoe_system
 
 
 networks:

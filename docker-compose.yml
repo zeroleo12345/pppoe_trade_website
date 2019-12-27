@@ -35,7 +35,7 @@ services:
       - ./blog/hugo:/usr/local/bin/hugo
     working_dir: /root/blog/lynatgz
     # entrypoint: sh
-    entrypoint: hugo server --bind 0.0.0.0 --buildDrafts
+    entrypoint: hugo server --bind 0.0.0.0 --theme=ananke --buildDrafts
     tty: true
     restart: unless-stopped
     networks:

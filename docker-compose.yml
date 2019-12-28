@@ -26,13 +26,13 @@ services:
 
 
   hugo:
-    container_name: hugo_blog
+    container_name: hugo
     image: alpine:3.8
     ports:
       - "1313:1313"
     volumes:
-      - ./blog/lynatgz/:/root/blog/lynatgz/
-      - ./blog/hugo:/usr/local/bin/hugo
+      - ./run/blog/lynatgz/:/root/blog/lynatgz/
+      - ./run/blog/hugo:/usr/local/bin/hugo
     working_dir: /root/blog/lynatgz
     # entrypoint: sh
     entrypoint: hugo server --bind 0.0.0.0 --theme=gohugo-theme-ananke --buildDrafts

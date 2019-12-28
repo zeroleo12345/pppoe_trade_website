@@ -1,0 +1,4 @@
+baseURL = "http://www.lynatgz.cn/"
+languageCode = "zh-cn"
+title = "lynatgz的博客"
+theme = "ananke"

@@ -78,3 +78,9 @@ Vue 网站
   - echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
 ```
 
+
+## hugo 博客系统
+``` bash
+# 项目根目录执行
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git run/blog/lynatgz/themes/gohugo-theme-ananke
+```

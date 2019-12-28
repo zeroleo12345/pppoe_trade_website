@@ -1,6 +1,7 @@
 version: '3.5'
 
 services:
+
   nginx:
     container_name: pppoe_nginx
     image: nginx:1.14.0-alpine-perl
@@ -14,14 +15,32 @@ services:
       - ./run/log:/run/log
       - ./dist:/usr/share/nginx/html:ro     # :ro模式: (readonly) https://docs.docker.com/storage/volumes/#choose-the--v-or---mount-flag
     environment:
-      LOCALHOST_IP: "${LOCALHOST_IP}"
+      LAN_IP: "${LAN_IP}"
       NPM_DEV_SERVER_URL: "${NPM_DEV_SERVER_URL}"
+      HUGO_SERVER_URL: "${HUGO_SERVER_URL}"
     #extra_hosts:
       #npm_dev_server_ip: "${NPM_DEV_SERVER_IP}"    # 映射到 npm dev server
     #network_mode: "host"    # 使用host网络, 不能与参数 networks 共存!
     #entrypoint: "${entrypoint}"
     networks:
         - pppoe_system
+
+
+  hugo:
+    container_name: hugo
+    image: alpine:3.8
+    ports:
+      - "1313:1313"
+    volumes:
+      - ./run/blog/lynatgz/:/root/blog/lynatgz/
+      - ./run/blog/hugo:/usr/local/bin/hugo
+    working_dir: /root/blog/lynatgz
+    # entrypoint: sh
+    entrypoint: hugo server --bind 0.0.0.0 --theme=gohugo-theme-ananke --buildDrafts
+    tty: true
+    restart: unless-stopped
+    networks:
+      - pppoe_system
 
 
 networks:

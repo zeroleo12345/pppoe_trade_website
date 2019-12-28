@@ -17,6 +17,7 @@ services:
     environment:
       LAN_IP: "${LAN_IP}"
       NPM_DEV_SERVER_URL: "${NPM_DEV_SERVER_URL}"
+      HUGO_SERVER_URL: "${HUGO_SERVER_URL}"
     #extra_hosts:
       #npm_dev_server_ip: "${NPM_DEV_SERVER_IP}"    # 映射到 npm dev server
     #network_mode: "host"    # 使用host网络, 不能与参数 networks 共存!

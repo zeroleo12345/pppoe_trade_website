@@ -36,7 +36,7 @@ services:
       - ./run/blog/hugo:/usr/local/bin/hugo
     working_dir: /root/blog/lynatgz
     # entrypoint: sh
-    entrypoint: hugo server --bind 0.0.0.0 --theme=gohugo-theme-ananke --buildDrafts
+    entrypoint: hugo server --bind 0.0.0.0 --port=1313 --baseURL=http://www.lynatgz.cn/ --appendPort=false --theme=gohugo-theme-ananke --buildDrafts
     tty: true
     restart: unless-stopped
     networks:

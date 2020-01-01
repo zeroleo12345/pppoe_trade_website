@@ -38,7 +38,7 @@ export default {
   data () { // 定义属性变量
     return {
       nickname: '',
-      headimgurl: 'http://pic.ffpic.com/files/tupian/tupian636.jpg',
+      headimgurl: '',   //'http://pic.ffpic.com/files/tupian/tupian636.jpg',
       username: 'test',
       password: 'password',
       status: 'unknown',

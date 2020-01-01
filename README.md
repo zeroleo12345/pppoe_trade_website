@@ -56,7 +56,7 @@ Vue 网站
 ```
 
 
-# 启动 Docker Nginx
+# 启动生产 Docker Nginx
 
 - 构建.(包含 html 页面的目录 dist/)
 ``` bash

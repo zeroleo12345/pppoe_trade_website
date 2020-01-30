@@ -63,7 +63,7 @@ Vue 网站
 # 一步都不能少
   decrypt .envrc.x
   decrypt etc/nginx/cert/1_api.lynatgz.cn_bundle.crt.x; decrypt etc/nginx/cert/2_api.lynatgz.cn.key.x;
-  npm run build       # 构建生产版本(minification)
+  rm -rf dist && npm run build       # 构建生产版本(minification)
 ```
 
 

@@ -68,13 +68,13 @@ export default {
     let userResponse = await userAPI.getUser({code: code})
     console.log(userResponse.data)
     console.log(userResponse.headers)
-    this.username = userResponse.data.data.username
-    this.password = userResponse.data.data.password
-    this.nickname = userResponse.data.data.weixin.nickname
-    this.headimgurl = userResponse.data.data.weixin.headimgurl
+    this.username = userResponse.data.data.user.username
+    this.password = userResponse.data.data.user.password
+    this.nickname = userResponse.data.data.user.weixin.nickname
+    this.headimgurl = userResponse.data.data.user.weixin.headimgurl
 
     // 保存全局jwt token, 用于后续请求
-    let token = userResponse.headers['authorization']
+    let token = userResponse.data.data.authorization
     this.$store.commit('SET_TOKEN', token)
     console.log(token)
 

@@ -1,6 +1,5 @@
 const app = {
   state: {
-    searchText: '',
     token: ''
   },
   getters: {

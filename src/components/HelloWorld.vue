@@ -38,7 +38,7 @@ export default {
   data () { // 定义属性变量
     return {
       nickname: '',
-      headimgurl: '',   //'http://pic.ffpic.com/files/tupian/tupian636.jpg',
+      headimgurl: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
       username: 'test',
       password: 'password',
       status: 'unknown',
@@ -70,8 +70,8 @@ export default {
     console.log(userResponse.headers)
     this.username = userResponse.data.data.user.username
     this.password = userResponse.data.data.user.password
-    this.nickname = userResponse.data.data.user.weixin.nickname
-    this.headimgurl = userResponse.data.data.user.weixin.headimgurl
+    this.nickname = userResponse.data.data.user.nickname
+    this.headimgurl = userResponse.data.data.user.headimgurl
 
     // 保存全局jwt token, 用于后续请求
     let token = userResponse.data.data.authorization
@@ -118,14 +118,14 @@ export default {
       // 点击支付
       // console.log(process.env)
       if (!this.tariff_name) {
-        alert("请先选择充值套餐!")
+        alert('请先选择充值套餐!')
         return
       }
       let response = await userAPI.postCreateOrder({tariff_name: this.tariff_name})
       console.log(response)
       // 订单信息返回
       if (response.data.data) {
-        let wepayParams = response.data.data
+        let wepayParams = response.data.data.param
         console.log(wepayParams)
         this.call_wechat_pay(wepayParams)
       }

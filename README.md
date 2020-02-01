@@ -11,9 +11,9 @@ Vue 网站
 # 安装 direnv
     rpm -i  direnv-stable-linux-amd64.rpm
 
-# CentOS 7 docker 权限问题. (报错: Permission denied)
-    su -c "setenforce 0"
-    或者添加 selinux 规则: chcon -Rt svirt_sandbox_file_t /path/to/volume
+CentOS 7 docker 权限问题. (报错: Permission denied)
+   su -c "setenforce 0"
+   或者添加 selinux 规则: chcon -Rt svirt_sandbox_file_t /path/to/volume
 
 # 安装 npm
     yum install npm         # CentOS 7
@@ -24,6 +24,10 @@ Vue 网站
 
 # 清理
     npm cache clean --force
+
+# 安装nvs
+    git clone https://github.com/jasongin/nvs "$NVS_HOME"
+    . "$NVS_HOME/nvs.sh" install
 ```
 
 

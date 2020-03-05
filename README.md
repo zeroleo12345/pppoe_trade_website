@@ -86,5 +86,8 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
 ## hugo 博客系统
 ``` bash
 # 项目根目录执行
-git submodule add https://github.com/budparr/gohugo-theme-ananke.git run/blog/lynatgz/themes/gohugo-theme-ananke
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git  ./run/blog/lynatgz/themes/gohugo-theme-ananke
+
+# 更新子模块
+git submodule update --init --recursive
 ```

@@ -90,4 +90,8 @@ git submodule add https://github.com/budparr/gohugo-theme-ananke.git  ./run/blog
 
 # 更新子模块
 git submodule update --init --recursive
+
+ # 生成文章, 再生成html文件到public/目录
+./hugo --buildDrafts
+./hugo
 ```

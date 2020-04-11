@@ -13,6 +13,7 @@ services:
       - ./etc/nginx/conf.d:/etc/nginx/conf.d:ro
       - ./etc/nginx/cert:/etc/nginx/cert:ro
       - ./run/log:/run/log
+      - ./run/blog/lynatgz/public:/usr/share/nginx/hugo:ro
       - ./dist:/usr/share/nginx/html:ro     # :ro模式: (readonly) https://docs.docker.com/storage/volumes/#choose-the--v-or---mount-flag
     environment:
       LAN_IP: "${LAN_IP}"

@@ -12,6 +12,7 @@ services:
       - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./etc/nginx/conf.d:/etc/nginx/conf.d:ro
       - ./etc/nginx/cert:/etc/nginx/cert:ro
+      - ./etc/nginx/passwd:/etc/nginx/passwd:ro
       - ./run/log:/run/log
       - ./run/blog/lynatgz/public:/usr/share/nginx/hugo:ro
       - ./dist:/usr/share/nginx/html:ro     # :ro模式: (readonly) https://docs.docker.com/storage/volumes/#choose-the--v-or---mount-flag
@@ -19,10 +20,11 @@ services:
       LAN_IP: "${LAN_IP}"
       NPM_DEV_SERVER_URL: "${NPM_DEV_SERVER_URL}"
       HUGO_SERVER_URL: "${HUGO_SERVER_URL}"
-    #extra_hosts:
-      #npm_dev_server_ip: "${NPM_DEV_SERVER_IP}"    # 映射到 npm dev server
-    #network_mode: "host"    # 使用host网络, 不能与参数 networks 共存!
-    #entrypoint: "${entrypoint}"
+      HEXO_SERVER_URL: "${HEXO_SERVER_URL}"
+    # extra_hosts:
+      # npm_dev_server_ip: "${NPM_DEV_SERVER_IP}"    # 映射到 npm dev server
+    # network_mode: "host"    # 使用host网络, 不能与参数 networks 共存!
+    # entrypoint: sleep 4600
     networks:
         - pppoe_system
 
@@ -36,8 +38,23 @@ services:
       - ./run/blog/lynatgz/:/root/blog/lynatgz/
       - ./run/blog/hugo:/usr/local/bin/hugo
     working_dir: /root/blog/lynatgz
-    # entrypoint: sh
+    # entrypoint: sleep 3600
     entrypoint: hugo server --bind 0.0.0.0 --port=1313 --baseURL=http://www.lynatgz.cn/ --appendPort=false --theme=gohugo-theme-ananke --buildDrafts
+    tty: true
+    restart: unless-stopped
+    networks:
+      - pppoe_system
+
+
+  hexo:
+    container_name: hexo
+    image: zeroleo12345/docker-hexo:latest
+    ports:
+      - "4000:4000"
+    volumes:
+      - /data/syncthing/我的笔记:/app/source/_posts
+    # entrypoint: sleep 3600
+    entrypoint: hexo server
     tty: true
     restart: unless-stopped
     networks:

@@ -93,7 +93,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: landscape
+# 默认主题 landscape 更改为 https://github.com/wujun234/hexo-theme-tree
 theme: tree
 
 # Deployment

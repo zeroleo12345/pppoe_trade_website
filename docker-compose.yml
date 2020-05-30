@@ -48,7 +48,7 @@ services:
 
   hexo:
     container_name: hexo
-    image: zeroleo12345/docker-hexo:latest
+    image: zeroleo12345/docker-hexo:latest  # 自己构建的镜像
     ports:
       - "4000:4000"
     volumes:

@@ -97,8 +97,13 @@ git submodule update --init --recursive
 ```
 
 
-## 当前系统部署内容
-```
+## 当前项目部署内容
+- nginx
 www.lynatgz.cn 放在nginx静态页面
+
+- hexo
 doc.lynatgz.cn 放在hexo
-```
+
+- syncthing
+同步文档
+

@@ -95,3 +95,10 @@ git submodule update --init --recursive
 ./hugo --buildDrafts
 ./hugo
 ```
+
+
+## 当前系统部署内容
+```
+www.lynatgz.cn 放在nginx静态页面
+doc.lynatgz.cn 放在hexo
+```

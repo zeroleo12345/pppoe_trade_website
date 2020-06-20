@@ -86,7 +86,7 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
 ## hugo 博客系统(废弃)
 ``` bash
 # 项目根目录执行
-git submodule add https://github.com/budparr/gohugo-theme-ananke.git  ./run/blog/lynatgz/themes/gohugo-theme-ananke
+git submodule add https://github.com/zeroleo12345/gohugo-theme-ananke  ./run/blog/lynatgz/themes/gohugo-theme-ananke
 
 # 更新子模块
 git submodule update --init --recursive
@@ -101,11 +101,13 @@ git submodule update --init --recursive
 - nginx
 ```
 www.lynatgz.cn 放在nginx静态页面
+通过上面hugo命令生成index.html页面, 再挂载到容器目录内: ./run/blog/lynatgz/public:/usr/share/nginx/hugo
 ```
 
 - hexo
 ```
 doc.lynatgz.cn 放在hexo
+hexo的docker镜像配置放在仓库: zeroleo12345/docker-hexo
 ```
 
 - syncthing

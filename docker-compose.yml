@@ -76,6 +76,18 @@ services:
       - pppoe_system
 
 
+  syncthing-relay:
+    container_name: syncthing-relay
+    image: syncthing/relaysrv:latest
+    ports:
+      - "22067:22067"
+      - "22070:22070"
+    tty: true
+    restart: unless-stopped
+    networks:
+      - pppoe_system
+
+
 networks:
   pppoe_system:
     name: pppoe_system_network_name

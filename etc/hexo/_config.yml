@@ -15,7 +15,7 @@ timezone: 'Asia/Shanghai'
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://doc.lynatgz.cn
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -93,7 +93,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: landscape
+# 默认主题 landscape 更改为 https://github.com/wujun234/hexo-theme-tree
 theme: tree
 
 # Deployment

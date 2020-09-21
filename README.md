@@ -62,7 +62,7 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
 
 # 启动生产 Docker Nginx
 
-- 构建.(包含 html 页面的目录 dist/)
+- 构建dist.tar (包含 html 页面的目录 dist/)
 ``` bash
 # 一步都不能少
   decrypt .envrc.x

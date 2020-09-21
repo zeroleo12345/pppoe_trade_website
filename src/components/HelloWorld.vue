@@ -17,11 +17,11 @@
       </div>
       <div @id="month3" @click="select_tariff(month3)" :class="tariff_name === month3 ? 'selected_box': 'unselected_box'">
         <p>3个月</p>
-        <p style='font-weight:bold'>144元(9.6折)</p>
+        <p style='font-weight:bold'>150元</p>
       </div>
       <div @id="month6" @click="select_tariff(month6)" :class="tariff_name === month6 ? 'selected_box': 'unselected_box'">
         <p>6个月</p>
-        <p style='font-weight:bold'>276元(9.2折)</p>
+        <p style='font-weight:bold'>300元</p>
       </div>
     </div>
     <div class="pay_button">

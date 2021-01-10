@@ -83,6 +83,8 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
 ## 验证
   # 打开浏览器, 访问该地址
   - echo $API_URL:80/index.html
+
+  # 使用web开发者工具调试
 ```
 
 

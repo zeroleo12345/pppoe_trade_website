@@ -12,6 +12,7 @@
       <p class="password">宽带密码： <span :style="qrcode_url !== '' ? 'visibility: hidden': ''">{{ password }}</span></p>
       <p class="status">账号状态： <span :style="{ visibility: qrcode_url !== '' ? 'hidden': 'visible', color: status !== 'working' ? 'red' : 'black' }">{{statusDict[status]}}</span></p>
       <p class="expired_at">到期时间： <span :style="qrcode_url !== '' ? 'visibility: hidden': ''">{{ expired_at }}</span></p>
+      <img class="" :style="{ visibility: qrcode_url === '' ? 'hidden': 'visible'}" :src="qrcode_url"/>
     </div>
 
     <div class="choose_box">

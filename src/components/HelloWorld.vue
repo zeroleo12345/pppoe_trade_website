@@ -31,7 +31,7 @@
     </div>
 
     <div>
-      <vue-qr :style="{ visibility: qrcode_content === '' ? 'hidden': 'visible'}" :correctLevel="3" :logoSrc="picture_url" :text="qrcode_content" :size="200" :margin="0" :logoMargin="3"></vue-qr>
+      <vue-qr :style="{ visibility: qrcode_content === '' ? 'hidden': 'visible'}" :correctLevel="3" :logoSrc="picture_url" :text="qrcode_content" :size="200" colorDark="#313a90" :margin="0" :logoMargin="3"></vue-qr>
     </div>
 
     <div class="pay_button">

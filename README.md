@@ -60,9 +60,9 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
 ```
 
 
-# 启动生产 Docker Nginx
+# 部署生产 Docker Nginx
 
-- 构建dist.tar (包含 html 页面的目录 dist/)
+- 构建dist.tar, 并发布到机器 (包含 html 页面的目录 dist/)
 ``` bash
 # 一步都不能少
   decrypt .envrc.x
@@ -97,7 +97,7 @@ git submodule update --init --recursive
 ```
 
 
-## 当前项目部署内容
+## 当前项目包含部署内容
 - nginx
 ```
 www.lynatgz.cn 放在nginx静态页面

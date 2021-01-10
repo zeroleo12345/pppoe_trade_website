@@ -12,7 +12,6 @@
       <p class="password">宽带密码： <span>{{ password }}</span></p>
       <p class="status">账号状态： <span :style="status !== 'working' ? 'color: red': ''">{{statusDict[status]}}</span></p>
       <p class="expired_at">到期时间： <span>{{ expired_at }}</span></p>
-      <!--<img class="" :style="{ visibility: qrcode_content === '' ? 'hidden': 'visible'}" :src="qrcode_content"/>-->
     </div>
 
     <div class="choose_box">
@@ -31,6 +30,11 @@
       </div>
     </div>
 
+    <div>
+      <!--<vue-qr :correctLevel="3" :logoSrc="picture_url" :text="qrcode_content" :size="95" :margin="0" :logoMargin="3"></vue-qr>-->
+      <vue-qr :style="{ visibility: qrcode_content === '' ? 'hidden': 'visible'}" :correctLevel="3" :logoSrc="picture_url" :text="qrcode_content" :size="95" :margin="0" :logoMargin="3"></vue-qr>
+    </div>
+
     <div class="pay_button">
       <button @click="start_pay" :class="tariff_name ? 'enabled_button': 'disabled_button'">充值</button>
     </div>
@@ -39,6 +43,7 @@
 </template>
 
 <script>
+import VueQr from 'vue-qr'
 import userAPI from '@/api/user'
 
 export default {
@@ -147,6 +152,9 @@ export default {
   },
   computed: {
     /* computed 和 methods 区别 : 缓存 */
+  },
+  components: {
+    VueQr
   }
 }
 

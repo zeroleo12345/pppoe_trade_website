@@ -8,11 +8,11 @@
 
     <div class="account_info">
       <!-- 完整语法 v-bind:style= -->
-      <p class="username">宽带账号： <span :style="qrcode_url !== '' ? 'visibility: hidden': ''">{{ username }}</span></p>
-      <p class="password">宽带密码： <span :style="qrcode_url !== '' ? 'visibility: hidden': ''">{{ password }}</span></p>
-      <p class="status">账号状态： <span :style="{ visibility: qrcode_url !== '' ? 'hidden': 'visible', color: status !== 'working' ? 'red' : 'black' }">{{statusDict[status]}}</span></p>
-      <p class="expired_at">到期时间： <span :style="qrcode_url !== '' ? 'visibility: hidden': ''">{{ expired_at }}</span></p>
-      <img class="" :style="{ visibility: qrcode_url === '' ? 'hidden': 'visible'}" :src="qrcode_url"/>
+      <p class="username">宽带账号： <span :style="qrcode_content !== '' ? 'visibility: hidden': ''">{{ username }}</span></p>
+      <p class="password">宽带密码： <span :style="qrcode_content !== '' ? 'visibility: hidden': ''">{{ password }}</span></p>
+      <p class="status">账号状态： <span :style="{ visibility: qrcode_content !== '' ? 'hidden': 'visible', color: status !== 'working' ? 'red' : 'black' }">{{statusDict[status]}}</span></p>
+      <p class="expired_at">到期时间： <span :style="qrcode_content !== '' ? 'visibility: hidden': ''">{{ expired_at }}</span></p>
+      <img class="" :style="{ visibility: qrcode_content === '' ? 'hidden': 'visible'}" :src="qrcode_content"/>
     </div>
 
     <div class="choose_box">
@@ -47,7 +47,7 @@ export default {
     return {
       nickname: '',
       picture_url: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
-      qrcode_url: '',
+      qrcode_content: '',
       username: 'test',
       password: 'password',
       status: 'unknown',
@@ -82,9 +82,9 @@ export default {
     this.nickname = userResponse.data.data.user.nickname
     this.picture_url = userResponse.data.data.user.picture_url
     if (userResponse.data.data.platform != null) {
-      this.qrcode_url = userResponse.data.data.platform.qrcode_url
+      this.qrcode_content = userResponse.data.data.platform.qrcode_content
     } else {
-      this.qrcode_url = ''
+      this.qrcode_content = ''
     }
 
     // 保存全局jwt token, 用于后续请求

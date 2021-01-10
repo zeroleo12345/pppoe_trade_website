@@ -1,7 +1,7 @@
 <template>
   <div :class="initSuccess === false ? 'hidden_all': 'show_all'">
     <div class="user_info">
-      <img class="user_headimg" :src="headimgurl"/>
+      <img class="user_headimg" :src="picture_url"/>
       <p class="nickname">{{ nickname }}</p>
     </div>
     <div class="account_info">
@@ -38,7 +38,7 @@ export default {
   data () { // 定义属性变量
     return {
       nickname: '',
-      headimgurl: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
+      picture_url: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
       username: 'test',
       password: 'password',
       status: 'unknown',
@@ -68,10 +68,10 @@ export default {
     let userResponse = await userAPI.getUser({code: code})
     console.log(userResponse.data)
     console.log(userResponse.headers)
-    this.username = userResponse.data.data.user.username
-    this.password = userResponse.data.data.user.password
+    this.username = userResponse.data.data.account.username
+    this.password = userResponse.data.data.account.password
     this.nickname = userResponse.data.data.user.nickname
-    this.headimgurl = userResponse.data.data.user.headimgurl
+    this.picture_url = userResponse.data.data.user.picture_url
 
     // 保存全局jwt token, 用于后续请求
     let token = userResponse.data.data.authorization

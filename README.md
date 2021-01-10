@@ -67,7 +67,9 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
 # 一步都不能少
   decrypt .envrc.x
   decrypt etc/nginx/cert/1_api.lynatgz.cn_bundle.crt.x; decrypt etc/nginx/cert/2_api.lynatgz.cn.key.x;
-  npm run build       # 生产版本minification, 删除远程dist.tar后, 再zmodem upload
+
+  # 生产版本minification, 删除远程dist.tar后, 再zmodem upload
+  npm run build
 ```
 
 
@@ -79,7 +81,8 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
   Release:    direnv reload; export NPM_DEV_SERVER_URL=""; docker-compose up nginx
 
 ## 验证
-  - echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
+  # 打开浏览器, 访问该地址
+  - echo $API_URL:80/index.html
 ```
 
 

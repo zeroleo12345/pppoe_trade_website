@@ -1,36 +1,48 @@
 <template>
   <div :class="initSuccess === false ? 'hidden_all': 'show_all'">
+
     <div class="user_info">
-      <img class="user_headimg" :src="headimgurl"/>
+      <img class="user_headimg" :src="picture_url"/>
       <p class="nickname">{{ nickname }}</p>
     </div>
+
     <div class="account_info">
+      <!-- 完整语法 v-bind:style= -->
       <p class="username">宽带账号： <span>{{ username }}</span></p>
       <p class="password">宽带密码： <span>{{ password }}</span></p>
       <p class="status">账号状态： <span :style="status !== 'working' ? 'color: red': ''">{{statusDict[status]}}</span></p>
       <p class="expired_at">到期时间： <span>{{ expired_at }}</span></p>
     </div>
+
     <div class="choose_box">
+      <!-- 完整语法 v-on:click= -->
       <div @id="month1" @click="select_tariff(month1)" :class="tariff_name === month1 ? 'selected_box': 'unselected_box'">
-        <p>1个月</p>
+        <p>充值1个月</p>
         <p style='font-weight:bold'>50元</p>
       </div>
       <div @id="month3" @click="select_tariff(month3)" :class="tariff_name === month3 ? 'selected_box': 'unselected_box'">
-        <p>3个月</p>
+        <p>充值3个月</p>
         <p style='font-weight:bold'>150元</p>
       </div>
       <div @id="month6" @click="select_tariff(month6)" :class="tariff_name === month6 ? 'selected_box': 'unselected_box'">
-        <p>6个月</p>
+        <p>充值6个月</p>
         <p style='font-weight:bold'>300元</p>
       </div>
     </div>
+
+    <div>
+      <vue-qr :style="{ visibility: qrcode_content === '' ? 'hidden': 'visible'}" :correctLevel="3" :logoSrc="picture_url" :text="qrcode_content" :size="200" colorDark="#313a90" :margin="0" :logoMargin="3"></vue-qr>
+    </div>
+
     <div class="pay_button">
       <button @click="start_pay" :class="tariff_name ? 'enabled_button': 'disabled_button'">充值</button>
     </div>
+
   </div>
 </template>
 
 <script>
+import VueQr from 'vue-qr'
 import userAPI from '@/api/user'
 
 export default {
@@ -38,7 +50,8 @@ export default {
   data () { // 定义属性变量
     return {
       nickname: '',
-      headimgurl: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
+      picture_url: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
+      qrcode_content: '',
       username: 'test',
       password: 'password',
       status: 'unknown',
@@ -68,10 +81,15 @@ export default {
     let userResponse = await userAPI.getUser({code: code})
     console.log(userResponse.data)
     console.log(userResponse.headers)
-    this.username = userResponse.data.data.user.username
-    this.password = userResponse.data.data.user.password
+    this.username = userResponse.data.data.account.username
+    this.password = userResponse.data.data.account.password
     this.nickname = userResponse.data.data.user.nickname
-    this.headimgurl = userResponse.data.data.user.headimgurl
+    this.picture_url = userResponse.data.data.user.picture_url
+    if (userResponse.data.data.platform != null) {
+      this.qrcode_content = userResponse.data.data.platform.qrcode_content
+    } else {
+      this.qrcode_content = ''
+    }
 
     // 保存全局jwt token, 用于后续请求
     let token = userResponse.data.data.authorization
@@ -133,6 +151,9 @@ export default {
   },
   computed: {
     /* computed 和 methods 区别 : 缓存 */
+  },
+  components: {
+    VueQr
   }
 }
 

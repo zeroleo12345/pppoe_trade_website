@@ -2,6 +2,10 @@
 Vue 网站
 
 
+## 版本
+Vue 2.5.2
+
+
 # 开发环境
 - 安装虚拟环境
 ``` bash
@@ -60,14 +64,16 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
 ```
 
 
-# 启动生产 Docker Nginx
+# 部署生产 Docker Nginx
 
-- 构建dist.tar (包含 html 页面的目录 dist/)
+- 构建dist.tar, 并发布到机器 (包含 html 页面的目录 dist/)
 ``` bash
 # 一步都不能少
   decrypt .envrc.x
   decrypt etc/nginx/cert/1_api.lynatgz.cn_bundle.crt.x; decrypt etc/nginx/cert/2_api.lynatgz.cn.key.x;
-  npm run build       # 生产版本minification, 删除远程dist.tar后, 再zmodem upload
+
+  # 生产版本minification, 删除远程dist.tar后, 再zmodem upload
+  npm run build
 ```
 
 
@@ -79,7 +85,10 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
   Release:    direnv reload; export NPM_DEV_SERVER_URL=""; docker-compose up nginx
 
 ## 验证
-  - echo $API_URL:80/index.html      # 打开浏览器, 访问该地址
+  # 打开浏览器, 访问该地址
+  - echo $API_URL:80/index.html
+
+  # 使用微信开发者工具调试
 ```
 
 
@@ -97,7 +106,7 @@ git submodule update --init --recursive
 ```
 
 
-## 当前项目部署内容
+## 当前项目包含部署内容
 - nginx
 ```
 www.lynatgz.cn 放在nginx静态页面

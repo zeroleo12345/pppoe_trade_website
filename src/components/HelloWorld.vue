@@ -5,12 +5,14 @@
       <p class="nickname">{{ nickname }}</p>
     </div>
     <div class="account_info">
-      <p class="username">宽带账号： <span>{{ username }}</span></p>
-      <p class="password">宽带密码： <span>{{ password }}</span></p>
+      <!-- 完整语法 v-bind:style= -->
+      <p class="username">宽带账号： <span :style="qrcode_url !== '' ? 'visibility: hidden': ''">{{ username }}</span></p>
+      <p class="password">宽带密码： <span :style="qrcode_url !== '' ? 'visibility: hidden': ''">{{ password }}</span></p>
       <p class="status">账号状态： <span :style="status !== 'working' ? 'color: red': ''">{{statusDict[status]}}</span></p>
       <p class="expired_at">到期时间： <span>{{ expired_at }}</span></p>
     </div>
     <div class="choose_box">
+      <!-- 完整语法 v-on:click= -->
       <div @id="month1" @click="select_tariff(month1)" :class="tariff_name === month1 ? 'selected_box': 'unselected_box'">
         <p>1个月</p>
         <p style='font-weight:bold'>50元</p>
@@ -39,6 +41,7 @@ export default {
     return {
       nickname: '',
       picture_url: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
+      qrcode_url: '',
       username: 'test',
       password: 'password',
       status: 'unknown',
@@ -72,6 +75,11 @@ export default {
     this.password = userResponse.data.data.account.password
     this.nickname = userResponse.data.data.user.nickname
     this.picture_url = userResponse.data.data.user.picture_url
+    if (userResponse.data.data.platform != null) {
+      this.qrcode_url = userResponse.data.data.platform.qrcode_url
+    } else {
+      this.qrcode_url = ''
+    }
 
     // 保存全局jwt token, 用于后续请求
     let token = userResponse.data.data.authorization

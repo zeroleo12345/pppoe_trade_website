@@ -1,59 +1,45 @@
 <template>
 
-  <article id="29dc7df1-9cc2-403f-9f20-fc0a108463f3" class="page sans">
+  <article class="page sans">
     <header>
       <h1 class="page-title">上网教程 (苹果手机)</h1>
     </header>
     <div class="page-body">
-      <hr id="e35848f7-40bd-4419-863c-9abf65b854e8" />
-      <div id="25eba1d7-8601-4d51-93a4-05508a516b78" class="column-list">
-        <div id="c50c3a4f-4a59-415e-8069-e76be1f5a3c4" style="width:50%" class="column">
-          <p id="e1f04241-03b4-4770-9ae5-33bd8b1a31c0" class="">1) 苹果手机打开Wi-Fi界面，</p>
-          <p id="b4f6c9cc-31f9-4c52-ade5-3cb49015bd15" class=""><strong>点击</strong>：“
-            <mark class="highlight-red"><strong>WIFI-1</strong>
-            </mark>&quot;</p>
+      <hr />
+      <div  class="column-list">
+        <div  style="width:50%" class="column">
+          <div  class="">1) 苹果手机打开Wi-Fi界面，</div>
+          <div class=""><strong>点击</strong>：“<mark class="highlight-red"><strong>WIFI-1</strong></mark>&quot;</div>
         </div>
-        <div id="f0315897-f834-4101-9971-ede8f19b62d9" style="width:50%" class="column">
-          <figure id="c2505d99-10b1-4b87-a979-5919b8ad0eec" class="image">
-            <a href="http://zlxpic.lynatgz.cn/ios_1.png">
-              <img style="width:1023px" src="http://zlxpic.lynatgz.cn/ios_1.png" />
-            </a>
-          </figure>
-          <p id="8641c2c7-f635-4fd5-b5ce-6cb510236b51" class=""></p>
-        </div>
-      </div>
-      <hr id="99c8728d-e988-4ead-91f0-aa31de7b441e" />
-      <div id="1be84566-ed1e-47ad-ab80-d09892392f2b" class="column-list">
-        <div id="fc6c2be3-aeb5-42b0-a0af-54ab3f813d66" style="width:50.000000000000014%" class="column">
-          <p id="61db277c-6569-4050-b16b-a96c35308026" class="">2) 输入<strong>用户名</strong>：&quot;
-            <mark class="highlight-red"><strong>34199526</strong>
-            </mark>&quot;，</p>
-          <p id="a0cc2055-90cb-4248-930d-ec77b0e02813" class="">输入<strong>密码</strong>：&quot;<mark class="highlight-red"><strong>34199526</strong></mark>&quot;，</p>
-          <p id="34dbefd3-6049-4a32-8eb7-9ecf0c9dcff7" class=""><strong>点击</strong>：&quot;<strong><mark class="highlight-red">加入</mark></strong>&quot;</p>
-        </div>
-        <div id="31f283e4-297f-4710-8f5a-87c9d4cfaaf6" style="width:50%" class="column">
-          <figure id="eac8b4c4-f3f2-4be6-a60e-4060921f73df" class="image">
-            <a href="http://zlxpic.lynatgz.cn/ios_2.png">
-              <img style="width:1038px" src="http://zlxpic.lynatgz.cn/ios_2.png" />
-            </a>
-          </figure>
-          <p id="7bf8eb48-d752-4877-898c-c49f698b685e" class="">
+        <div  style="width:50%" class="column">
+          <figure  class="image"><a href="http://zlxpic.lynatgz.cn/ios_1.png"><img style="width:1023px" src="http://zlxpic.lynatgz.cn/ios_1.png"/></a></figure>
+          <p  class="">
           </p>
         </div>
       </div>
-      <hr id="0f4a919f-bd3f-41b0-b012-05a88fdf868f" />
-      <div id="2223bead-97b8-46d4-af89-9f106a69b537" class="column-list">
-        <div id="6b76b9c1-84a6-4427-89d2-6bb49c4ce3fd" style="width:50%" class="column">
-          <p id="39295035-eb4d-4224-bfc5-5ecdf4629641" class="">3) <strong>点击</strong>：&quot;
-            <mark class="highlight-red"><strong>信任</strong>
-            </mark>&quot;</p>
-          <p id="f6ab7588-37f8-4038-8e02-9925e74e19c0" class="">完成！开始上网</p>
+      <hr />
+      <div  class="column-list">
+        <div  style="width:50.000000000000014%" class="column">
+          <div  class="">2) 输入<strong>用户名</strong>：&quot;<mark class="highlight-red"><strong>34199526</strong></mark>&quot;，</div>
+          <div  class="">输入<strong>密码</strong>：&quot;<mark class="highlight-red"><strong>34199526</strong></mark>&quot;，</div>
+          <div  class=""><strong>点击</strong>：&quot;<strong><mark class="highlight-red">加入</mark></strong>&quot;</div>
         </div>
-        <div id="cb5d8f74-d7fa-480f-afd0-b475530c0458" style="width:50%" class="column">
-          <figure id="ce7a909a-62c2-4f0f-b72c-ac72e201f9cd" class="image">
+        <div  style="width:50%" class="column">
+          <figure  class="image"><a href="http://zlxpic.lynatgz.cn/ios_2.png"><img style="width:1038px" src="http://zlxpic.lynatgz.cn/ios_2.png"/></a></figure>
+          <p  class="">
+          </p>
+        </div>
+      </div>
+      <hr />
+      <div  class="column-list">
+        <div  style="width:50%" class="column">
+          <div  class="">3) <strong>点击</strong>：&quot;<mark class="highlight-red"><strong>信任</strong></mark>&quot;</div>
+          <div  class="">完成！开始上网</div>
+        </div>
+        <div  style="width:50%" class="column">
+          <figure  class="image">
             <a href="http://zlxpic.lynatgz.cn/ios_3.png">
-              <img style="width:1031px" src="http://zlxpic.lynatgz.cn/ios_3.png" />
-            </a>
+              <img style="width:1031px" src="http://zlxpic.lynatgz.cn/ios_3.png"/></a>
           </figure>
         </div>
       </div>

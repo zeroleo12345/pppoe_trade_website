@@ -22,8 +22,8 @@
       <div  class="column-list">
         <div  style="width:50.000000000000014%" class="column">
           <div  class="">2. </div>
-          <div>输入用户名: <mark class="highlight-red"><strong>{{ username }}</strong></mark></div>
-          <div  class="">输入密码: <mark class="highlight-red"><strong>{{ password }}</strong></mark></div>
+          <div>填用户名: <mark class="highlight-red"><strong>{{ username }}</strong></mark></div>
+          <div  class="">填密码: <mark class="highlight-red"><strong>{{ password }}</strong></mark></div>
           <div  class="">点击: <mark class="highlight-red">加入</mark></div>
         </div>
         <div  style="width:50%" class="column">

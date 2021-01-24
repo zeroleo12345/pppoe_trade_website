@@ -21,9 +21,9 @@
       <div  class="column-list">
         <div  style="width:50%" class="column">
           <div  class="">2. </div>
-          <div>输入身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
-          <div  class="">输入匿名身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
-          <div  class="">输入密码: <mark class="highlight-red"><strong>34199526</strong></mark></div>
+          <div>填身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
+          <div  class="">填匿名身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
+          <div  class="">填密码: <mark class="highlight-red"><strong>34199526</strong></mark></div>
           <div  class="">点击: <mark class="highlight-red">连接</mark></div>
           <div  class="">完成！开始上网</div>
         </div>

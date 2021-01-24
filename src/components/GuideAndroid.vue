@@ -8,8 +8,8 @@
       <hr />
       <div  class="column-list">
         <div  style="width:50%" class="column">
-          <div  class="">1) 安卓手机打开WLAN界面，</div>
-          <div  class=""><strong>点击</strong>: <mark class="highlight-red"><strong>WIFI-1</strong></mark></div>
+          <div  class="">1. 安卓手机打开WLAN界面，</div>
+          <div  class="">点击: <mark class="highlight-red"><strong>WIFI-1</strong></mark></div>
         </div>
         <div  style="width:50%" class="column">
           <figure  class="image"><a href="http://zlxpic.lynatgz.cn/android_1.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_1.png"/></a></figure>
@@ -19,10 +19,10 @@
       <hr />
       <div  class="column-list">
         <div  style="width:50%" class="column">
-          <div  class="">2) 输入<strong>身份</strong>: <mark class="highlight-red"><strong>34199526</strong></mark></div>
-          <div  class="">输入<strong>匿名身份</strong>: <mark class="highlight-red"><strong>34199526</strong></mark></div>
-          <div  class="">输入<strong>密码</strong>: <mark class="highlight-red"><strong>34199526</strong></mark></div>
-          <div  class=""><strong>点击</strong>: <mark class="highlight-red"><strong>连接</strong></mark></div>
+          <div  class="">2. 输入身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
+          <div  class="">输入匿名身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
+          <div  class="">输入密码: <mark class="highlight-red"><strong>34199526</strong></mark></div>
+          <div  class="">点击: <mark class="highlight-red">连接</mark></div>
           <div  class="">完成！开始上网</div>
         </div>
         <div  style="width:50%" class="column">

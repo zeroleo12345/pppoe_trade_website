@@ -5,9 +5,9 @@
       <hr />
       <div  class="column-list">
         <div  style="width:50%" class="column">
-          <div  class="">1.</div>
-          <div>安卓手机打开WLAN界面，</div>
-          <div  class="">点击: <mark class="highlight-red"><strong>{{ssid}}</strong></mark></div>
+          <div>1.</div>
+          <p>安卓手机打开WLAN界面，</p>
+          <p>点击: <mark class="highlight-red"><strong>{{ssid}}</strong></mark></p>
         </div>
         <div  style="width:50%" class="column">
           <figure  class="image"><a href="http://zlxpic.lynatgz.cn/android_1.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_1.png"/></a></figure>
@@ -17,12 +17,12 @@
       <hr />
       <div  class="column-list">
         <div  style="width:50%" class="column">
-          <div  class="">2. </div>
-          <div>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></div>
-          <div  class="">填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></div>
-          <div  class="">填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></div>
-          <div  class="">点击: <mark class="highlight-red"><strong>连接</strong></mark></div>
-          <div  class="">完成！开始上网</div>
+          <div>2. </div>
+          <p>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <p>点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
+          <p>完成！开始上网</p>
         </div>
         <div  style="width:50%" class="column">
           <figure  class="image"><a href="http://zlxpic.lynatgz.cn/android_2.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_2.png"/></a></figure>

@@ -53,8 +53,8 @@ export default {
       nickname: '',
       picture_url: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
       qrcode_content: '',
-      username: 'test',
-      password: 'password',
+      username: 'null',
+      password: 'null',
       status: 'unknown',
       statusDict: {
         expired: '已过期, 需充值',

@@ -55,8 +55,8 @@ export default {
   name: 'GuideIOS',
   data () { // 定义属性变量
     return {
-      username: 'test',
-      password: 'password',
+      username: 'null',
+      password: 'null',
       initSuccess: false,
     }
   },

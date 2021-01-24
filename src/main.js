@@ -12,6 +12,14 @@ Vue.config.productionTip = false
 // 绑定第三方库到 this
 Object.defineProperty(Vue.prototype, '$moment', { value: moment })
 
+// 修改每隔页面的title
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

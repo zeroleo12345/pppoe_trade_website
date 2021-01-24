@@ -13,14 +13,23 @@ function getUser (params = {}) {
   return request({
     url: '/user',
     method: 'GET',
-    params
+    params, // parameter=xxx
   })
 }
 
 function getResource (params = {}) {
   return request({
     url: '/resource',
-    method: 'GET'
+    method: 'GET',
+    params, // parameter=xxx
+  })
+}
+
+function getPlatform (platformId, params = {}) {
+  return request({
+    url: `/platform/${platformId}`,
+    method: 'GET',
+    params, // parameter=xxx
   })
 }
 
@@ -28,7 +37,7 @@ function getTest (params = {}) {
   return request({
     url: '/user/test',
     method: 'GET',
-    params: params
+    params: params,
   })
 }
 
@@ -41,7 +50,7 @@ function postCreateOrder (data = {}) {
   return request({
     url: '/order',
     method: 'POST',
-    data: data
+    data: data,
   })
 }
 
@@ -49,5 +58,6 @@ export default {
   getTest,
   getUser,
   getResource,
-  postCreateOrder
+  getPlatform,
+  postCreateOrder,
 }

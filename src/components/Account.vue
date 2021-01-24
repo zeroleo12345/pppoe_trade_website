@@ -47,14 +47,14 @@ import VueQr from 'vue-qr'
 import userAPI from '@/api/user'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Account',
   data () { // 定义属性变量
     return {
       nickname: '',
       picture_url: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
       qrcode_content: '',
-      username: 'test',
-      password: 'password',
+      username: 'null',
+      password: 'null',
       status: 'unknown',
       statusDict: {
         expired: '已过期, 需充值',

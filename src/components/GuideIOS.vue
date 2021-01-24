@@ -1,9 +1,6 @@
 <template>
 
   <article class="page sans">
-    <header>
-      <h1 class="page-title">上网教程 (苹果手机)</h1>
-    </header>
     <div class="page-body">
       <hr />
       <div  class="column-list">

@@ -10,17 +10,26 @@ const constantRouterMap = [
   {
     path: '/',
     name: 'Account',
-    component: Account
+    component: Account,
+    meta: {
+      title: '宽带充值',
+    }
   },
   {
     path: '/ios',
     name: 'GuideIOS',
-    component: GuideIOS
+    component: GuideIOS,
+    meta: {
+      title: '上网教程 (苹果手机)',
+    }
   },
   {
     path: '/android',
     name: 'GuideAndroid',
-    component: GuideAndroid
+    component: GuideAndroid,
+    meta: {
+      title: '上网教程 (安卓手机)',
+    }
   },
 ]
 

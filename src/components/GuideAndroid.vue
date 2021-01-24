@@ -1,56 +1,36 @@
 <template>
 
-  <article id="fea64c18-5e56-4aa9-995a-bb4e16daa152" class="page sans">
+  <article  class="page sans">
     <header>
       <h1 class="page-title">上网教程 (安卓手机)</h1>
     </header>
     <div class="page-body">
-      <hr id="d657a6a3-4822-44c4-aca6-06f7f8a8a3f0" />
-      <div id="03b2f250-a932-41f3-9f8d-852de29cd8ee" class="column-list">
-        <div id="1ff0004f-b25d-4899-9866-1d16c6edd0ec" style="width:50%" class="column">
-          <p id="08aee3d5-e2cc-482b-8628-c70837ceb334" class="">1) 安卓手机打开WLAN界面，</p>
-          <p id="9d2293f3-8d4b-404d-977a-060c2748ccb8" class=""><strong>点击</strong>：“
-            <mark class="highlight-red"><strong>WIFI-1</strong>
-            </mark>&quot;</p>
+      <hr />
+      <div  class="column-list">
+        <div  style="width:50%" class="column">
+          <div  class="">1) 安卓手机打开WLAN界面，</div>
+          <div  class=""><strong>点击</strong>：“<mark class="highlight-red"><strong>WIFI-1</strong></mark>&quot;</div>
         </div>
-        <div id="cb4ea610-7695-461f-998b-dedb4c9fc83b" style="width:50%" class="column">
-          <figure id="10f65b19-6d23-4e24-a7a2-8f72e3c5a4ba" class="image">
-            <a href="http://zlxpic.lynatgz.cn/android_1.png">
-              <img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_1.png" />
-            </a>
-          </figure>
-          <p id="7f4ef7c4-2341-43a3-94d9-571455371180" class="">
-          </p>
+        <div  style="width:50%" class="column">
+          <figure  class="image"><a href="http://zlxpic.lynatgz.cn/android_1.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_1.png"/></a></figure>
+          <p  class=""></p>
         </div>
       </div>
-      <hr id="d6e435e9-b251-4011-bc05-c65f471ae8ec" />
-      <div id="0d5e844c-78e6-48d2-8539-b5c06ea869e9" class="column-list">
-        <div id="f0521e96-bc8b-4ab7-9726-bfe4187ddb55" style="width:50%" class="column">
-          <p id="2175d406-9a3d-4302-aa84-d4f22da8b70c" class="">2) 输入<strong>身份</strong>：&quot;
-            <mark class="highlight-red"><strong>34199526</strong>
-            </mark>&quot;，</p>
-          <p id="f4a404fb-d2cc-4d6d-9de9-aca747f1c476" class="">输入<strong>匿名身份</strong>：&quot;
-            <mark class="highlight-red"><strong>34199526</strong>
-            </mark>&quot;，</p>
-          <p id="eb676fe5-4441-451e-b582-3039e2198f03" class="">输入<strong>密码</strong>：&quot;
-            <mark class="highlight-red"><strong>34199526</strong>
-            </mark>&quot;，</p>
-          <p id="95bde02e-debd-45c2-a8f5-94b6b121abd2" class=""><strong>点击</strong>：“
-            <mark class="highlight-red"><strong>连接</strong>
-            </mark>”</p>
-          <p id="ecba1cb8-ff52-464a-87c2-61775ccadbc4" class="">完成！开始上网</p>
+      <hr />
+      <div  class="column-list">
+        <div  style="width:50%" class="column">
+          <div  class="">2) 输入<strong>身份</strong>：&quot;<mark class="highlight-red"><strong>34199526</strong></mark>&quot;，</div>
+          <div  class="">输入<strong>匿名身份</strong>：&quot;<mark class="highlight-red"><strong>34199526</strong></mark>&quot;，</div>
+          <div  class="">输入<strong>密码</strong>：&quot;<mark class="highlight-red"><strong>34199526</strong></mark>&quot;，</div>
+          <div  class=""><strong>点击</strong>：“<mark class="highlight-red"><strong>连接</strong></mark>”</div>
+          <div  class="">完成！开始上网</div>
         </div>
-        <div id="0ad0c2d9-96f8-4671-8330-0c41e8a5afaf" style="width:50%" class="column">
-          <figure id="8524361e-aeaa-4825-b930-61e7a4ea86d1" class="image">
-            <a href="http://zlxpic.lynatgz.cn/android_2.png">
-              <img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_2.png" />
-            </a>
-          </figure>
+        <div  style="width:50%" class="column">
+          <figure  class="image"><a href="http://zlxpic.lynatgz.cn/android_2.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_2.png"/></a></figure>
         </div>
       </div>
     </div>
   </article>
-
 </template>
 
 <script>

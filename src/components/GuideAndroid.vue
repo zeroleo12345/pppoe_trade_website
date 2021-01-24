@@ -1,21 +1,21 @@
 <template>
 
-  <article  class="page sans">
+  <article class="page sans">
     <div class="page-body">
       <hr />
-      <div  class="column-list">
+      <div class="column-list">
         <div  style="width:50%" class="column">
           <div>1.</div>
           <p>安卓手机打开WLAN界面，</p>
           <p>点击: <mark class="highlight-red"><strong>{{ssid}}</strong></mark></p>
         </div>
         <div  style="width:50%" class="column">
-          <figure  class="image"><a href="http://zlxpic.lynatgz.cn/android_1.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_1.png"/></a></figure>
-          <p  class=""></p>
+          <figure class="image"><a href="http://zlxpic.lynatgz.cn/android_1.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_1.png"/></a></figure>
+          <p class=""></p>
         </div>
       </div>
       <hr />
-      <div  class="column-list">
+      <div class="column-list">
         <div  style="width:50%" class="column">
           <div>2. </div>
           <p>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
@@ -25,7 +25,7 @@
           <p>完成！开始上网</p>
         </div>
         <div  style="width:50%" class="column">
-          <figure  class="image"><a href="http://zlxpic.lynatgz.cn/android_2.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_2.png"/></a></figure>
+          <figure class="image"><a href="http://zlxpic.lynatgz.cn/android_2.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_2.png"/></a></figure>
         </div>
       </div>
     </div>

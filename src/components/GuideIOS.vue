@@ -3,40 +3,41 @@
   <article class="page sans">
     <div class="page-body">
       <hr />
-      <div  class="column-list">
-        <div  style="width:50%" class="column">
+      <div class="column-list">
+        <div style="width:50%" class="column">
           <div>1. </div>
           <p>苹果手机打开Wi-Fi界面，</p>
           <p>点击: <mark class="highlight-red"><strong>{{ssid}}</strong></mark></p>
         </div>
-        <div  style="width:50%" class="column">
-          <figure  class="image"><a href="http://zlxpic.lynatgz.cn/ios_1.png"><img style="width:1023px" src="http://zlxpic.lynatgz.cn/ios_1.png"/></a></figure>
-          <p  class="">
+        <div style="width:50%" class="column">
+          <figure class="image"><a href="http://zlxpic.lynatgz.cn/ios_1.png"><img style="width:1023px" src="http://zlxpic.lynatgz.cn/ios_1.png"/></a></figure>
+          <p class="">
           </p>
         </div>
       </div>
       <hr />
-      <div  class="column-list">
-        <div  style="width:50.000000000000014%" class="column">
+      <div class="column-list">
+        <div style="width:50.000000000000014%" class="column">
           <div>2. </div>
           <p>填用户名: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
           <p>点击: <mark class="highlight-red"><strong>加入</strong></mark></p>
         </div>
         <div  style="width:50%" class="column">
-          <figure  class="image"><a href="http://zlxpic.lynatgz.cn/ios_2.png"><img style="width:1038px" src="http://zlxpic.lynatgz.cn/ios_2.png"/></a></figure>
-          <p  class="">
+          <figure class="image"><a href="http://zlxpic.lynatgz.cn/ios_2.png"><img style="width:1038px" src="http://zlxpic.lynatgz.cn/ios_2.png"/></a></figure>
+          <p class="">
           </p>
         </div>
       </div>
       <hr />
-      <div  class="column-list">
-        <div  style="width:50%" class="column">
-          <div  class="">3. 点击: <mark class="highlight-red"><strong>信任</strong></mark></div>
-          <div  class="">完成！开始上网</div>
+      <div class="column-list">
+        <div style="width:50%" class="column">
+          <div>3. </div>
+          <div>点击: <mark class="highlight-red"><strong>信任</strong></mark></div>
+          <div>完成！开始上网</div>
         </div>
         <div  style="width:50%" class="column">
-          <figure  class="image">
+          <figure class="image">
             <a href="http://zlxpic.lynatgz.cn/ios_3.png">
               <img style="width:1031px" src="http://zlxpic.lynatgz.cn/ios_3.png"/></a>
           </figure>

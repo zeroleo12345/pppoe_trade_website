@@ -9,7 +9,7 @@
       <div  class="column-list">
         <div  style="width:50%" class="column">
           <div  class="">1) 苹果手机打开Wi-Fi界面，</div>
-          <div class=""><strong>点击</strong>：“<mark class="highlight-red"><strong>{{ ssid }}</strong></mark>&quot;</div>
+          <div class=""><strong>点击</strong>: <mark class="highlight-red"><strong>{{ ssid }}</strong></mark></div>
         </div>
         <div  style="width:50%" class="column">
           <figure  class="image"><a href="http://zlxpic.lynatgz.cn/ios_1.png"><img style="width:1023px" src="http://zlxpic.lynatgz.cn/ios_1.png"/></a></figure>
@@ -20,9 +20,9 @@
       <hr />
       <div  class="column-list">
         <div  style="width:50.000000000000014%" class="column">
-          <div  class="">2) 输入<strong>用户名</strong>：&quot;<mark class="highlight-red"><strong>{{ username }}</strong></mark>&quot;，</div>
-          <div  class="">输入<strong>密码</strong>：&quot;<mark class="highlight-red"><strong>{{ password }}</strong></mark>&quot;，</div>
-          <div  class=""><strong>点击</strong>：&quot;<strong><mark class="highlight-red">加入</mark></strong>&quot;</div>
+          <div  class="">2) 输入<strong>用户名</strong>: <mark class="highlight-red"><strong>{{ username }}</strong></mark></div>
+          <div  class="">输入<strong>密码</strong>: <mark class="highlight-red"><strong>{{ password }}</strong></mark></div>
+          <div  class=""><strong>点击</strong>: <strong><mark class="highlight-red">加入</mark></strong></div>
         </div>
         <div  style="width:50%" class="column">
           <figure  class="image"><a href="http://zlxpic.lynatgz.cn/ios_2.png"><img style="width:1038px" src="http://zlxpic.lynatgz.cn/ios_2.png"/></a></figure>
@@ -33,7 +33,7 @@
       <hr />
       <div  class="column-list">
         <div  style="width:50%" class="column">
-          <div  class="">3) <strong>点击</strong>：&quot;<mark class="highlight-red"><strong>信任</strong></mark>&quot;</div>
+          <div  class="">3) <strong>点击</strong>: <mark class="highlight-red"><strong>信任</strong></mark></div>
           <div  class="">完成！开始上网</div>
         </div>
         <div  style="width:50%" class="column">

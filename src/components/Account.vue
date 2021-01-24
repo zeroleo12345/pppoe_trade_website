@@ -47,7 +47,7 @@ import VueQr from 'vue-qr'
 import userAPI from '@/api/user'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Account',
   data () { // 定义属性变量
     return {
       nickname: '',

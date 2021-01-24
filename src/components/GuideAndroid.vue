@@ -80,7 +80,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
   /* webkit printing magic: print all background colors */
   html {
     -webkit-print-color-adjust: exact;

@@ -103,7 +103,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
   /* webkit printing magic: print all background colors */
   html {
     -webkit-print-color-adjust: exact;

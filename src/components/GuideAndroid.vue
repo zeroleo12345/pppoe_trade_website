@@ -66,6 +66,7 @@ export default {
     }
   },
   async mounted () {
+    /*
     // alert(this.$route.query.code)
     let code = this.$route.query.code
     if (process.env.NODE_ENV === 'development' && code === null) {
@@ -95,6 +96,7 @@ export default {
 
     // 标记已经初始化
     this.initSuccess = true
+    */
   },
   methods: { // 定义函数方法
   },

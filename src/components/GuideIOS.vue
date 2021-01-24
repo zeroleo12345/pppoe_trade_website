@@ -7,7 +7,7 @@
         <div  style="width:50%" class="column">
           <div  class="">1. </div>
           <div>苹果手机打开Wi-Fi界面，</div>
-          <div class="">点击: <mark class="highlight-red"><strong>{{ ssid }}</strong></mark></div>
+          <div class="">点击: <mark class="highlight-red"><strong>{{ssid}}</strong></mark></div>
         </div>
         <div  style="width:50%" class="column">
           <figure  class="image"><a href="http://zlxpic.lynatgz.cn/ios_1.png"><img style="width:1023px" src="http://zlxpic.lynatgz.cn/ios_1.png"/></a></figure>
@@ -19,9 +19,9 @@
       <div  class="column-list">
         <div  style="width:50.000000000000014%" class="column">
           <div  class="">2. </div>
-          <div>填用户名: <mark class="highlight-red"><strong>{{ username }}</strong></mark></div>
-          <div  class="">填密码: <mark class="highlight-red"><strong>{{ password }}</strong></mark></div>
-          <div  class="">点击: <mark class="highlight-red">加入</mark></div>
+          <div>填用户名: <mark class="highlight-red"><strong>{{username}}</strong></mark></div>
+          <div  class="">填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></div>
+          <div  class="">点击: <mark class="highlight-red"><strong>加入</strong></mark></div>
         </div>
         <div  style="width:50%" class="column">
           <figure  class="image"><a href="http://zlxpic.lynatgz.cn/ios_2.png"><img style="width:1038px" src="http://zlxpic.lynatgz.cn/ios_2.png"/></a></figure>

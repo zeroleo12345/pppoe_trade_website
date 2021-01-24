@@ -7,7 +7,7 @@
         <div  style="width:50%" class="column">
           <div  class="">1.</div>
           <div>安卓手机打开WLAN界面，</div>
-          <div  class="">点击: <mark class="highlight-red"><strong>WIFI-1</strong></mark></div>
+          <div  class="">点击: <mark class="highlight-red"><strong>{{ssid}}</strong></mark></div>
         </div>
         <div  style="width:50%" class="column">
           <figure  class="image"><a href="http://zlxpic.lynatgz.cn/android_1.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_1.png"/></a></figure>
@@ -18,9 +18,9 @@
       <div  class="column-list">
         <div  style="width:50%" class="column">
           <div  class="">2. </div>
-          <div>填身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
-          <div  class="">填匿名身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
-          <div  class="">填密码: <mark class="highlight-red"><strong>34199526</strong></mark></div>
+          <div>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></div>
+          <div  class="">填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></div>
+          <div  class="">填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></div>
           <div  class="">点击: <mark class="highlight-red">连接</mark></div>
           <div  class="">完成！开始上网</div>
         </div>
@@ -41,6 +41,8 @@ export default {
     return {
       username: 'null',
       password: 'null',
+      ssid: 'WIFI-n',
+      platformID: 0,
       initSuccess: false,
     }
   },
@@ -58,12 +60,17 @@ export default {
     console.log(userResponse.headers)
     this.username = userResponse.data.data.account.username
     this.password = userResponse.data.data.account.password
+    this.platformID = userResponse.data.data.user.bind_platform_id
 
     // 先清空, 再保存全局jwt token, 用于后续请求
     this.$store.commit('SET_TOKEN', '')
     let token = userResponse.data.data.authorization
     this.$store.commit('SET_TOKEN', token)
     console.log(token)
+
+    // 异步获取用户平台SSID. (Promise 对象, 必须使用 await)
+    let platformResponse = await userAPI.getPlatform(this.platformID)
+    this.ssid = platformResponse.data.data.ssid
 
     // 标记已经初始化
     this.initSuccess = true

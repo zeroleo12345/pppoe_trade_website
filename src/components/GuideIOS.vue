@@ -61,7 +61,6 @@ export default {
     }
   },
   async mounted () {
-    /*
     // alert(this.$route.query.code)
     let code = this.$route.query.code
     if (process.env.NODE_ENV === 'development' && code === null) {
@@ -75,13 +74,6 @@ export default {
     console.log(userResponse.headers)
     this.username = userResponse.data.data.account.username
     this.password = userResponse.data.data.account.password
-    this.nickname = userResponse.data.data.user.nickname
-    this.picture_url = userResponse.data.data.user.picture_url
-    if (userResponse.data.data.platform != null) {
-      this.qrcode_content = userResponse.data.data.platform.qrcode_content
-    } else {
-      this.qrcode_content = ''
-    }
 
     // 先清空, 再保存全局jwt token, 用于后续请求
     this.$store.commit('SET_TOKEN', '')
@@ -91,7 +83,6 @@ export default {
 
     // 标记已经初始化
     this.initSuccess = true
-    */
   },
   methods: { // 定义函数方法
   },

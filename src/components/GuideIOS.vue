@@ -36,7 +36,7 @@
       <div  class="column-list">
         <div  style="width:50%" class="column">
           <div  class="">3. 点击: <mark class="highlight-red"><strong>信任</strong></mark></div>
-          <div  class="">&nbsp;&nbsp;&nbsp;完成！开始上网</div>
+          <div  class="">完成！开始上网</div>
         </div>
         <div  style="width:50%" class="column">
           <figure  class="image">

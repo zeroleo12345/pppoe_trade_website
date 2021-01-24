@@ -21,7 +21,7 @@
           <div>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></div>
           <div  class="">填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></div>
           <div  class="">填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></div>
-          <div  class="">点击: <mark class="highlight-red">连接</mark></div>
+          <div  class="">点击: <mark class="highlight-red"><strong>连接</strong></mark></div>
           <div  class="">完成！开始上网</div>
         </div>
         <div  style="width:50%" class="column">

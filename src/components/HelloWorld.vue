@@ -31,6 +31,7 @@
     </div>
 
     <div>
+      <!-- https://github.com/Binaryify/vue-qr -->
       <vue-qr :style="{ visibility: qrcode_content === '' ? 'hidden': 'visible'}" :correctLevel="3" :logoSrc="picture_url" :text="qrcode_content" :size="200" colorDark="#313a90" :margin="0" :logoMargin="3"></vue-qr>
     </div>
 
@@ -91,7 +92,8 @@ export default {
       this.qrcode_content = ''
     }
 
-    // 保存全局jwt token, 用于后续请求
+    // 先清空, 再保存全局jwt token, 用于后续请求
+    this.$store.commit('SET_TOKEN', '')
     let token = userResponse.data.data.authorization
     this.$store.commit('SET_TOKEN', token)
     console.log(token)

@@ -8,7 +8,8 @@
       <hr />
       <div  class="column-list">
         <div  style="width:50%" class="column">
-          <div  class="">1. 安卓手机打开WLAN界面，</div>
+          <div  class="">1.</div>
+          <div>安卓手机打开WLAN界面，</div>
           <div  class="">点击: <mark class="highlight-red"><strong>WIFI-1</strong></mark></div>
         </div>
         <div  style="width:50%" class="column">
@@ -19,7 +20,8 @@
       <hr />
       <div  class="column-list">
         <div  style="width:50%" class="column">
-          <div  class="">2. 输入身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
+          <div  class="">2. </div>
+          <div>输入身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
           <div  class="">输入匿名身份: <mark class="highlight-red"><strong>34199526</strong></mark></div>
           <div  class="">输入密码: <mark class="highlight-red"><strong>34199526</strong></mark></div>
           <div  class="">点击: <mark class="highlight-red">连接</mark></div>

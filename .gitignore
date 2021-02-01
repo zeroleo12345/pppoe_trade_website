@@ -30,3 +30,4 @@ selenium-debug.log
 bak.*
 *.bak
 run/blog/lynatgz/public/
+run/hexo_posts/*.md

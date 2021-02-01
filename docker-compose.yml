@@ -52,8 +52,9 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - /data/syncthing/我的笔记:/app/source/_posts
       - ./etc/hexo/_config.yml:/app/_config.yml
+      # - /data/syncthing/我的笔记:/app/source/_posts
+      - ./run/hexo_posts/:/app/source/_posts
     # entrypoint: sleep 3600
     entrypoint: hexo server
     tty: true

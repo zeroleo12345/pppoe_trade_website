@@ -120,3 +120,10 @@ markdown:
     permalinkSymbol: '¶'
     case: 0
     separator: ''
+
+
+# hexo-admin authentification
+admin:
+  username: root
+  password_hash: $2a$10$oZ1kguq4xWOdGW4yLOL4qOB7Xq8MT3T61ev4bw7KVzJJYYZK/p72.
+  secret: a secret something

@@ -110,7 +110,7 @@ git submodule update --init --recursive
 - nginx
 ```
 www.lynatgz.cn 放在nginx静态页面
-通过上面hugo命令生成index.html页面, 再挂载到容器目录内: ./run/blog/lynatgz/public:/usr/share/nginx/hugo
+通过上面hugo命令生成index.html页面, 再挂载到nginx容器目录内: ./run/blog/lynatgz/public:/usr/share/nginx/hugo
 ```
 
 - hexo

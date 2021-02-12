@@ -73,7 +73,7 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
   decrypt etc/nginx/cert/1_api.lynatgz.cn_bundle.crt.x; decrypt etc/nginx/cert/2_api.lynatgz.cn.key.x;
 
   # 生产版本minification, 删除远程dist.tar后, 再zmodem upload
-  npm run build
+  npm run build && tar zcvf dist.tar.gz ./dist/
 ```
 
 

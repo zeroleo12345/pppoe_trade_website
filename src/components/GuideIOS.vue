@@ -50,6 +50,7 @@
 
 <script>
 import userAPI from '@/api/user'
+import Api from '@/api/user2'
 
 export default {
   name: 'GuideIOS',
@@ -63,6 +64,8 @@ export default {
     }
   },
   async mounted () {
+    const api = new Api(this)
+
     // alert(this.$route.query.code)
     let code = this.$route.query.code
     if (process.env.NODE_ENV === 'development' && code === null) {
@@ -71,7 +74,7 @@ export default {
     }
 
     // 异步获取用户资料
-    let userResponse = await userAPI.getUser({code: code})
+    let userResponse = await api.getUser({code: code})
     console.log(userResponse.data)
     console.log(userResponse.headers)
     this.username = userResponse.data.data.account.username

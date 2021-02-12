@@ -4,7 +4,11 @@ import store from '@/store'
 // axios 配置
 const instance = axios.create({
   baseURL: process.env.API_URL,
-  timeout: 10000
+  timeout: 10000,
+  // validateStatus: function (status) {
+  //   // default: [200, 300)
+  //   return status >= 200 && status < 500
+  // },
 })
 
 // 添加请求拦截器

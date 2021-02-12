@@ -59,7 +59,7 @@ export default {
     console.log(userResponse.data)
     console.log(userResponse.headers)
     this.username = userResponse.data.data.account.username
-    this.password = userResponse.data.data.account.password
+    this.password = userResponse.data.data.account.radius_password
     this.platformID = userResponse.data.data.user.bind_platform_id
 
     // 先清空, 再保存全局jwt token, 用于后续请求

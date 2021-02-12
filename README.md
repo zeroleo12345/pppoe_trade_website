@@ -74,6 +74,8 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
 
   # 生产版本minification, 删除远程dist.tar后, 再zmodem upload
   npm run build && tar zcvf dist.tar.gz ./dist/ && ls -al dist.tar.gz
+
+  scp  -P 2222 ./dist.tar.gz  root@$PUBLIC_ECS_IP:/root/myproject/pppoe_website/
 ```
 
 

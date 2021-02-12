@@ -32,7 +32,11 @@ instance.interceptors.response.use(response => {
 }, error => {
   // 对响应错误做点什么
   console.log('err' + error)
-  alert(`错误码: ${error.response.status}, 请联系管理员`)
+  if (error.response.status === 400) {
+    alert(JSON.stringify(error.response.data));
+  } else {
+    alert(`错误码: ${error.response.status}, 请联系管理员`)
+  }
   return Promise.reject(error)
 })
 

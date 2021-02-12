@@ -5,10 +5,10 @@ import store from '@/store'
 const instance = axios.create({
   baseURL: process.env.API_URL,
   timeout: 10000,
-  // validateStatus: function (status) {
-  //   // default: [200, 300)
-  //   return status >= 200 && status < 500
-  // },
+  validateStatus: function (status) {
+    // 以下返回码不进入到error流程, default: [200, 300)
+    return status >= 200 && status < 500
+  },
 })
 
 // 添加请求拦截器
@@ -36,11 +36,7 @@ instance.interceptors.response.use(response => {
 }, error => {
   // 对响应错误做点什么
   console.log('err' + error)
-  if (error.response.status === 400) {
-    alert(JSON.stringify(error.response.data));
-  } else {
-    alert(`错误码: ${error.response.status}, 请联系管理员`)
-  }
+  alert(`错误码: ${error.response.status}, 请联系管理员`)
   return Promise.reject(error)
 })
 

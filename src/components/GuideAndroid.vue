@@ -34,6 +34,7 @@
 
 <script>
 import userAPI from '@/api/user'
+import Api from '@/api/user2'
 
 export default {
   name: 'GuideAndroid',
@@ -47,6 +48,8 @@ export default {
     }
   },
   async mounted () {
+    const api = new Api(this)
+
     // alert(this.$route.query.code)
     let code = this.$route.query.code
     if (process.env.NODE_ENV === 'development' && code === null) {
@@ -55,11 +58,11 @@ export default {
     }
 
     // 异步获取用户资料
-    let userResponse = await userAPI.getUser({code: code})
+    let userResponse = await api.getUser({code: code})
     console.log(userResponse.data)
     console.log(userResponse.headers)
     this.username = userResponse.data.data.account.username
-    this.password = userResponse.data.data.account.radius_password
+    this.password = userResponse.data.data.account.password
     this.platformID = userResponse.data.data.user.bind_platform_id
 
     // 先清空, 再保存全局jwt token, 用于后续请求

@@ -14,15 +14,16 @@ class Api {
    *                           code: 'xxxx',    // 微信公众号redirect_uri带回来的code
    *                         }
    */
-  getUser (params = {}) {
-    this.component.$alert(2222)
-    let response = request({
+  async getUser (params = {}) {
+    let response = await request({
       url: '/user',
       method: 'GET',
       params, // parameter=xxx
     })
     // 错误处理
     if (response.data.code !== 'ok') {
+      this.component.$alert(response.data.message, '错误')
+      return Promise.reject(new Error('response not ok'))
     }
     return response
   }

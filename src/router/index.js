@@ -12,7 +12,7 @@ const constantRouterMap = [
     name: 'Account',
     component: Account,
     meta: {
-      title: '宽带充值',
+      title: '账户充值',
     }
   },
   {

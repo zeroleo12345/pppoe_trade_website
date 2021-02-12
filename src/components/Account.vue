@@ -8,8 +8,8 @@
 
     <div class="account_info">
       <!-- 完整语法 v-bind:style= -->
-      <p class="username">宽带账号： <span>{{ username }}</span></p>
-      <p class="password">宽带密码： <span>{{ password }}</span></p>
+      <p class="username">登录账号： <span>{{ username }}</span></p>
+      <p class="password">登录密码： <span>{{ password }}</span></p>
       <p class="status">账号状态： <span :style="status !== 'working' ? 'color: red': ''">{{statusDict[status]}}</span></p>
       <p class="expired_at">到期时间： <span>{{ expired_at }}</span></p>
     </div>

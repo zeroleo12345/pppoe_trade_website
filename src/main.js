@@ -6,6 +6,9 @@ import router from './router'
 import store from './store'
 // 第三方库
 import moment from 'moment'
+import VueSimpleAlert from 'vue-simple-alert'
+
+Vue.use(VueSimpleAlert)
 
 Vue.config.productionTip = false
 

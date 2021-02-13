@@ -23,9 +23,7 @@
           <div>2. </div>
           <p>填用户名: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <p>填密码: <mark class="highlight-red"><strong id="ios_password">{{password}}</strong></mark></p>
-          <div id="pasteUrl" style="opacity: 0">复制的内容</div>
-          <a href="javascript:void(0)" class="copyBtn" data-clipboard-action="copy" data-clipboard-target="#pasteUrl">复制</a>
-          <!--<button id="btn" style="width: 100px; height: 50px;" :data-clipboard-text="text" onclick="copy()">复制</button>-->
+          <button class="copyBtn" data-clipboard-action="copy" data-clipboard-target="#ios_password">点击复制账号密码</button>
           <p>点击: <mark class="highlight-red"><strong>加入</strong></mark></p>
         </div>
         <div  style="width:50%" class="column">
@@ -71,6 +69,7 @@
           <p>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <p>填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <p>填密码: <mark class="highlight-red"><strong id="android_password">{{password}}</strong></mark></p>
+          <button class="copyBtn" data-clipboard-action="copy" data-clipboard-target="#ios_password">点击复制账号密码</button>
           <p>点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
           <p>完成！开始上网</p>
         </div>
@@ -147,8 +146,16 @@ export default {
   }
 }
 
-new ClipboardJS('.copyBtn').on('success', function (e) {
+let clipboard = new ClipboardJS('.copyBtn')
+clipboard.on('success', function (e) {
   console.log('粘贴板内容:' + e.text)
+  // 清除全选复制内容
+  e.clearSelection()
+})
+clipboard.on('error', function (e) {
+  console.error('Action:', e.action);
+  console.error('Trigger:', e.trigger);
+  alert('复制失败')
 })
 </script>
 

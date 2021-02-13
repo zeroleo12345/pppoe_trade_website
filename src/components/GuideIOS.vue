@@ -22,7 +22,10 @@
         <div style="width:50.000000000000014%" class="column">
           <div>2. </div>
           <p>填用户名: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <p>填密码: <mark class="highlight-red"><strong id="ios_password">{{password}}</strong></mark></p>
+          <div id="pasteUrl" style="opacity: 0">复制的内容</div>
+          <a href="javascript:void(0)" class="copyBtn" data-clipboard-action="copy" data-clipboard-target="#pasteUrl">复制</a>
+          <!--<button id="btn" style="width: 100px; height: 50px;" :data-clipboard-text="text" onclick="copy()">复制</button>-->
           <p>点击: <mark class="highlight-red"><strong>加入</strong></mark></p>
         </div>
         <div  style="width:50%" class="column">
@@ -67,7 +70,7 @@
           <div>2. </div>
           <p>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <p>填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <p>填密码: <mark class="highlight-red"><strong id="android_password">{{password}}</strong></mark></p>
           <p>点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
           <p>完成！开始上网</p>
         </div>
@@ -84,6 +87,7 @@
 <script>
 import userAPI from '@/api/user'
 import Api from '@/api/user2'
+import ClipboardJS from 'clipboard'
 
 export default {
   name: 'GuideIOS',
@@ -126,7 +130,6 @@ export default {
     this.$store.commit('SET_TOKEN', '')
     let token = userResponse.data.authorization
     this.$store.commit('SET_TOKEN', token)
-    console.log(token)
 
     // 异步获取用户平台SSID. (Promise 对象, 必须使用 await)
     let platformResponse = await userAPI.getPlatform(this.platform_id)
@@ -144,6 +147,9 @@ export default {
   }
 }
 
+new ClipboardJS('.copyBtn').on('success', function (e) {
+  console.log('粘贴板内容:' + e.text)
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

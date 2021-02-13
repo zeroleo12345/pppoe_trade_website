@@ -87,9 +87,6 @@
 import userAPI from '@/api/user'
 import Api from '@/api/user2'
 import ClipboardJS from 'clipboard'
-// import Vue from 'vue'
-// import Toasted from 'vue-toasted'
-// Vue.use(Toasted)
 
 export default {
   name: 'GuideIOS',
@@ -146,17 +143,17 @@ export default {
         return password
       }
     })
-    clipboard.on('success', function (e) {
+    clipboard.on('success', e => {
       console.info('Action:', e.action)
       console.info('Text:', e.text)
       console.info('Trigger:', e.trigger)
       // 清除全选复制内容
       e.clearSelection()
-      // e.trigger.$toasted.show('已复制', {
-      //   theme: 'outline',
-      //   position: 'top-center',
-      //   duration: 5000,
-      // })
+      this.$toasted.show('已复制', {
+        theme: 'outline',
+        position: 'top-center',
+        duration: 800,
+      })
     })
     clipboard.on('error', function (e) {
       console.error('Action:', e.action);

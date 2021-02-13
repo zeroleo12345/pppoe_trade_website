@@ -72,7 +72,10 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
   decrypt .envrc.x
   decrypt etc/nginx/cert/1_api.lynatgz.cn_bundle.crt.x; decrypt etc/nginx/cert/2_api.lynatgz.cn.key.x;
 
-  # 生产版本minification, 删除远程dist.tar后, 再zmodem upload
+# 使用 ssh 登录远程机器并追加 indicated identity file to that machine's ~/.ssh/authorized_keys file
+  ssh-copy-id -p 2222 root@$PUBLIC_ECS_IP
+
+# 生产版本minification, 删除远程dist.tar后, 再zmodem upload
   npm run build && tar zcvf dist.tar.gz ./dist/ && ls -al dist.tar.gz
 
   scp  -P 2222 ./dist.tar.gz  root@$PUBLIC_ECS_IP:/root/myproject/pppoe_website/

@@ -69,7 +69,7 @@
           <p>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <p>填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <p>填密码: <mark class="highlight-red"><strong id="android_password">{{password}}</strong></mark></p>
-          <button class="copyBtn" data-clipboard-action="copy" data-clipboard-target="#ios_password">点击复制账号密码</button>
+          <button class="copyBtn" data-clipboard-action="copy" data-clipboard-target="#android_password">点击复制账号密码</button>
           <p>点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
           <p>完成！开始上网</p>
         </div>

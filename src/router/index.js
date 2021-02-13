@@ -2,14 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Account from '@/components/Account'
 import GuideIOS from '@/components/GuideIOS'
-import GuideAndroid from '@/components/GuideAndroid'
 
 Vue.use(Router)
 
 const constantRouterMap = [
   {
     path: '/',
-    name: 'Account',
+    name: 'account',
     component: Account,
     meta: {
       title: '账户充值',
@@ -17,7 +16,7 @@ const constantRouterMap = [
   },
   {
     path: '/ios',
-    name: 'GuideIOS',
+    name: 'ios',
     component: GuideIOS,
     meta: {
       title: '上网教程 (苹果手机)',
@@ -25,8 +24,8 @@ const constantRouterMap = [
   },
   {
     path: '/android',
-    name: 'GuideAndroid',
-    component: GuideAndroid,
+    name: 'android',
+    component: GuideIOS,
     meta: {
       title: '上网教程 (安卓手机)',
     }

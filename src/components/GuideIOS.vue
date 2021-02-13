@@ -87,6 +87,9 @@
 import userAPI from '@/api/user'
 import Api from '@/api/user2'
 import ClipboardJS from 'clipboard'
+// import Vue from 'vue'
+// import Toasted from 'vue-toasted'
+// Vue.use(Toasted)
 
 export default {
   name: 'GuideIOS',
@@ -149,6 +152,11 @@ export default {
       console.info('Trigger:', e.trigger)
       // 清除全选复制内容
       e.clearSelection()
+      // e.trigger.$toasted.show('已复制', {
+      //   theme: 'outline',
+      //   position: 'top-center',
+      //   duration: 5000,
+      // })
     })
     clipboard.on('error', function (e) {
       console.error('Action:', e.action);
@@ -165,6 +173,10 @@ export default {
   }
 }
 
+// $('button').tooltip({
+//   trigger: 'click',
+//   placement: 'bottom'
+// });
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

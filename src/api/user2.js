@@ -25,7 +25,7 @@ class Api {
       this.component.$alert(response.data.message, '错误')
       return Promise.reject(new Error('response not ok'))
     }
-    return response
+    return response.data
   }
 }
 

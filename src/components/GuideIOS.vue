@@ -1,7 +1,9 @@
 <template>
 
   <article class="page sans">
-    <div class="page-body">
+
+    <!-- iOS -->
+    <div :style="{ display: !is_ios ? 'none': 'initial'}" class="page-body">
       <hr />
       <div class="column-list">
         <div style="width:50%" class="column">
@@ -19,6 +21,7 @@
       <div class="column-list">
         <div style="width:50.000000000000014%" class="column">
           <div>2. </div>
+          <button class="copyBtn" data-clipboard-action="copy">点此复制账号密码, 用于粘贴</button>
           <p>填用户名: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
           <p>点击: <mark class="highlight-red"><strong>加入</strong></mark></p>
@@ -44,6 +47,38 @@
         </div>
       </div>
     </div>
+
+    <!-- Android -->
+    <div :style="{ display: !is_android ? 'none': 'initial'}" class="page-body">
+      <hr />
+      <div class="column-list">
+        <div  style="width:50%" class="column">
+          <div>1.</div>
+          <p>安卓手机打开WLAN界面，</p>
+          <p>点击: <mark class="highlight-red"><strong>{{ssid}}</strong></mark></p>
+        </div>
+        <div  style="width:50%" class="column">
+          <figure class="image"><a href="http://zlxpic.lynatgz.cn/android_1.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_1.png"/></a></figure>
+          <p class=""></p>
+        </div>
+      </div>
+      <hr />
+      <div class="column-list">
+        <div  style="width:50%" class="column">
+          <div>2. </div>
+          <button class="copyBtn" data-clipboard-action="copy">点此复制账号密码, 用于粘贴</button>
+          <p>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <p>点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
+          <p>完成！开始上网</p>
+        </div>
+        <div  style="width:50%" class="column">
+          <figure class="image"><a href="http://zlxpic.lynatgz.cn/android_2.png"><img style="width:1024px" src="http://zlxpic.lynatgz.cn/android_2.png"/></a></figure>
+        </div>
+      </div>
+    </div>
+
   </article>
 
 </template>
@@ -51,19 +86,30 @@
 <script>
 import userAPI from '@/api/user'
 import Api from '@/api/user2'
+import ClipboardJS from 'clipboard'
 
 export default {
   name: 'GuideIOS',
   data () { // 定义属性变量
     return {
+      is_ios: false,
+      is_android: false,
       username: 'null',
       password: 'null',
       ssid: 'WIFI-n',
-      platformID: 0,
-      initSuccess: false,
+      platform_id: 0,
+      init_success: false,
     }
   },
   async mounted () {
+    // $route variable source: injex.js
+    if (this.$route.name === 'android') {
+      this.is_android = true
+    }
+    if (this.$route.name === 'ios') {
+      this.is_ios = true
+    }
+
     const api = new Api(this)
 
     // alert(this.$route.query.code)
@@ -75,24 +121,45 @@ export default {
 
     // 异步获取用户资料
     let userResponse = await api.getUser({code: code})
-    console.log(userResponse.data)
-    console.log(userResponse.headers)
-    this.username = userResponse.data.data.account.username
-    this.password = userResponse.data.data.account.radius_password
-    this.platformID = userResponse.data.data.user.bind_platform_id
+    this.username = userResponse.data.account.username
+    this.password = userResponse.data.account.radius_password
+    this.platform_id = userResponse.data.user.bind_platform_id
 
     // 先清空, 再保存全局jwt token, 用于后续请求
     this.$store.commit('SET_TOKEN', '')
-    let token = userResponse.data.data.authorization
+    let token = userResponse.data.authorization
     this.$store.commit('SET_TOKEN', token)
-    console.log(token)
 
     // 异步获取用户平台SSID. (Promise 对象, 必须使用 await)
-    let platformResponse = await userAPI.getPlatform(this.platformID)
+    let platformResponse = await userAPI.getPlatform(this.platform_id)
     this.ssid = platformResponse.data.data.ssid
 
     // 标记已经初始化
-    this.initSuccess = true
+    this.init_success = true
+
+    let password = this.password
+    let clipboard = new ClipboardJS('.copyBtn', {
+      text: function (trigger) {
+        return password
+      }
+    })
+    clipboard.on('success', e => {
+      console.info('Action:', e.action)
+      console.info('Text:', e.text)
+      console.info('Trigger:', e.trigger)
+      // 清除全选复制内容
+      e.clearSelection()
+      this.$toasted.show('已复制', {
+        theme: 'outline',
+        position: 'top-center',
+        duration: 800,
+      })
+    })
+    clipboard.on('error', function (e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+      alert('复制失败')
+    })
   },
   methods: { // 定义函数方法
   },

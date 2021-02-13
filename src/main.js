@@ -7,8 +7,10 @@ import store from './store'
 // 第三方库
 import moment from 'moment'
 import VueSimpleAlert from 'vue-simple-alert'
+import Toasted from 'vue-toasted'
 
 Vue.use(VueSimpleAlert)
+Vue.use(Toasted)
 
 Vue.config.productionTip = false
 

@@ -59,15 +59,13 @@ export default {
 
     // 异步获取用户资料
     let userResponse = await api.getUser({code: code})
-    console.log(userResponse.data)
-    console.log(userResponse.headers)
-    this.username = userResponse.data.data.account.username
-    this.password = userResponse.data.data.account.radius_password
-    this.platformID = userResponse.data.data.user.bind_platform_id
+    this.username = userResponse.data.account.username
+    this.password = userResponse.data.account.radius_password
+    this.platformID = userResponse.data.user.bind_platform_id
 
     // 先清空, 再保存全局jwt token, 用于后续请求
     this.$store.commit('SET_TOKEN', '')
-    let token = userResponse.data.data.authorization
+    let token = userResponse.data.authorization
     this.$store.commit('SET_TOKEN', token)
     console.log(token)
 

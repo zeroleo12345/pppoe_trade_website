@@ -22,8 +22,8 @@
         <div style="width:50.000000000000014%" class="column">
           <div>2. </div>
           <p>填用户名: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>填密码: <mark class="highlight-red"><strong id="ios_password">{{password}}</strong></mark></p>
-          <button class="copyBtn" data-clipboard-action="copy" data-clipboard-target="#ios_password">点击复制账号密码</button>
+          <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <button class="copyBtn" data-clipboard-action="copy">点击复制账号密码</button>
           <p>点击: <mark class="highlight-red"><strong>加入</strong></mark></p>
         </div>
         <div  style="width:50%" class="column">
@@ -68,8 +68,8 @@
           <div>2. </div>
           <p>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <p>填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>填密码: <mark class="highlight-red"><strong id="android_password">{{password}}</strong></mark></p>
-          <button class="copyBtn" data-clipboard-action="copy" data-clipboard-target="#android_password">点击复制账号密码</button>
+          <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <button class="copyBtn" data-clipboard-action="copy">点击复制账号密码</button>
           <p>点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
           <p>完成！开始上网</p>
         </div>
@@ -136,6 +136,25 @@ export default {
 
     // 标记已经初始化
     this.init_success = true
+
+    let password = this.password
+    let clipboard = new ClipboardJS('.copyBtn', {
+      text: function (trigger) {
+        return password
+      }
+    })
+    clipboard.on('success', function (e) {
+      console.info('Action:', e.action)
+      console.info('Text:', e.text)
+      console.info('Trigger:', e.trigger)
+      // 清除全选复制内容
+      e.clearSelection()
+    })
+    clipboard.on('error', function (e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+      alert('复制失败')
+    })
   },
   methods: { // 定义函数方法
   },
@@ -146,17 +165,6 @@ export default {
   }
 }
 
-let clipboard = new ClipboardJS('.copyBtn')
-clipboard.on('success', function (e) {
-  console.log('粘贴板内容:' + e.text)
-  // 清除全选复制内容
-  e.clearSelection()
-})
-clipboard.on('error', function (e) {
-  console.error('Action:', e.action);
-  console.error('Trigger:', e.trigger);
-  alert('复制失败')
-})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

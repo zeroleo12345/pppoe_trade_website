@@ -21,9 +21,9 @@
       <div class="column-list">
         <div style="width:50.000000000000014%" class="column">
           <div>2. </div>
-          <button class="copyBtn" data-clipboard-action="copy">点击复制账号密码</button>
-          <p>粘贴用户名: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>粘贴密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <button class="copyBtn" data-clipboard-action="copy">点此复制账号密码, 用于粘贴</button>
+          <p>填用户名: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
           <p>点击: <mark class="highlight-red"><strong>加入</strong></mark></p>
         </div>
         <div  style="width:50%" class="column">
@@ -66,10 +66,10 @@
       <div class="column-list">
         <div  style="width:50%" class="column">
           <div>2. </div>
-          <button class="copyBtn" data-clipboard-action="copy">点击复制账号密码</button>
-          <p>粘贴身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>粘贴匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>粘贴密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <button class="copyBtn" data-clipboard-action="copy">点此复制账号密码, 用于粘贴</button>
+          <p>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
           <p>点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
           <p>完成！开始上网</p>
         </div>
@@ -170,10 +170,6 @@ export default {
   }
 }
 
-// $('button').tooltip({
-//   trigger: 'click',
-//   placement: 'bottom'
-// });
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

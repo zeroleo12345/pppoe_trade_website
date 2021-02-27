@@ -7,7 +7,7 @@
       <hr />
       <div class="column-list">
         <div style="width:50%" class="column">
-          <div>1. </div>
+          <div>第一步</div>
           <p>苹果手机打开Wi-Fi界面，</p>
           <p>点击: <mark class="highlight-red"><strong>{{ssid}}</strong></mark></p>
         </div>
@@ -20,8 +20,8 @@
       <hr />
       <div class="column-list">
         <div style="width:50.000000000000014%" class="column">
-          <div>2. </div>
-          <button class="copyBtn" data-clipboard-action="copy">点此复制账号密码, 用于粘贴</button>
+          <div>第二步</div>
+          <button class="copyBtn" data-clipboard-action="copy">点此复制账号密码</button>
           <p>填用户名: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
           <p>点击: <mark class="highlight-red"><strong>加入</strong></mark></p>
@@ -53,7 +53,7 @@
       <hr />
       <div class="column-list">
         <div  style="width:50%" class="column">
-          <div>1.</div>
+          <div>第一步</div>
           <p>安卓手机打开WLAN界面，</p>
           <p>点击: <mark class="highlight-red"><strong>{{ssid}}</strong></mark></p>
         </div>
@@ -65,12 +65,14 @@
       <hr />
       <div class="column-list">
         <div  style="width:50%" class="column">
-          <div>2. </div>
-          <button class="copyBtn" data-clipboard-action="copy">点此复制账号密码, 用于粘贴</button>
-          <p>填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
-          <p>点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
+          <div>第二步</div>
+          <button class="copyBtn" data-clipboard-action="copy">点此复制账号密码</button>
+          <p>1. 阶段2身份验证, 选择: <mark class="highlight-red"><strong>MSCHAPV2</strong></mark></p>
+          <p>2. CA证书, 选择: <mark class="highlight-red"><strong>(未指定) 或者 不验证</strong></mark></p>
+          <p>3. 填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>4. 填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>5. 填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <p>6. 点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
           <p>完成！开始上网</p>
         </div>
         <div  style="width:50%" class="column">

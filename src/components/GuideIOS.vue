@@ -35,7 +35,7 @@
       <hr />
       <div class="column-list">
         <div style="width:50%" class="column">
-          <div>3. </div>
+          <div>第三部</div>
           <div>点击: <mark class="highlight-red"><strong>信任</strong></mark></div>
           <div>完成！开始上网</div>
         </div>

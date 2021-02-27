@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Account from '@/components/Account'
+import Platform from '@/components/Platform'
 import GuideIOS from '@/components/GuideIOS'
 
 Vue.use(Router)
@@ -12,6 +13,14 @@ const constantRouterMap = [
     component: Account,
     meta: {
       title: '账户充值',
+    }
+  },
+  {
+    path: '/platform',
+    name: 'platform',
+    component: Platform,
+    meta: {
+      title: '房东信息',
     }
   },
   {

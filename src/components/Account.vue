@@ -30,11 +30,6 @@
       </div>
     </div>
 
-    <div>
-      <!-- https://github.com/Binaryify/vue-qr -->
-      <vue-qr :style="{ display: qrcode_content === '' ? 'none': 'initial'}" :correctLevel="3" :logoSrc="picture_url" :text="qrcode_content" :size="200" colorDark="#313a90" :margin="0" :logoMargin="3"></vue-qr>
-    </div>
-
     <div class="pay_button">
       <button @click="start_pay" :class="tariff_name ? 'enabled_button': 'disabled_button'">充值</button>
     </div>
@@ -43,7 +38,6 @@
 </template>
 
 <script>
-import VueQr from 'vue-qr'
 import userAPI from '@/api/user'
 
 export default {
@@ -52,7 +46,6 @@ export default {
     return {
       nickname: '',
       picture_url: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
-      qrcode_content: '',
       username: 'null',
       password: 'null',
       status: 'unknown',
@@ -86,11 +79,6 @@ export default {
     this.password = userResponse.data.data.account.password
     this.nickname = userResponse.data.data.user.nickname
     this.picture_url = userResponse.data.data.user.picture_url
-    if (userResponse.data.data.platform != null) {
-      this.qrcode_content = userResponse.data.data.platform.qrcode_content
-    } else {
-      this.qrcode_content = ''
-    }
 
     // 先清空, 再保存全局jwt token, 用于后续请求
     this.$store.commit('SET_TOKEN', '')
@@ -155,7 +143,6 @@ export default {
     /* computed 和 methods 区别 : 缓存 */
   },
   components: {
-    VueQr
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div :class="initSuccess === false ? 'hidden_all': 'show_all'">
+  <div :class="show_all === true ? 'show_all': 'hidden_all'">
 
     <div class="user_info">
       <img class="user_headimg" :src="picture_url"/>
@@ -56,7 +56,7 @@ export default {
         inactive: '已停用, 请联系管理员'
       },
       expired_at: '2000年1月1日 00:00:00',
-      initSuccess: false,
+      show_all: false,
 
       tariff_name: '',
       month1: 'month1',
@@ -90,7 +90,7 @@ export default {
     console.log(token)
 
     // 标记已经初始化
-    this.initSuccess = true
+    this.show_all = true
   },
   methods: { // 定义函数方法
     select_tariff (name) {

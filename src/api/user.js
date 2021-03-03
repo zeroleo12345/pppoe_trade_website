@@ -2,42 +2,11 @@ import request from '@/utils/request'
 
 // params 为 url 后的参数;  data 为 form 内的参数
 
-/**
- * 请求用户信息
- * @param  {Object} params 参数对象，其结构如下:
- *                         {
- *                           code: 'xxxx',    // 微信公众号redirect_uri带回来的code
- *                         }
- */
-function getUser (params = {}) {
+function getAccount (params = {}) {
   return request({
-    url: '/user',
+    url: '/account',
     method: 'GET',
     params, // parameter=xxx
-  })
-}
-
-function getResource (params = {}) {
-  return request({
-    url: '/resource',
-    method: 'GET',
-    params, // parameter=xxx
-  })
-}
-
-function getPlatform (platformId, params = {}) {
-  return request({
-    url: `/platform/${platformId}`,
-    method: 'GET',
-    params, // parameter=xxx
-  })
-}
-
-function getTest (params = {}) {
-  return request({
-    url: '/user/test',
-    method: 'GET',
-    params: params,
   })
 }
 
@@ -55,9 +24,6 @@ function postCreateOrder (data = {}) {
 }
 
 export default {
-  getTest,
-  getUser,
-  getResource,
-  getPlatform,
+  getAccount,
   postCreateOrder,
 }

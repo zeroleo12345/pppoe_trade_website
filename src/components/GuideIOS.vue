@@ -87,7 +87,6 @@
 </template>
 
 <script>
-import userAPI from '@/api/user'
 import Api from '@/api/user2'
 import ClipboardJS from 'clipboard'
 
@@ -113,8 +112,6 @@ export default {
       this.is_ios = true
     }
 
-    const api = new Api(this)
-
     // alert(this.$route.query.code)
     let code = this.$route.query.code
     if (process.env.NODE_ENV === 'development' && code === null) {
@@ -122,20 +119,18 @@ export default {
       code = 'testcode'
     }
 
+    const api = new Api(this)
     // 异步获取用户资料
     let userResponse = await api.getUser({code: code})
     this.username = userResponse.data.account.username
     this.password = userResponse.data.account.radius_password
     this.platform_id = userResponse.data.user.bind_platform_id
+    this.ssid = userResponse.data.platform.ssid
 
     // 先清空, 再保存全局jwt token, 用于后续请求
     this.$store.commit('SET_TOKEN', '')
     let token = userResponse.data.authorization
     this.$store.commit('SET_TOKEN', token)
-
-    // 异步获取用户平台SSID. (Promise 对象, 必须使用 await)
-    let platformResponse = await userAPI.getPlatform(this.platform_id)
-    this.ssid = platformResponse.data.data.ssid
 
     // 标记已经初始化
     this.init_success = true

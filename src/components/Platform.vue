@@ -17,7 +17,7 @@
 
 <script>
 import VueQr from 'vue-qr'
-import userAPI from '@/api/user'
+import Api from '@/api/user2'
 
 export default {
   name: 'Account',
@@ -51,23 +51,22 @@ export default {
       code = 'testcode'
     }
 
+    const api = new Api(this)
     // 异步获取用户资料
-    let userResponse = await userAPI.getUser({code: code})
-    console.log(userResponse.data)
-    console.log(userResponse.headers)
-    this.username = userResponse.data.data.account.username
-    this.password = userResponse.data.data.account.password
-    this.nickname = userResponse.data.data.user.nickname
-    this.picture_url = userResponse.data.data.user.picture_url
-    if (userResponse.data.data.platform != null) {
-      this.qrcode_content = userResponse.data.data.platform.qrcode_content
+    let userResponse = await api.getUser({code: code})
+    this.username = userResponse.data.account.username
+    this.password = userResponse.data.account.radius_password
+    this.nickname = userResponse.data.user.nickname
+    this.picture_url = userResponse.data.user.picture_url
+    if (userResponse.data.platform.owner_user_id === userResponse.data.user.user_id) {
+      this.qrcode_content = userResponse.data.platform.qrcode_content
     } else {
       this.qrcode_content = ''
     }
 
     // 先清空, 再保存全局jwt token, 用于后续请求
     this.$store.commit('SET_TOKEN', '')
-    let token = userResponse.data.data.authorization
+    let token = userResponse.data.authorization
     this.$store.commit('SET_TOKEN', token)
     console.log(token)
 

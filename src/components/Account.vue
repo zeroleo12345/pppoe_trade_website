@@ -39,6 +39,7 @@
 
 <script>
 import userAPI from '@/api/user'
+import Api from '@/api/user2'
 
 export default {
   name: 'Account',
@@ -71,25 +72,23 @@ export default {
       code = 'testcode'
     }
 
+    const api = new Api(this)
     // 异步获取用户资料
-    let userResponse = await userAPI.getUser({code: code})
-    console.log(userResponse.data)
-    console.log(userResponse.headers)
-    this.username = userResponse.data.data.account.username
-    this.password = userResponse.data.data.account.password
-    this.nickname = userResponse.data.data.user.nickname
-    this.picture_url = userResponse.data.data.user.picture_url
+    // 异步获取用户信息. (Promise 对象, 必须使用 await)
+    let userResponse = await api.getUser({code: code})
+    this.username = userResponse.data.account.username
+    this.password = userResponse.data.account.radius_password
+    this.expired_at = this.$moment(userResponse.data.account.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
+    this.status = userResponse.data.account.status
+    this.picture_url = userResponse.data.user.picture_url
+    this.platform_id = userResponse.data.user.bind_platform_id
+    this.ssid = userResponse.data.platform.ssid
 
     // 先清空, 再保存全局jwt token, 用于后续请求
     this.$store.commit('SET_TOKEN', '')
     let token = userResponse.data.data.authorization
     this.$store.commit('SET_TOKEN', token)
     console.log(token)
-
-    // 异步获取用户免费资源. (Promise 对象, 必须使用 await)
-    let resourceResponse = await userAPI.getResource()
-    this.expired_at = this.$moment(resourceResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
-    this.status = resourceResponse.data.data.status
 
     // 标记已经初始化
     this.initSuccess = true
@@ -110,9 +109,9 @@ export default {
             // TODO 商户后台查询支付结果,再次确认后跳转
             setTimeout(async function () {
               // 异步获取用户免费资源. (Promise 对象, 必须使用 await)
-              let resourceResponse = await userAPI.getResource()
-              vueThis.expired_at = vueThis.$moment(resourceResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
-              vueThis.status = resourceResponse.data.data.status
+              let accountResponse = await userAPI.getAccount()
+              vueThis.expired_at = vueThis.$moment(accountResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
+              vueThis.status = accountResponse.data.data.status
             }, 2000)
           } else {
             // alert('支付失败')

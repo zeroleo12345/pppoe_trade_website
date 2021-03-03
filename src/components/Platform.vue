@@ -1,5 +1,5 @@
 <template>
-  <div :class="hidden_all === false ? 'hidden_all': 'show_all'">
+  <div :class="show_all === true ? 'show_all': 'hidden_all'">
 
     <div class="user_info">
       <img class="user_headimg" :src="picture_url"/>
@@ -35,7 +35,7 @@ export default {
         inactive: '已停用, 请联系管理员'
       },
       expired_at: '2000年1月1日 00:00:00',
-      hidden_all: false,
+      show_all: false,
 
       tariff_name: '',
       month1: 'month1',
@@ -65,12 +65,12 @@ export default {
     // 判断是否房东
     if (userResponse.data.platform.owner_user_id === userResponse.data.user.user_id) {
       this.qrcode_content = userResponse.data.platform.qrcode_content
-      this.hidden_all = false
+      this.show_all = true
     } else {
       this.qrcode_content = ''
-      this.hidden_all = true
+      this.show_all = false
+      this.$alert('该页面仅提供给房东', '权限错误')
     }
-    this.$alert('该页面仅提供给房东', '权限错误')
   },
   methods: {
   },

@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import userAPI from '@/api/user'
 import Api from '@/api/user2'
 
 export default {
@@ -106,11 +105,12 @@ export default {
           if (response.err_msg === 'get_brand_wcpay_request:ok') { // 微信团队提示: response.err_msg将在用户支付成功后返回ok, 但不保证它绝对可靠
             // 支付成功
             // TODO 商户后台查询支付结果,再次确认后跳转
+            const api = new Api(this)
             setTimeout(async function () {
               // 异步获取用户免费资源. (Promise 对象, 必须使用 await)
-              let accountResponse = await userAPI.getAccount()
-              vueThis.expired_at = vueThis.$moment(accountResponse.data.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
-              vueThis.status = accountResponse.data.data.status
+              let accountResponse = await api.getAccount()
+              vueThis.expired_at = vueThis.$moment(accountResponse.data.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
+              vueThis.status = accountResponse.data.status
             }, 2000)
           } else {
             // alert('支付失败')
@@ -127,11 +127,12 @@ export default {
         alert('请先选择充值套餐!')
         return
       }
-      let response = await userAPI.postCreateOrder({tariff_name: this.tariff_name})
+      const api = new Api(this)
+      let response = await api.postCreateOrder({tariff_name: this.tariff_name})
       console.log(response)
       // 订单信息返回
-      if (response.data.data) {
-        let wepayParams = response.data.data.param
+      if (response.data) {
+        let wepayParams = response.data.param
         console.log(wepayParams)
         this.call_wechat_pay(wepayParams)
       }

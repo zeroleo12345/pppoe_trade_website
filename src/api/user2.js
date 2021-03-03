@@ -28,6 +28,41 @@ class Api {
     }
     return response.data
   }
+
+  async getAccount (params = {}) {
+    let response = await request({
+      url: '/account',
+      method: 'GET',
+      params, // parameter=xxx
+    })
+    // 错误处理
+    if (response.data.code !== 'ok') {
+      // 组件 VueSimpleAlert
+      this.component.$alert(response.data.message, '错误')
+      return Promise.reject(new Error('response not ok'))
+    }
+    return response.data
+  }
+
+  /**
+   * 创建订单
+   * @param data
+   * 备注: 设置属性 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+   */
+  async postCreateOrder (data = {}) {
+    let response = await request({
+      url: '/order',
+      method: 'POST',
+      data: data,
+    })
+    // 错误处理
+    if (response.data.code !== 'ok') {
+      // 组件 VueSimpleAlert
+      this.component.$alert(response.data.message, '错误')
+      return Promise.reject(new Error('response not ok'))
+    }
+    return response.data
+  }
 }
 
 export default Api

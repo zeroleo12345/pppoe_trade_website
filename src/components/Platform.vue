@@ -1,5 +1,5 @@
 <template>
-  <div :class="initSuccess === false ? 'hidden_all': 'show_all'">
+  <div :class="hidden_all === false ? 'hidden_all': 'show_all'">
 
     <div class="user_info">
       <img class="user_headimg" :src="picture_url"/>
@@ -35,7 +35,7 @@ export default {
         inactive: '已停用, 请联系管理员'
       },
       expired_at: '2000年1月1日 00:00:00',
-      initSuccess: false,
+      hidden_all: false,
 
       tariff_name: '',
       month1: 'month1',
@@ -58,20 +58,19 @@ export default {
     this.password = userResponse.data.account.radius_password
     this.nickname = userResponse.data.user.nickname
     this.picture_url = userResponse.data.user.picture_url
-    if (userResponse.data.platform.owner_user_id === userResponse.data.user.user_id) {
-      this.qrcode_content = userResponse.data.platform.qrcode_content
-    } else {
-      this.qrcode_content = ''
-    }
-
     // 先清空, 再保存全局jwt token, 用于后续请求
     this.$store.commit('SET_TOKEN', '')
     let token = userResponse.data.authorization
     this.$store.commit('SET_TOKEN', token)
-    console.log(token)
-
-    // 标记已经初始化
-    this.initSuccess = true
+    // 判断是否房东
+    if (userResponse.data.platform.owner_user_id === userResponse.data.user.user_id) {
+      this.qrcode_content = userResponse.data.platform.qrcode_content
+      this.hidden_all = false
+    } else {
+      this.qrcode_content = ''
+      this.hidden_all = true
+    }
+    this.$alert('该页面仅提供给房东', '权限错误')
   },
   methods: {
   },

@@ -22,6 +22,7 @@ class Api {
     })
     // 错误处理
     if (response.data.code !== 'ok') {
+      // 组件 VueSimpleAlert
       this.component.$alert(response.data.message, '错误')
       return Promise.reject(new Error('response not ok'))
     }

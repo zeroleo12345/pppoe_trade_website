@@ -6,7 +6,9 @@ import router from './router'
 import store from './store'
 // 第三方库
 import moment from 'moment'
+// Alert 报错组件
 import VueSimpleAlert from 'vue-simple-alert'
+// Toast 提示组件
 import Toasted from 'vue-toasted'
 
 Vue.use(VueSimpleAlert)

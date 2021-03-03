@@ -67,12 +67,13 @@
         <div  style="width:50%" class="column">
           <div>第二步:</div>
           <button class="copyBtn" data-clipboard-action="copy">点此复制账号密码</button>
-          <p>1. 阶段2身份验证, 选择: <mark class="highlight-red"><strong>MSCHAPV2</strong></mark></p>
-          <p>2. CA证书, 选择: <mark class="highlight-red"><strong>(未指定) 或者 不验证</strong></mark></p>
-          <p>3. 填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>4. 填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
-          <p>5. 填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
-          <p>6. 点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
+          <p>1. EAP方法, 选择: <mark class="highlight-red"><strong>PEAP</strong></mark></p>
+          <p>2. 阶段2身份验证, 选择: <mark class="highlight-red"><strong>MSCHAPV2</strong></mark></p>
+          <p>3. CA证书, 选择: <mark class="highlight-red"><strong>(未指定) 或者 不验证</strong></mark></p>
+          <p>4. 填身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>5. 填匿名身份: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>6. 填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <p>7. 点击: <mark class="highlight-red"><strong>连接</strong></mark></p>
           <p>完成！开始上网</p>
         </div>
         <div  style="width:50%" class="column">

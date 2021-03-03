@@ -81,12 +81,11 @@ export default {
     this.expired_at = this.$moment(userResponse.data.account.expired_at).format('YYYY年MM月DD日 HH:mm:ss')
     this.status = userResponse.data.account.status
     this.picture_url = userResponse.data.user.picture_url
-    this.platform_id = userResponse.data.user.bind_platform_id
     this.ssid = userResponse.data.platform.ssid
 
     // 先清空, 再保存全局jwt token, 用于后续请求
     this.$store.commit('SET_TOKEN', '')
-    let token = userResponse.data.data.authorization
+    let token = userResponse.data.authorization
     this.$store.commit('SET_TOKEN', token)
     console.log(token)
 

@@ -16,10 +16,10 @@
 
     <div class="choose_box">
       <!-- 完整语法 v-on:click= -->
-      <div @id="month1" @click="select_tariff(month1)" :class="tariff_name === month1 ? 'selected_box': 'unselected_box'">
-        <p>充值1个月</p>
-        <p style='font-weight:bold'>50元</p>
-      </div>
+      <!--<div @id="month1" @click="select_tariff(month1)" :class="tariff_name === month1 ? 'selected_box': 'unselected_box'">-->
+        <!--<p>充值1个月</p>-->
+        <!--<p style='font-weight:bold'>50元</p>-->
+      <!--</div>-->
       <div @id="month3" @click="select_tariff(month3)" :class="tariff_name === month3 ? 'selected_box': 'unselected_box'">
         <p>充值3个月</p>
         <p style='font-weight:bold'>150元</p>

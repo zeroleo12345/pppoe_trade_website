@@ -34,10 +34,6 @@ export default {
   async mounted () {
     // alert(this.$route.query.code)
     let code = this.$route.query.code
-    if (process.env.NODE_ENV === 'development' && code === null) {
-      // note 用于测试
-      code = 'testcode'
-    }
 
     const api = new Api(this)
     // 异步获取用户资料

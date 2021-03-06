@@ -8,6 +8,7 @@
 
     <div>
       <!-- https://github.com/Binaryify/vue-qr -->
+      <p style='font-weight:bold'>无线网络: <strong>{{ssid}}</strong></p>
       <p style='font-weight:bold'>平台二维码:</p>
       <vue-qr :style="{ display: qrcode_content === '' ? 'none': 'initial'}" :correctLevel="3" :logoSrc="picture_url" :text="qrcode_content" :size="200" colorDark="#313a90" :margin="0" :logoMargin="3"></vue-qr>
     </div>
@@ -25,22 +26,9 @@ export default {
     return {
       nickname: '',
       picture_url: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
+      ssid: '',
       qrcode_content: '',
-      username: 'null',
-      password: 'null',
-      status: 'unknown',
-      statusDict: {
-        expired: '已过期, 需充值',
-        working: '正常使用中',
-        inactive: '已停用, 请联系管理员'
-      },
-      expired_at: '2000年1月1日 00:00:00',
       show_all: false,
-
-      tariff_name: '',
-      month1: 'month1',
-      month3: 'month3',
-      month6: 'month6'
     }
   },
   async mounted () {
@@ -54,8 +42,6 @@ export default {
     const api = new Api(this)
     // 异步获取用户资料
     let userResponse = await api.getUser({code: code})
-    this.username = userResponse.data.account.username
-    this.password = userResponse.data.account.radius_password
     this.nickname = userResponse.data.user.nickname
     this.picture_url = userResponse.data.user.picture_url
     // 先清空, 再保存全局jwt token, 用于后续请求
@@ -65,9 +51,9 @@ export default {
     // 判断是否房东
     if (userResponse.data.platform.owner_user_id === userResponse.data.user.user_id) {
       this.qrcode_content = userResponse.data.platform.qrcode_content
+      this.ssid = userResponse.data.platform.ssid
       this.show_all = true
     } else {
-      this.qrcode_content = ''
       this.show_all = false
       this.$alert('该页面仅提供给房东', '权限错误')
     }

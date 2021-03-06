@@ -82,12 +82,6 @@ export default {
     this.picture_url = userResponse.data.user.picture_url
     this.ssid = userResponse.data.platform.ssid
 
-    // 先清空, 再保存全局jwt token, 用于后续请求
-    this.$store.commit('SET_TOKEN', '')
-    let token = userResponse.data.authorization
-    this.$store.commit('SET_TOKEN', token)
-    console.log(token)
-
     // 标记已经初始化
     this.show_all = true
   },

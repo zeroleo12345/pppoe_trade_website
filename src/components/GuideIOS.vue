@@ -123,11 +123,6 @@ export default {
     this.platform_id = userResponse.data.user.bind_platform_id
     this.ssid = userResponse.data.platform.ssid
 
-    // 先清空, 再保存全局jwt token, 用于后续请求
-    this.$store.commit('SET_TOKEN', '')
-    let token = userResponse.data.authorization
-    this.$store.commit('SET_TOKEN', token)
-
     // 标记已经初始化
     this.init_success = true
 

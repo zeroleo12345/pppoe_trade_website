@@ -40,10 +40,6 @@ export default {
     let userResponse = await api.getUser({code: code})
     this.nickname = userResponse.data.user.nickname
     this.picture_url = userResponse.data.user.picture_url
-    // 先清空, 再保存全局jwt token, 用于后续请求
-    this.$store.commit('SET_TOKEN', '')
-    let token = userResponse.data.authorization
-    this.$store.commit('SET_TOKEN', token)
     // 判断是否房东
     if (userResponse.data.platform.owner_user_id === userResponse.data.user.user_id) {
       this.qrcode_content = userResponse.data.platform.qrcode_content

@@ -26,6 +26,10 @@ class Api {
       this.component.$alert(response.data.message, '错误')
       return Promise.reject(new Error('response not ok'))
     }
+    // 先清空, 再保存全局jwt token, 用于后续请求
+    this.component.$store.commit('SET_TOKEN', '')
+    let token = response.data.data.authorization
+    this.component.$store.commit('SET_TOKEN', token)
     return response.data
   }
 

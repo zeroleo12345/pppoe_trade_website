@@ -99,8 +99,6 @@ export default {
       username: 'null',
       password: 'null',
       ssid: 'WIFI-n',
-      platform_id: 0,
-      init_success: false,
     }
   },
   async mounted () {
@@ -120,11 +118,7 @@ export default {
     let userResponse = await api.getUser({code: code})
     this.username = userResponse.data.account.username
     this.password = userResponse.data.account.radius_password
-    this.platform_id = userResponse.data.user.bind_platform_id
     this.ssid = userResponse.data.platform.ssid
-
-    // 标记已经初始化
-    this.init_success = true
 
     let password = this.password
     let clipboard = new ClipboardJS('.copyBtn', {

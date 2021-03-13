@@ -94,6 +94,7 @@ export default {
     for (let i = 0, len = tariffs.length; i < len; i++) {
       let t = tariffs[i]
       let key = t.speed
+      if (i === 0) { this.current_speed = t.speed }
       if (!this.speed_to_tariffs[key]) {
         this.speed_to_tariffs[key] = []
       }

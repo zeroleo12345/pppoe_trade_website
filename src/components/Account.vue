@@ -122,7 +122,7 @@ export default {
         return
       }
       const api = new Api(this)
-      let response = await api.postCreateOrder({tariff_name: this.tariff_name})
+      let response = await api.postOrder({tariff_name: this.tariff_name})
       console.log(response)
       // 订单信息返回
       if (response.data) {

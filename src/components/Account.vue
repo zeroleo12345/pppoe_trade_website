@@ -27,7 +27,6 @@
         <div v-for="key in Object.keys(speed_to_tariffs)" v-bind:key="key">
           <input type="radio" v-model="current_speed" :value="speed_to_tariffs[key][0].speed"> {{ speed_to_tariffs[key][0].speed_desc }}
         </div>
-        You have selected : {{current_speed}}
       </div>
 
       <!-- Example: https://stackoverflow.com/questions/52338039/how-to-make-a-v-for-loop-of-divs-and-show-them-by-part-vue-js -->

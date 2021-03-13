@@ -14,28 +14,27 @@
       <p class="expired_at">到期时间： <span>{{ expired_at }}</span></p>
     </div>
 
-    <div class="choose_box">
-      <!-- 完整语法 v-on:click= -->
-      <!--<div @id="month1" @click="tariff_onchange(month1)" :class="current_tariff === month1 ? 'selected_box': 'unselected_box'">-->
-        <!--<p>充值1个月</p>-->
-        <!--<p style='font-weight:bold'>50元</p>-->
-      <!--</div>-->
-
-      <!-- Example: https://stackoverflow.com/questions/52943097/vue-js-how-to-use-radio-buttons-inside-v-for-loop -->
-      <div>
-        <span>选择带宽</span>
-        <div v-for="key in Object.keys(speed_to_tariffs)" v-bind:key="key">
-          <input type="radio" v-model="current_speed" :value="speed_to_tariffs[key][0].speed"> {{ speed_to_tariffs[key][0].speed_desc }}
-        </div>
-      </div>
-
+    <div>
+      <span>选择带宽</span>
       <!-- Example: https://stackoverflow.com/questions/52338039/how-to-make-a-v-for-loop-of-divs-and-show-them-by-part-vue-js -->
+      <div v-for="key in Object.keys(speed_to_tariffs)" v-bind:key="key">
+        <input type="radio" v-model="current_speed" :value="speed_to_tariffs[key][0].speed"> {{ speed_to_tariffs[key][0].speed_desc }}
+      </div>
+    </div>
+
+    <!-- 完整语法 v-on:click= -->
+    <!--<div @id="month1" @click="tariff_onchange(month1)" :class="current_tariff === month1 ? 'selected_box': 'unselected_box'">-->
+    <!--<p>充值1个月</p>-->
+    <!--<p style='font-weight:bold'>50元</p>-->
+    <!--</div>-->
+
+    <div class="choose_box">
+      <!-- Example: https://stackoverflow.com/questions/52943097/vue-js-how-to-use-radio-buttons-inside-v-for-loop -->
       <div v-for="item in speed_to_tariffs[current_speed]" v-bind:key="item.tariff_name" @click="tariff_onchange(item.tariff_name)" :class="current_tariff === item.tariff_name ? 'selected_box': 'unselected_box'">
         <p>{{ item.duration_desc }}</p>
         <p style='font-weight:bold'>{{ item.price_desc }}</p>
         <p style='font-weight:bold'>{{ item.price_red_desc }}</p>
       </div>
-
     </div>
 
     <div class="pay_button">

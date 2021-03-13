@@ -17,20 +17,20 @@
     <div>
       <span>选择带宽</span>
       <!-- Example: https://stackoverflow.com/questions/52338039/how-to-make-a-v-for-loop-of-divs-and-show-them-by-part-vue-js -->
-      <div v-for="key in Object.keys(speed_to_tariffs)" v-bind:key="key">
-        <input type="radio" v-model="current_speed" :value="speed_to_tariffs[key][0].speed"> {{ speed_to_tariffs[key][0].speed_desc }}
+      <div v-for="key in Object.keys(speed_to_tariffs)" v-bind:key=key v-on:click=speed_onclick(key)>
+        <input type="radio" v-model=current_speed :value=speed_to_tariffs[key][0].speed> {{ speed_to_tariffs[key][0].speed_desc }}
       </div>
     </div>
 
     <!-- 完整语法 v-on:click= -->
-    <!--<div @id="month1" @click="tariff_onchange(month1)" :class="current_tariff === month1 ? 'selected_box': 'unselected_box'">-->
+    <!--<div @id=month1 @click=tariff_onchange(month1) :class="current_tariff === month1 ? 'selected_box': 'unselected_box'">-->
     <!--<p>充值1个月</p>-->
     <!--<p style='font-weight:bold'>50元</p>-->
     <!--</div>-->
 
-    <div class="choose_box">
+    <div class=choose_box>
       <!-- Example: https://stackoverflow.com/questions/52943097/vue-js-how-to-use-radio-buttons-inside-v-for-loop -->
-      <div v-for="item in speed_to_tariffs[current_speed]" v-bind:key="item.tariff_name" @click="tariff_onchange(item.tariff_name)" :class="current_tariff === item.tariff_name ? 'selected_box': 'unselected_box'">
+      <div v-for="item in speed_to_tariffs[current_speed]" v-bind:key=item.tariff_name @click=tariff_onchange(item.tariff_name) :class="current_tariff === item.tariff_name ? 'selected_box': 'unselected_box'">
         <p>{{ item.duration_desc }}</p>
         <p style='font-weight:bold'>{{ item.price_desc }}</p>
         <p style='font-weight:bold'>{{ item.price_red_desc }}</p>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="pay_button">
-      <button @click="start_pay" :class="current_tariff ? 'enabled_button': 'disabled_button'">充值</button>
+      <button @click=start_pay :class="current_tariff ? 'enabled_button': 'disabled_button'">充值</button>
     </div>
 
   </div>
@@ -100,6 +100,7 @@ export default {
       }
       this.speed_to_tariffs[key].push(
         {
+          tariff_name: t.tariff_name,
           speed: t.speed,
           speed_desc: t.speed_desc,
           price: t.price,
@@ -115,8 +116,14 @@ export default {
     this.show_all = true
   },
   methods: { // 定义函数方法
-    tariff_onchange (name) {
-      this.current_tariff = name
+    speed_onclick (speed) {
+      if (this.current_speed !== speed) {
+        this.current_speed = speed
+        this.current_tariff = ''
+      }
+    },
+    tariff_onchange (tariff) {
+      this.current_tariff = tariff
     },
     call_wechat_pay (wepayParams) {
       let vueThis = this

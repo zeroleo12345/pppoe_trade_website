@@ -14,10 +14,10 @@
       <p class="expired_at">到期时间： <span>{{ expired_at }}</span></p>
     </div>
 
-    <div>
-      <span>选择带宽</span>
+    <div class="tariff_info">
+      <span class="tariff_speed">选择带宽</span>
       <!-- Example: https://stackoverflow.com/questions/52338039/how-to-make-a-v-for-loop-of-divs-and-show-them-by-part-vue-js -->
-      <div v-for="key in Object.keys(speed_to_tariffs)" v-bind:key=key v-on:click=speed_onclick(key)>
+      <div class="tariff_speed" v-for="key in Object.keys(speed_to_tariffs)" v-bind:key=key v-on:click=speed_onclick(key)>
         <input type="radio" v-model=current_speed :value=speed_to_tariffs[key][0].speed> {{ speed_to_tariffs[key][0].speed_desc }}
       </div>
     </div>
@@ -212,6 +212,13 @@ export default {
     }
     .expired_at {
       display: inline-block;
+      margin: 1rem 0rem 0rem 0.5rem;
+    }
+  }
+
+  .tariff_info {
+    clear: both;
+    .tariff_speed {
       margin: 1rem 0rem 0rem 0.5rem;
     }
   }

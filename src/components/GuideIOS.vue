@@ -21,10 +21,11 @@
       <div class="column-list">
         <div style="width:50.000000000000014%" class="column">
           <div>第二步:</div>
-          <p>填用户名: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
+          <p>按照图文介绍, 填写认证信息</p>
+          <p>1) 用户名, 填: <mark class="highlight-red"><strong>{{username}}</strong></mark></p>
           <button class="copyBtn" data-clipboard-action="copy">点此复制账号密码</button>
-          <p>填密码: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
-          <p>点击: <mark class="highlight-red"><strong>加入</strong></mark></p>
+          <p>2) 密码, 填: <mark class="highlight-red"><strong>{{password}}</strong></mark></p>
+          <p>3) 点击: <mark class="highlight-red"><strong>加入</strong></mark></p>
         </div>
         <div  style="width:50%" class="column">
           <figure class="image"><a href="http://zlxpic.lynatgz.cn/ios_2.png"><img style="width:1038px" src="http://zlxpic.lynatgz.cn/ios_2.png"/></a></figure>
@@ -66,6 +67,7 @@
       <div class="column-list">
         <div  style="width:50%" class="column">
           <div>第二步:</div>
+          <p>按照图文介绍, 填写认证信息</p>
           <p>0) EAP方法, 选择: <mark class="highlight-red"><strong>PEAP</strong></mark></p>
           <p>1) 阶段2身份验证, 选择: <mark class="highlight-red"><strong>MSCHAPV2</strong></mark></p>
           <p>2) CA证书, 选择: <mark class="highlight-red"><strong>(未指定)</strong></mark> 或 <mark class="highlight-red"><strong>不验证</strong></mark></p>

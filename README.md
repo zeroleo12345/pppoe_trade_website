@@ -35,12 +35,18 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
   - direnv allow .
   - 修改 .envrc  (原则: 尽量不用修改docker-compose.yml)
 
+
 # 清理
     npm cache clean --force
 
+
 2. 安装依赖: (缺省package时, 会自动分析package.json文件中的依赖并安装)
-  - IP=127.0.0.1; export http_proxy="http://$IP:1080"; export https_proxy="http://$IP:1080"
-  - npm install --save    # [package]
+  IP=127.0.0.1; export http_proxy="http://$IP:1080"; export https_proxy="http://$IP:1080"
+  npm install --save    # [package]
+
+: 项目初始化时, 可不加 --save. 开发过程新增package时, 需指定 --save.
+: 当指定参数 --save 时, 在安装package时, 会持久化到package.json
+
 
 # 安装 cnpm (不推荐, 应该通过proxy使用原生npm)
     npm install -g cnpm --registry=http://registry.npm.taobao.org

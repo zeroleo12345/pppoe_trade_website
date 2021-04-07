@@ -22,13 +22,6 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
 # 安装 npm
     yum install npm         # CentOS 7
 
-# 安装 cnpm (不推荐, 应该通过proxy使用原生npm)
-    npm install -g cnpm --registry=http://registry.npm.taobao.org
-    npm config set registry https://registry.npm.taobao.org
-
-# 清理
-    npm cache clean --force
-
 # 安装nvs
     git clone https://github.com/jasongin/nvs "$NVS_HOME"
     . "$NVS_HOME/nvs.sh" install
@@ -42,9 +35,16 @@ CentOS 7 docker 权限问题. (报错: Permission denied)
   - direnv allow .
   - 修改 .envrc  (原则: 尽量不用修改docker-compose.yml)
 
+# 清理
+    npm cache clean --force
+
 2. 安装依赖: (缺省package时, 会自动分析package.json文件中的依赖并安装)
   - IP=127.0.0.1; export http_proxy="http://$IP:1080"; export https_proxy="http://$IP:1080"
   - npm install --save    # [package]
+
+# 安装 cnpm (不推荐, 应该通过proxy使用原生npm)
+    npm install -g cnpm --registry=http://registry.npm.taobao.org
+    npm config set registry https://registry.npm.taobao.org
 ```
 
 

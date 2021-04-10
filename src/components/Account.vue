@@ -14,24 +14,31 @@
       <p class="expired_at">到期时间： <span>{{ expired_at }}</span></p>
     </div>
 
-    <div class="choose_box">
-      <!-- 完整语法 v-on:click= -->
-      <!--<div @id="month1" @click="select_tariff(month1)" :class="tariff_name === month1 ? 'selected_box': 'unselected_box'">-->
-        <!--<p>充值1个月</p>-->
-        <!--<p style='font-weight:bold'>50元</p>-->
-      <!--</div>-->
-      <div @id="month3" @click="select_tariff(month3)" :class="tariff_name === month3 ? 'selected_box': 'unselected_box'">
-        <p>充值3个月</p>
-        <p style='font-weight:bold'>150元</p>
+    <div class="tariff_info">
+      <span class="tariff_speed">选择带宽</span>
+      <!-- Example: https://stackoverflow.com/questions/52338039/how-to-make-a-v-for-loop-of-divs-and-show-them-by-part-vue-js -->
+      <div class="tariff_speed" v-for="key in Object.keys(speed_to_tariffs)" v-bind:key=key v-on:click=speed_onclick(key)>
+        <input type="radio" v-model=current_speed :value=speed_to_tariffs[key][0].speed> {{ speed_to_tariffs[key][0].speed_desc }}
       </div>
-      <div @id="month6" @click="select_tariff(month6)" :class="tariff_name === month6 ? 'selected_box': 'unselected_box'">
-        <p>充值6个月</p>
-        <p style='font-weight:bold'>300元</p>
+    </div>
+
+    <!-- 完整语法 v-on:click= -->
+    <!--<div @id=month1 @click=tariff_onchange(month1) :class="current_tariff === month1 ? 'selected_box': 'unselected_box'">-->
+    <!--<p>充值1个月</p>-->
+    <!--<p style='font-weight:bold'>50元</p>-->
+    <!--</div>-->
+
+    <div class=choose_box>
+      <!-- Example: https://stackoverflow.com/questions/52943097/vue-js-how-to-use-radio-buttons-inside-v-for-loop -->
+      <div v-for="item in speed_to_tariffs[current_speed]" v-bind:key=item.tariff_name @click=tariff_onchange(item.tariff_name) :class="current_tariff === item.tariff_name ? 'selected_box': 'unselected_box'">
+        <p>{{ item.duration_desc }}</p>
+        <p style='font-weight:bold'>{{ item.price_desc }}</p>
+        <p style='font-weight:bold'>{{ item.price_red_desc }}</p>
       </div>
     </div>
 
     <div class="pay_button">
-      <button @click="start_pay" :class="tariff_name ? 'enabled_button': 'disabled_button'">充值</button>
+      <button @click=start_pay :class="current_tariff ? 'enabled_button': 'disabled_button'">充值</button>
     </div>
 
   </div>
@@ -44,6 +51,8 @@ export default {
   name: 'Account',
   data () { // 定义属性变量
     return {
+      show_all: false,
+
       nickname: '',
       picture_url: '', // http://pic.ffpic.com/files/tupian/tupian636.jpg
       username: 'null',
@@ -55,12 +64,10 @@ export default {
         inactive: '已停用, 请联系管理员'
       },
       expired_at: '2000年1月1日 00:00:00',
-      show_all: false,
 
-      tariff_name: '',
-      month1: 'month1',
-      month3: 'month3',
-      month6: 'month6'
+      current_speed: '',
+      current_tariff: '',
+      speed_to_tariffs: {},
     }
   },
   async mounted () {
@@ -72,7 +79,6 @@ export default {
     }
 
     const api = new Api(this)
-    // 异步获取用户资料
     // 异步获取用户信息. (Promise 对象, 必须使用 await)
     let userResponse = await api.getUser({code: code})
     this.username = userResponse.data.account.username
@@ -82,12 +88,42 @@ export default {
     this.picture_url = userResponse.data.user.picture_url
     this.ssid = userResponse.data.platform.ssid
 
+    // 获取套餐
+    let tariffResspone = await api.getTariff()
+    let tariffs = tariffResspone.data
+    for (let i = 0, len = tariffs.length; i < len; i++) {
+      let t = tariffs[i]
+      let key = t.speed
+      if (i === 0) { this.current_speed = t.speed }
+      if (!this.speed_to_tariffs[key]) {
+        this.speed_to_tariffs[key] = []
+      }
+      this.speed_to_tariffs[key].push(
+        {
+          tariff_name: t.tariff_name,
+          speed: t.speed,
+          speed_desc: t.speed_desc,
+          price: t.price,
+          price_desc: t.price_desc,
+          price_red_desc: t.price_red_desc,
+          duration: t.duration,
+          duration_desc: t.duration_desc,
+        }
+      )
+    }
+
     // 标记已经初始化
     this.show_all = true
   },
   methods: { // 定义函数方法
-    select_tariff (name) {
-      this.tariff_name = name
+    speed_onclick (speed) {
+      if (this.current_speed !== speed) {
+        this.current_speed = speed
+        this.current_tariff = ''
+      }
+    },
+    tariff_onchange (tariff) {
+      this.current_tariff = tariff
     },
     call_wechat_pay (wepayParams) {
       let vueThis = this
@@ -110,19 +146,19 @@ export default {
             // alert('支付失败')
             // window.location.href = "/oauth2/index.html"
           }
-          vueThis.tariff_name = ''
+          vueThis.current_tariff = ''
         }
       )
     },
     async start_pay () {
       // 点击支付
       // console.log(process.env)
-      if (!this.tariff_name) {
+      if (!this.current_tariff) {
         alert('请先选择充值套餐!')
         return
       }
       const api = new Api(this)
-      let response = await api.postCreateOrder({tariff_name: this.tariff_name})
+      let response = await api.postOrder({tariff_name: this.current_tariff})
       console.log(response)
       // 订单信息返回
       if (response.data) {
@@ -176,6 +212,13 @@ export default {
     }
     .expired_at {
       display: inline-block;
+      margin: 1rem 0rem 0rem 0.5rem;
+    }
+  }
+
+  .tariff_info {
+    clear: both;
+    .tariff_speed {
       margin: 1rem 0rem 0rem 0.5rem;
     }
   }

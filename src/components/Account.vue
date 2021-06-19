@@ -118,7 +118,7 @@ export default {
       // 点击支付
       // console.log(process.env)
       if (!this.tariff_name) {
-        alert('请先选择充值套餐!')
+        this.$alert('请先选择充值套餐', '操作指引')
         return
       }
       const api = new Api(this)

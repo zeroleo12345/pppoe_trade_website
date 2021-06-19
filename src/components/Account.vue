@@ -51,7 +51,7 @@ export default {
       status: 'unknown',
       statusDict: {
         expired: '已过期, 需充值',
-        working: '正常使用中',
+        working: '有效',
         inactive: '已停用, 请联系管理员'
       },
       expired_at: '2000年1月1日 00:00:00',

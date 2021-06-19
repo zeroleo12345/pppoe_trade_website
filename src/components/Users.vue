@@ -13,17 +13,6 @@ export default {
   data () {
     return {
       columns: [
-        // <th>平台ID</th>
-        // <th>微信昵称</th>
-        // <th>微信头像</th>
-        // <th>账号</th>
-        // <th>密码</th>
-        // <th>失效时间</th>
-        // <!-- xxx -->
-        // <th>角色</th>
-        // <th>user_id</th>
-        // <th>openid</th>
-        // <th>创建时间</th>
         {
           label: '平台ID',
           field: 'platform_id',
@@ -39,6 +28,30 @@ export default {
         {
           label: '账号',
           field: 'username',
+        },
+        {
+          label: '密码',
+          field: 'password',
+        },
+        {
+          label: '失效时间',
+          field: 'expired_at',
+        },
+        {
+          label: '角色',
+          field: 'role',
+        },
+        {
+          label: 'user_id',
+          field: 'user_id',
+        },
+        {
+          label: 'openid',
+          field: 'openid',
+        },
+        {
+          label: '创建时间',
+          field: 'created_at',
         },
       ],
       rows: [],

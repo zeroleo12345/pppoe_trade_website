@@ -26,7 +26,7 @@
           <td>{{ row.openid }}</td>
           <td>{{ row.platform_id }}</td>
           <td>{{ row.nickname }}</td>
-          <td>{{ row.picture_url }}</td>
+          <td><img :src="row.picture_url"/></td>
           <td>{{ row.created_at }}</td>
           <td>{{ row.username }}</td>
           <td>{{ row.password }}</td>

@@ -8,30 +8,32 @@
         <!-- 表头 -->
         <!--SELECT user.user_id, user.openid, account.platform_id, user.nickname, user.picture_url, user.created_at, account.username, account.password, account.role, account.expired_at-->
         <tr>
-          <th>user_id</th>
-          <th>openid</th>
-          <th>platform_id</th>
+          <th>平台ID</th>
           <th>微信昵称</th>
           <th>微信头像</th>
-          <th>创建时间</th>
-          <th>用户</th>
+          <th>账号</th>
           <th>密码</th>
-          <th>角色</th>
           <th>失效时间</th>
+          <!-- xxx -->
+          <th>角色</th>
+          <th>user_id</th>
+          <th>openid</th>
+          <th>创建时间</th>
         </tr>
 
         <!-- 表内容 -->
         <tr v-for="row in rows" v-bind:key="row.user+row.platform_id">
-          <td>{{ row.user_id }}</td>
-          <td>{{ row.openid }}</td>
           <td>{{ row.platform_id }}</td>
           <td>{{ row.nickname }}</td>
           <td><img class="user_headimg" :src="row.picture_url"/></td>
-          <td>{{ row.created_at }}</td>
           <td>{{ row.username }}</td>
           <td>{{ row.password }}</td>
-          <td>{{ row.role }}</td>
           <td>{{ row.expired_at }}</td>
+          <!-- xxx -->
+          <td>{{ row.role }}</td>
+          <td>{{ row.user_id }}</td>
+          <td>{{ row.openid }}</td>
+          <td>{{ row.created_at }}</td>
         </tr>
       </table>
     </div>

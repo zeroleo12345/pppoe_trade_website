@@ -26,7 +26,7 @@
           <td>{{ row.openid }}</td>
           <td>{{ row.platform_id }}</td>
           <td>{{ row.nickname }}</td>
-          <td><img :src="row.picture_url"/></td>
+          <td><img class="user_headimg" :src="row.picture_url"/></td>
           <td>{{ row.created_at }}</td>
           <td>{{ row.username }}</td>
           <td>{{ row.password }}</td>
@@ -68,8 +68,18 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="less">
   /* webkit printing magic: print all background colors */
+  img {
+    .user_headimg {
+      width: 3rem;
+      height: 3rem;
+      margin: 0.3rem 0rem 0.3rem 0.1rem;
+      float: left;
+      border-radius: 50%;
+    }
+  }
+
   html {
     -webkit-print-color-adjust: exact;
   }
@@ -184,21 +194,6 @@ export default {
   p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-  }
-
-  .image {
-    border: none;
-    margin: 1.5em 0;
-    padding: 0;
-    border-radius: 0;
-    text-align: center;
-  }
-
-  blockquote {
-    font-size: 1.25em;
-    margin: 1em 0;
-    padding-left: 1em;
-    border-left: 3px solid rgb(55, 53, 47);
   }
 
   .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }

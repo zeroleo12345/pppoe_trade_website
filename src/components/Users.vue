@@ -1,6 +1,15 @@
 <template>
   <div>
-    <vue-good-table :columns="columns" :rows="rows" :search-options="{ enabled: true }"></vue-good-table>
+    <vue-good-table :columns="columns" :rows="rows" :search-options="{ enabled: true }">
+      <template slot="table-row" slot-scope="props">
+        <span v-if="props.column.field === 'picture_url'">
+          <img :src="props.row.picture_url"/>
+        </span>
+        <span v-else>
+          {{props.formattedRow[props.column.field]}}
+        </span>
+      </template>
+    </vue-good-table>
   </div>
 </template>
 

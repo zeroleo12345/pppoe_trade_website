@@ -9,10 +9,11 @@ import moment from 'moment'
 // Alert 报错组件
 import VueSimpleAlert from 'vue-simple-alert'
 // Toast 提示组件
-import Toasted from 'vue-toasted'
+// "vue-toasted": "^1.1.28",
+// import Toasted from 'vue-toasted'
 
 Vue.use(VueSimpleAlert)
-Vue.use(Toasted)
+// Vue.use(Toasted)
 
 Vue.config.productionTip = false
 

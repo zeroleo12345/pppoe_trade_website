@@ -134,11 +134,12 @@ export default {
       console.info('Trigger:', e.trigger)
       // 清除全选复制内容
       e.clearSelection()
-      this.$toasted.show('已复制', {
-        theme: 'outline',
-        position: 'top-center',
-        duration: 800,
-      })
+      this.$alert('账号密码已复制到粘贴板', '复制成功')
+      // this.$toasted.show('已复制', {
+      //   theme: 'outline',
+      //   position: 'top-center',
+      //   duration: 800,
+      // })
     })
     clipboard.on('error', function (e) {
       console.error('Action:', e.action);

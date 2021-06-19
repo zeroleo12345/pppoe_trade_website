@@ -45,6 +45,9 @@ export default {
         {
           label: '失效时间',
           field: 'expired_at',
+          type: 'date',
+          dateInputFormat: 'yyyy-MM-dd\'T\'HH:mm:ss\'+08:00\'',
+          dateOutputFormat: 'yyyy-MM-dd HH:mm:ss',
         },
         {
           label: '角色',
@@ -61,6 +64,9 @@ export default {
         {
           label: '创建时间',
           field: 'created_at',
+          type: 'date',
+          dateInputFormat: 'yyyy-MM-dd\'T\'HH:mm:ss\'+08:00\'',
+          dateOutputFormat: 'yyyy-MM-dd HH:mm:ss',
         },
       ],
       rows: [],

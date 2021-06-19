@@ -6,14 +6,14 @@ import router from './router'
 import store from './store'
 // 第三方库
 import moment from 'moment'
-// Alert 报错组件
+// Alert 组件
 import VueSimpleAlert from 'vue-simple-alert'
-// Toast 提示组件
-// "vue-toasted": "^1.1.28",
-// import Toasted from 'vue-toasted'
+// SearchTable 组件
+import VueGoodTablePlugin from 'vue-good-table';
+import 'vue-good-table/dist/vue-good-table.css'
 
+Vue.use(VueGoodTablePlugin);
 Vue.use(VueSimpleAlert)
-// Vue.use(Toasted)
 
 Vue.config.productionTip = false
 

@@ -33,6 +33,27 @@ class Api {
     return response.data
   }
 
+  /**
+   * 获取所有用农户信息
+   */
+  async getUsers (params = {}) {
+    let response = await request({
+      url: '/users',
+      method: 'GET',
+      params, // parameter=xxx
+    })
+    // 错误处理
+    if (response.data.code !== 'ok') {
+      // 组件 VueSimpleAlert
+      this.component.$alert(response.data.message, '错误')
+      return Promise.reject(new Error('response not ok'))
+    }
+    return response.data
+  }
+
+  /**
+   * 获取用户账户信息
+   */
   async getAccount (params = {}) {
     let response = await request({
       url: '/account',

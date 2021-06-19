@@ -5,40 +5,33 @@
     <div class="page-body">
       <hr />
       <table>
+        <!-- 表头 -->
+        <!--SELECT user.user_id, user.openid, account.platform_id, user.nickname, user.picture_url, user.created_at, account.username, account.password, account.role, account.expired_at-->
         <tr>
-          <td>&nbsp;</td>
-          <td>Knocky</td>
-          <td>Flor</td>
-          <td>Ella</td>
-          <td>Juan</td>
+          <th>user_id</th>
+          <th>openid</th>
+          <th>platform_id</th>
+          <th>微信昵称</th>
+          <th>微信头像</th>
+          <th>创建时间</th>
+          <th>用户</th>
+          <th>密码</th>
+          <th>角色</th>
+          <th>失效时间</th>
         </tr>
-        <tr>
-          <td>Breed</td>
-          <td>Jack Russell</td>
-          <td>Poodle</td>
-          <td>Streetdog</td>
-          <td>Cocker Spaniel</td>
-        </tr>
-        <tr>
-          <td>Age</td>
-          <td>16</td>
-          <td>9</td>
-          <td>10</td>
-          <td>5</td>
-        </tr>
-        <tr>
-          <td>Owner</td>
-          <td>Mother-in-law</td>
-          <td>Me</td>
-          <td>Me</td>
-          <td>Sister-in-law</td>
-        </tr>
-        <tr>
-          <td>Eating Habits</td>
-          <td>Eats everyone's leftovers</td>
-          <td>Nibbles at food</td>
-          <td>Hearty eater</td>
-          <td>Will eat till he explodes</td>
+
+        <!-- 表内容 -->
+        <tr v-for="row in rows" v-bind:key="row.user+row.platform_id">
+          <td>{{ row.user_id }}</td>
+          <td>{{ row.openid }}</td>
+          <td>{{ row.platform_id }}</td>
+          <td>{{ row.nickname }}</td>
+          <td>{{ row.picture_url }}</td>
+          <td>{{ row.created_at }}</td>
+          <td>{{ row.username }}</td>
+          <td>{{ row.password }}</td>
+          <td>{{ row.role }}</td>
+          <td>{{ row.expired_at }}</td>
         </tr>
       </table>
     </div>
@@ -49,62 +42,19 @@
 
 <script>
 import Api from '@/api/user2'
-import ClipboardJS from 'clipboard'
 
 export default {
-  name: 'GuideIOS',
+  name: 'Users',
   data () { // 定义属性变量
     return {
-      is_ios: false,
-      is_android: false,
-      username: 'null',
-      password: 'null',
-      ssid: 'WIFI-n',
+      rows: null,
     }
   },
   async mounted () {
-    // $route variable source: injex.js
-    if (this.$route.name === 'android') {
-      this.is_android = true
-    }
-    if (this.$route.name === 'ios') {
-      this.is_ios = true
-    }
-
-    // alert(this.$route.query.code)
-    let code = this.$route.query.code
-
     const api = new Api(this)
-    // 异步获取用户资料
-    let userResponse = await api.getUser({code: code})
-    this.username = userResponse.data.account.username
-    this.password = userResponse.data.account.radius_password
-    this.ssid = userResponse.data.platform.ssid
-
-    let password = this.password
-    let clipboard = new ClipboardJS('.copyBtn', {
-      text: function (trigger) {
-        return password
-      }
-    })
-    clipboard.on('success', e => {
-      console.info('Action:', e.action)
-      console.info('Text:', e.text)
-      console.info('Trigger:', e.trigger)
-      // 清除全选复制内容
-      e.clearSelection()
-      this.$alert('账号密码已复制到粘贴板', '复制成功')
-      // this.$toasted.show('已复制', {
-      //   theme: 'outline',
-      //   position: 'top-center',
-      //   duration: 800,
-      // })
-    })
-    clipboard.on('error', function (e) {
-      console.error('Action:', e.action);
-      console.error('Trigger:', e.trigger);
-      alert('复制失败')
-    })
+    //
+    let usersResponse = await api.getUsers()
+    this.rows = usersResponse.data
   },
   methods: { // 定义函数方法
   },

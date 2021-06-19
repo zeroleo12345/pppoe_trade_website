@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Account from '@/components/Account'
 import Platform from '@/components/Platform'
 import GuideIOS from '@/components/GuideIOS'
+import Users from '@/components/Users'
 
 Vue.use(Router)
 
@@ -37,6 +38,14 @@ const constantRouterMap = [
     component: GuideIOS,
     meta: {
       title: '上网教程 (安卓手机)',
+    }
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: Users,
+    meta: {
+      title: '用户列表',
     }
   },
 ]

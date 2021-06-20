@@ -3,7 +3,7 @@
     <vue-good-table :columns="columns" :rows="rows" :search-options="{ enabled: true }">
       <template slot="table-row" slot-scope="props">
         <span v-if="props.column.field === 'picture_url'">
-          <img :src="props.row.picture_url"/>
+          <img :src="props.row.picture_url" loading="lazy"/>
         </span>
         <span v-else>
           {{props.formattedRow[props.column.field]}}
